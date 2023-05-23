@@ -1,0 +1,257 @@
+---
+sidebar: sidebar 
+permalink: get-started/set-up-amazon-web-services.html 
+keywords: set up service account, create service account, project, permissions, service account permissions, key, service account key, json, key json, roles, service account roles, apis, networking, private service access, kubernetes cluster, cluster requirements, version requirements, supported versions, supported regions, kubernetes version, image type, networking, container os 
+summary: Sono necessari alcuni passaggi per preparare il tuo progetto Amazon Web Services prima di poter gestire i cluster Amazon Elastic Kubernetes Service con Astra Control Service. 
+---
+= Configurare Amazon Web Services
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Sono necessari alcuni passaggi per preparare il tuo progetto Amazon Web Services prima di poter gestire i cluster Amazon Elastic Kubernetes Service (EKS) con Astra Control Service.
+
+
+
+== Avvio rapido per la configurazione di Amazon Web Services
+
+Inizia subito seguendo questi passaggi o scorri verso il basso fino alle restanti sezioni per ottenere informazioni dettagliate.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Consulta i requisiti del servizio Astra Control per Amazon Web Services
+
+[role="quick-margin-para"]
+Assicurarsi che i cluster siano integri e che eseguano una versione supportata di Kubernetes, che i nodi di lavoro siano online e che eseguano Linux o Windows e altro ancora. <<Requisiti del cluster EKS,Scopri di più su questo passaggio>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Crea un account Amazon
+
+[role="quick-margin-para"]
+Se non disponi già di un account Amazon, devi crearne uno per poter utilizzare EKS. <<Crea un account Amazon,Scopri di più su questo passaggio>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"] Installare la CLI di Amazon Web Services
+
+[role="quick-margin-para"]
+Installare la CLI AWS in modo da poter gestire AWS dalla riga di comando. <<Installare la CLI di Amazon Web Services,Seguire le istruzioni dettagliate>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"] Facoltativo: Creare un utente IAM
+
+[role="quick-margin-para"]
+Creare un utente Amazon Identity and Access Management (IAM). Puoi anche saltare questo passaggio e utilizzare un utente IAM esistente con Astra Control Service.
+
+[role="quick-margin-para"]
+<<Facoltativo: Creare un utente IAM,Leggi le istruzioni dettagliate>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"] Creare e allegare un criterio di autorizzazioni
+
+[role="quick-margin-para"]
+Creare una policy con le autorizzazioni richieste per Astra Control Service per interagire con l'account AWS.
+
+[role="quick-margin-para"]
+<<Creare e allegare un criterio di autorizzazioni,Leggi le istruzioni dettagliate>>.
+
+
+
+=== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"] Salvare le credenziali per l'utente IAM
+
+[role="quick-margin-para"]
+Salvare le credenziali per l'utente IAM in modo da poter importare le credenziali in Astra Control Service.
+
+[role="quick-margin-para"]
+<<Salvare le credenziali per l'utente IAM,Leggi le istruzioni dettagliate>>.
+
+
+
+== Requisiti del cluster EKS
+
+Un cluster Kubernetes deve soddisfare i seguenti requisiti per consentirne il rilevamento e la gestione da Astra Control Service.
+
+Versione di Kubernetes:: Un cluster deve eseguire una versione di Kubernetes compresa tra 1.23 e 1.25.
+Tipo di immagine:: Il tipo di immagine per ciascun nodo di lavoro deve essere Linux.
+Stato del cluster:: I cluster devono essere in esecuzione in uno stato integro e avere almeno un nodo di lavoro online senza nodi di lavoro in uno stato di errore.
+
+
+Astra Trident:: Astra Trident e un controller di snapshot esterno sono necessari per le operazioni con backend di storage. Per installarli, procedere come segue:
+
+
+[%collapsible%open]
+====
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installare gli snapshot CRD e lo snapshot controller"^].
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installare la versione più recente di Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Creare una classe VolumeSnapshotClass"^].
+
+
+====
+Driver CSI per Amazon Elastic Block Store (EBS):: Se si utilizza il backend dello storage Amazon EBS, è necessario installare il driver CSI (Container Storage Interface) per EBS (non viene installato automaticamente).
++
+--
+Per istruzioni sull'installazione del driver CSI, fare riferimento alla procedura.
+
+[%collapsible%open]
+====
+.Installare uno snap-shot esterno
+Se non l'hai già fatto, https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installare gli snapshot CRD e lo snapshot controller"^].
+
+.Installare il driver CSI come add-on Amazon EKS
+. Creare il ruolo IAM del driver CSI Amazon EBS per gli account del servizio. Seguire le istruzioni https://docs.aws.amazon.com/eks/latest/userguide/csi-iam-role.html["Nella documentazione Amazon"^], Utilizzando i comandi CLI di AWS nelle istruzioni.
+. Aggiungere il componente aggiuntivo Amazon EBS CSI utilizzando il seguente comando AWS CLI, sostituendo le informazioni tra parentesi <> con valori specifici per il proprio ambiente. Sostituire <DRIVER_ROLE> con il nome del ruolo del driver EBS CSI creato nel passaggio precedente:
++
+[source, console]
+----
+aws eks create-addon \
+  --cluster-name <CLUSTER_NAME> \
+  --addon-name aws-ebs-csi-driver \
+  --service-account-role-arn arn:aws:iam::<ACCOUNT_ID>:role/<DRIVER_ROLE>
+----
+
+
+.Configurare la classe di storage EBS
+. Clonare il repository GitHub del driver CSI di Amazon EBS nel sistema.
++
+[source, console]
+----
+git clone https://github.com/kubernetes-sigs/aws-ebs-csi-driver.git
+----
+. Accedere alla directory di esempio del provisioning dinamico.
++
+[source, console]
+----
+cd aws-ebs-csi-driver/examples/kubernetes/dynamic-provisioning/
+----
+. Implementare la classe di storage ebs-sc e l'attestazione di volume persistente ebs-claim dalla directory manifests.
++
+[source, console]
+----
+kubectl apply -f manifests/storageclass.yaml
+kubectl apply -f manifests/claim.yaml
+----
+. Descrivere la classe di storage ebs-sc.
++
+[source, console]
+----
+kubectl describe storageclass ebs-sc
+----
++
+Viene visualizzato un output che descrive gli attributi della classe di storage.
+
+
+
+====
+--
+
+
+
+
+== Crea un account Amazon
+
+Se non disponi già di un account Amazon, devi crearne uno per attivare la fatturazione per Amazon EKS.
+
+.Fasi
+. Accedere alla https://www.amazon.com["Pagina principale Amazon"^] , Selezionare *Accedi* in alto a destra e selezionare *inizia qui*.
+. Seguire le istruzioni per creare un account.
+
+
+
+
+== Installare la CLI di Amazon Web Services
+
+Installare la CLI AWS in modo da poter gestire le risorse AWS dalla riga di comando.
+
+.Fase
+. Passare a. https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html["Introduzione a AWS CLI"^] E seguire le istruzioni per installare l'interfaccia CLI.
+
+
+
+
+== Facoltativo: Creare un utente IAM
+
+Creare un utente IAM in modo da poter utilizzare e gestire i servizi e le risorse AWS con maggiore sicurezza. È inoltre possibile saltare questo passaggio e utilizzare un utente IAM esistente con Astra Control Service.
+
+.Fase
+. Passare a. https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi["Creazione di utenti IAM"^] E seguire le istruzioni per creare un utente IAM.
+
+
+
+
+== Creare e allegare un criterio di autorizzazioni
+
+Creare una policy con le autorizzazioni richieste per Astra Control Service per interagire con l'account AWS.
+
+.Fasi
+. Creare un nuovo file chiamato `policy.json`.
+. Copiare il seguente contenuto JSON nel file:
++
+[source, JSON]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:GetMetricData",
+                "fsx:DescribeVolumes",
+                "ec2:DescribeRegions",
+                "s3:CreateBucket",
+                "s3:ListBucket",
+                "s3:PutObject",
+                "s3:GetObject",
+                "iam:SimulatePrincipalPolicy",
+                "s3:ListAllMyBuckets",
+                "eks:DescribeCluster",
+                "eks:ListNodegroups",
+                "eks:DescribeNodegroup",
+                "eks:ListClusters",
+                "iam:GetUser",
+                "s3:DeleteObject",
+                "s3:DeleteBucket",
+                "autoscaling:DescribeAutoScalingGroups"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+----
+. Creare la policy:
++
+[source, console]
+----
+POLICY_ARN=$(aws iam create-policy  --policy-name <policy-name> --policy-document file://policy.json  --query='Policy.Arn' --output=text)
+----
+. Allegare il criterio all'utente IAM. Sostituire `<IAM-USER-NAME>` Con il nome utente dell'utente IAM creato o con un utente IAM esistente:
++
+[source, console]
+----
+aws iam attach-user-policy --user-name <IAM-USER-NAME> --policy-arn=$POLICY_ARN
+----
+
+
+
+
+== Salvare le credenziali per l'utente IAM
+
+Salvare le credenziali per l'utente IAM in modo da rendere Astra Control Service consapevole dell'utente.
+
+.Fasi
+. Scarica le credenziali. Sostituire `<IAM-USER-NAME>` Con il nome utente dell'utente IAM che si desidera utilizzare:
++
+[source, console]
+----
+aws iam create-access-key --user-name <IAM-USER-NAME> --output json > credential.json
+----
+
+
+.Risultato
+Il `credential.json` Il file viene creato ed è possibile importare le credenziali in Astra Control Service.

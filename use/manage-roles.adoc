@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: use/manage-roles.html 
+keywords: users, roles, user roles, namespace, namespaces, account, accounts, permissions, restriction, restrict, constraint, constraints 
+summary: Scopri come gestire i ruoli utente aggiungendo un vincolo al ruolo. 
+---
+= Gestire i ruoli
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+È possibile gestire i ruoli aggiungendo vincoli dello spazio dei nomi e limitando i ruoli utente a tali vincoli. In questo modo è possibile controllare l'accesso alle risorse all'interno dell'organizzazione. È possibile utilizzare l'interfaccia utente di Astra Control o. https://docs.netapp.com/us-en/astra-automation/index.html["L'API Astra Control"^] per gestire i ruoli.
+
+
+
+== Aggiungere un vincolo dello spazio dei nomi a un ruolo
+
+Un utente Admin o Owner può aggiungere vincoli dello spazio dei nomi.
+
+.Fasi
+. Nell'area di navigazione *Gestisci account*, selezionare *account*.
+. Selezionare la scheda *utenti*.
+. Nella colonna *azioni*, selezionare il pulsante di menu per un utente con ruolo membro o visualizzatore.
+. Selezionare *Modifica ruolo*.
+. Attivare la casella di controllo *limita ruolo ai vincoli*.
++
+La casella di controllo è disponibile solo per i ruoli Member o Viewer. È possibile selezionare un ruolo diverso dall'elenco a discesa *ruolo*.
+
+. Selezionare *Aggiungi vincolo*.
++
+È possibile visualizzare l'elenco dei vincoli disponibili in base allo spazio dei nomi o all'etichetta dello spazio dei nomi.
+
+. Nell'elenco a discesa *tipo di vincolo*, selezionare *spazio dei nomi Kubernetes* o *etichetta dello spazio dei nomi Kubernetes* a seconda della configurazione degli spazi dei nomi.
+. Selezionare uno o più spazi dei nomi o etichette dall'elenco per comporre un vincolo che limiti i ruoli a tali spazi dei nomi.
+. Selezionare *Conferma*.
++
+La pagina *Modifica ruolo* visualizza l'elenco dei vincoli scelti per questo ruolo.
+
+. Selezionare *Conferma*.
++
+Nella pagina *account*, è possibile visualizzare i vincoli per qualsiasi ruolo membro o visualizzatore nella colonna *ruolo*.
+
+
+
+
+NOTE: Se si abilitano i vincoli per un ruolo e si seleziona *Conferma* senza aggiungere alcun vincolo, il ruolo viene considerato con restrizioni complete (al ruolo viene negato l'accesso a tutte le risorse assegnate agli spazi dei nomi).
+
+
+
+== Rimuovere un vincolo dello spazio dei nomi da un ruolo
+
+Un utente Admin o Owner può rimuovere un vincolo dello spazio dei nomi da un ruolo.
+
+.Fasi
+. Nell'area di navigazione *Gestisci account*, selezionare *account*.
+. Selezionare la scheda *utenti*.
+. Nella colonna *azioni*, selezionare il pulsante di menu per un utente con ruolo membro o visualizzatore con vincoli attivi.
+. Selezionare *Modifica ruolo*.
++
+La finestra di dialogo *Modifica ruolo* visualizza i vincoli attivi per il ruolo.
+
+. Selezionare la *X* a destra del vincolo da rimuovere.
+. Selezionare *Conferma*.
+
+
+
+
+== Per ulteriori informazioni
+
+* link:../learn/user-roles-namespaces.html["Ruoli e spazi dei nomi degli utenti"]
+

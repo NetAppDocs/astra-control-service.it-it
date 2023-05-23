@@ -1,0 +1,21 @@
+---
+section: learn
+title: Concetti
+entries:
+- title: Architettura e componenti
+  url: "/learn/architecture.html"
+- title: Protezione dei dati
+  url: "/learn/data-protection.html"
+- title: Storage per cluster AWS
+  flavor: aws
+  url: "/learn/aws-storage.html"
+- title: Storage per cluster AKS
+  flavor: azure
+  url: "/learn/azure-storage.html"
+- title: Storage per cluster GKE
+  flavor: gcp
+  url: "/learn/choose-class-and-size.html"
+- title: Gestione delle applicazioni
+  url: "/learn/app-management.html"
+- title: Ruoli e spazi dei nomi degli utenti
+  url: "/learn/user-roles-namespaces.html"

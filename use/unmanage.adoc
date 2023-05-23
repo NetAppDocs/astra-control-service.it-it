@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: use/unmanage.html 
+keywords: unmanage app, remove app, stop managing app, stop managing clusters, unmanage cluster, remove cluster 
+summary: Rimuovi le app o i cluster che non vuoi più gestire da Astra Control. 
+---
+= Annulla la gestione di app e cluster
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Rimuovi le app o i cluster che non vuoi più gestire da Astra Control.
+
+
+
+== Interrompere la gestione di un'applicazione
+
+Smetta di gestire le app che non vuoi più eseguire il backup, lo snapshot o la clonazione da Astra Control.
+
+Quando si annulla la gestione di un'applicazione:
+
+* Eventuali backup e snapshot esistenti verranno eliminati.
+* Le applicazioni e i dati rimangono disponibili.
+
+
+.Fasi
+. Dalla barra di navigazione a sinistra, selezionare *applicazioni*.
+. Selezionare l'applicazione.
+. Dal menu Opzioni nella colonna azioni, selezionare *UnGestisci*.
+. Esaminare le informazioni.
+. Digitare "unManage" per confermare.
+. Selezionare *Sì, Annulla gestione applicazione*.
+
+
+.Risultato
+Astra Control interrompe la gestione dell'applicazione.
+
+
+
+== Interrompere la gestione di un cluster
+
+Interrompere la gestione del cluster che non si desidera più gestire da Astra Control.
+
+ifdef::gcp[]
+
+
+NOTE: Prima di annullare la gestione del cluster, è necessario annullare la gestione delle applicazioni associate al cluster.
+
+Come Best practice, si consiglia di rimuovere il cluster da Astra Control prima di eliminarlo tramite GCP.
+
+endif::gcp[]
+
+Quando si annulla la gestione di un cluster:
+
+* Questa azione impedisce la gestione del cluster da parte di Astra Control. Non apporta modifiche alla configurazione del cluster e non elimina il cluster.
+* Astra Trident non verrà disinstallato dal cluster. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Scopri come disinstallare Astra Trident"^].
+
+
+.Fasi
+. Selezionare *Clusters*.
+. Selezionare la casella di controllo del cluster che non si desidera più gestire.
+. Dal menu Opzioni nella colonna *azioni*, selezionare *Annulla gestione*.
+. Confermare che si desidera annullare la gestione del cluster, quindi selezionare *Sì, Annulla gestione cluster*.
+
+
+.Risultato
+Lo stato del cluster cambia in *Removing* (Rimozione). In seguito, il cluster verrà rimosso dalla pagina *Clusters* e non sarà più gestito da Astra Control.
+
+
+
+== Eliminazione di cluster dal provider cloud
+
+Prima di eliminare un cluster Kubernetes con volumi persistenti (PV) che risiedono nelle classi di storage NetApp, è necessario prima eliminare le dichiarazioni di volumi persistenti (PVC) seguendo uno dei metodi riportati di seguito. L'eliminazione di PVC e PV prima dell'eliminazione del cluster garantisce che non si ricevano fatture impreviste dal provider di servizi cloud.
+
+* Metodo n. 1*: Eliminare gli spazi dei nomi dei carichi di lavoro dell'applicazione dal cluster. Non eliminare lo spazio dei nomi Trident.
+* Metodo 2*: Eliminare i PVC e i pod o l'implementazione in cui sono montati i PVS.
+
+
+Quando gestisci un cluster Kubernetes da Astra Control, le applicazioni su quel cluster utilizzano il tuo cloud provider come back-end dello storage per i volumi persistenti. Se elimini il cluster dal tuo cloud provider senza prima rimuovere il PVS, i volumi di back-end vengono _non_ cancellati insieme al cluster.
+
+Utilizzando uno dei metodi descritti in precedenza, il PVS corrispondente viene eliminato dal cluster. Assicurarsi che non vi siano PVS che risiedono nelle classi di storage NetApp sul cluster prima di eliminarlo.
+
+Se i volumi persistenti non sono stati eliminati prima dell'eliminazione del cluster, sarà necessario eliminare manualmente i volumi di back-end dal provider di cloud.

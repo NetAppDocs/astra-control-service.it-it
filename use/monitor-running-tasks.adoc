@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: use/monitor-running-tasks.html 
+keywords: activity, log, activities, running, tasks, monitor, status, state 
+summary: 'In Astra Control è possibile visualizzare i dettagli relativi all"esecuzione delle attività. Ad esempio, quando si esegue uno snapshot, un backup o un clone.' 
+---
+= Monitorare le attività in esecuzione
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+In Astra Control è possibile visualizzare i dettagli relativi alle attività in esecuzione e alle attività che sono state completate, non riuscite o annullate nelle ultime 24 ore. Ad esempio, è possibile visualizzare lo stato di un'operazione di backup, ripristino o clonazione in esecuzione e visualizzare dettagli come percentuale completata e tempo rimanente stimato. È possibile visualizzare lo stato di un'operazione pianificata eseguita o avviata manualmente.
+
+Durante la visualizzazione di un'attività in esecuzione o completata, è possibile espandere i dettagli dell'attività per visualizzare lo stato di ciascuna delle attività secondarie. La barra di avanzamento dell'attività è verde per le attività in corso o completate, blu per le attività annullate e rossa per le attività non riuscite a causa di un errore.
+
+
+NOTE: Per le operazioni di cloni, le sottoattività dell'attività consistono in un'operazione di snapshot e un'operazione di ripristino dello snapshot.
+
+Per ulteriori informazioni sulle attività non riuscite, fare riferimento a. link:monitor-account-activity.html["Monitorare l'attività dell'account"].
+
+.Fasi
+. Mentre un'attività è in esecuzione, passare a *applicazioni*.
+. Selezionare il nome di un'applicazione dall'elenco.
+. Nei dettagli dell'applicazione, selezionare la scheda *Tasks*.
++
+È possibile visualizzare i dettagli delle attività correnti o passate e filtrare in base allo stato dell'attività.
+
+
+
+
+NOTE: Le attività vengono conservate nell'elenco *Tasks* per un massimo di 24 ore. È possibile configurare questo limite e altre impostazioni di monitoraggio attività utilizzando https://docs.netapp.com/us-en/astra-automation/["API di controllo Astra"^].

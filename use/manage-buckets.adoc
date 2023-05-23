@@ -1,0 +1,175 @@
+---
+sidebar: sidebar 
+permalink: use/manage-buckets.html 
+keywords: bucket, buckets, add buckets, change default bucket, default, default bucket, remove bucket, delete bucket, S3, s3, storage, object storage, object store, store, object 
+summary: Gestisci i bucket utilizzati da Astra per backup e cloni aggiungendo bucket aggiuntivi e modificando il bucket predefinito per i cluster nel tuo cloud provider. 
+---
+= Gestire i bucket
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+È possibile gestire i bucket utilizzati da Astra per backup e cloni. È possibile aggiungere bucket aggiuntivi, rimuovere bucket esistenti e modificare il bucket predefinito per i cluster Kubernetes in un'istanza cloud.
+
+Solo i proprietari e gli amministratori possono gestire i bucket.
+
+
+
+== Come Astra Control utilizza i bucket
+
+Quando inizi a gestire il tuo primo cluster Kubernetes per un'istanza cloud, Astra Control Service crea il bucket iniziale per questo link:manage-cloud-instances.html["istanza di cloud"^].
+
+È possibile designare manualmente un bucket come bucket predefinito per un'istanza di cloud. In tal caso, Astra Control Service utilizza questo bucket per impostazione predefinita per i backup e i cloni creati su qualsiasi cluster gestito in tale istanza del cloud (è possibile selezionare un bucket diverso per i backup). Se si esegue un clone live di un'applicazione da uno qualsiasi dei cluster gestiti in un'istanza cloud a un altro cluster, Astra Control Service utilizza il bucket predefinito per l'istanza del cloud di origine per eseguire l'operazione di clone.
+
+È possibile impostare lo stesso bucket del bucket predefinito per più istanze cloud.
+
+È possibile selezionare da qualsiasi bucket quando si crea una policy di protezione o si avvia un backup ad-hoc.
+
+
+TIP: Astra Control Service verifica se un bucket di destinazione è accessibile prima di avviare un backup o un clone.
+
+
+
+== Visualizzare i bucket esistenti
+
+Visualizza l'elenco dei bucket disponibili per Astra Control Service per determinarne lo stato e identificare il bucket predefinito (se definito) per la tua istanza di cloud.
+
+Un bucket può avere uno dei seguenti stati:
+
+In sospeso:: Dopo aver aggiunto un bucket, questo inizia nello stato in sospeso mentre Astra Control lo rileva.
+Disponibile:: Il bucket è disponibile per l'utilizzo da parte di Astra Control.
+Rimosso:: Al momento il bucket non è operativo. Passare il mouse sull'icona di stato per identificare il problema.
++
+--
+Se un bucket si trova nello stato rimosso, è comunque possibile impostarlo come bucket predefinito e assegnarlo a un programma di protezione. Tuttavia, se il bucket non si trova nello stato disponibile entro il momento in cui viene avviata un'operazione di protezione dei dati, l'operazione non riuscirà.
+
+--
+
+
+.Fase
+. Accedere a *Bucket*.
++
+Viene visualizzato l'elenco dei bucket disponibili per Astra Control Service.
+
+
+
+
+
+== Aggiungere un bucket aggiuntivo
+
+È possibile aggiungere altri bucket in qualsiasi momento. Ciò consente di scegliere tra bucket durante la creazione di una policy di protezione o l'avvio di un backup ad-hoc e consente di modificare il bucket predefinito utilizzato da un'istanza del cloud.
+
+È possibile aggiungere i seguenti tipi di bucket:
+
+* Amazon Web Services
+* Generico S3
+* Piattaforma Google Cloud
+* Microsoft Azure
+* NetApp ONTAP S3
+* NetApp StorageGRID S3
+
+
+.Prima di iniziare
+* Il nome di un bucket esistente.
+* Le credenziali per il bucket che forniscono ad Astra Control Service le autorizzazioni necessarie per gestire il bucket.
+
+
+ifdef::azure[]
+
+* Se il bucket è in Microsoft Azure:
++
+** Il bucket deve appartenere al gruppo di risorse denominato _astra-backup-rg_.
+** Se l'impostazione delle prestazioni dell'istanza dell'account di storage Azure è impostata su "Premium", l'impostazione "Premium account type" deve essere impostata su "Block blob".
+
+
+
+
+endif::azure[]
+
+.Fasi
+. Accedere a *Bucket*.
+. Selezionare *Add* (Aggiungi) e seguire le istruzioni per aggiungere il bucket.
++
+** *Type*: Scegli il tuo cloud provider.
+** *Nome bucket esistente*: Immettere il nome del bucket.
+** *Description*: Se si desidera, inserire una descrizione del bucket.
+
+
+
+
+ifdef::azure[]
+
+* *Storage account* (solo Azure): Immettere il nome dell'account di storage Azure. Questo bucket deve appartenere al gruppo di risorse denominato _astra-backup-rg_.
+
+
+endif::azure[]
+
+ifdef::aws[]
+
+* *Nome server S3 o indirizzo IP* (solo per i tipi di bucket AWS e S3): Immettere il nome di dominio completo dell'endpoint S3 che corrisponde alla propria regione, senza `https://`. Fare riferimento a. https://docs.aws.amazon.com/general/latest/gr/s3.html["La documentazione Amazon"^] per ulteriori informazioni.
+
+
+endif::aws[]
+
+* *Select credentials* (Seleziona credenziali): Immettere le credenziali che forniscono ad Astra Control Service le autorizzazioni necessarie per gestire il bucket. Le informazioni da fornire variano a seconda del tipo di bucket.
++
+.. Selezionare *Aggiungi* per aggiungere il bucket.
+
+
+
+
+.Risultato
+Astra Control Service aggiunge il bucket. È ora possibile scegliere questo bucket quando si crea una policy di protezione o si esegue un backup ad-hoc. È anche possibile impostare questo bucket come bucket predefinito per un'istanza di cloud.
+
+
+
+== Modificare il bucket predefinito
+
+È possibile modificare il bucket predefinito per un'istanza cloud. Astra Control Service utilizzerà questo bucket per impostazione predefinita per backup e cloni. Ogni istanza di cloud ha un proprio bucket predefinito.
+
+
+NOTE: Astra Control non assegna automaticamente un bucket predefinito per nessuna istanza di cloud. È necessario impostare manualmente un bucket predefinito per un'istanza cloud prima di eseguire operazioni di cloni delle applicazioni tra due cluster.
+
+.Fasi
+. Accedere a *istanze cloud*.
+. Selezionare il menu di configurazione nella colonna *azioni* dell'istanza di cloud che si desidera modificare.
+. Selezionare *Modifica*.
+. Nell'elenco dei bucket, selezionare il bucket che si desidera impostare come predefinito per questa istanza di cloud.
+. Selezionare *Aggiorna*.
+
+
+
+
+== Rimuovere una benna
+
+È possibile rimuovere un bucket che non è più in uso o che non è integro. Questa operazione può essere utile per mantenere la configurazione dell'archivio di oggetti semplice e aggiornata.
+
+Non è possibile rimuovere un bucket predefinito. Se si desidera rimuovere tale bucket, selezionare prima un altro bucket come predefinito.
+
+.Prima di iniziare
+* Prima di iniziare, verificare che non vi siano backup in esecuzione o completati per questo bucket.
+* È necessario verificare che il bucket non venga utilizzato per i backup pianificati.
+
+
+In tal caso, non sarà possibile continuare.
+
+.Fasi
+. Accedere a *Bucket*.
+. Dal menu *azioni*, selezionare *Rimuovi*.
++
+
+NOTE: Astra Control garantisce innanzitutto che non vi siano policy di pianificazione che utilizzano il bucket per i backup e che non vi siano backup attivi nel bucket che si sta per rimuovere.
+
+. Digitare "remove" per confermare l'azione.
+. Selezionare *Sì, Rimuovi bucket*.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Utilizzare l'API di controllo Astra"^]
+

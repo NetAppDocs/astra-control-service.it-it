@@ -1,0 +1,41 @@
+---
+settings:
+  name: Astra Control Service
+  platform: cloud
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  filter:
+    label: Cloud provider
+    default: Tutti i cloud provider
+    options:
+    - name: Amazon Web Services
+      alias: Amazon Web Services
+      id: aws
+    - name: Google Cloud
+      alias: Google Cloud
+      id: gcp
+    - name: Microsoft Azure
+      alias: Azure
+      id: azure
+  rss_page: release-notes/whats-new.html
+  langs: it-it,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr
+sidebar:
+  entries:
+  - title: Documentazione del servizio di controllo Astra
+    url: "/index.html"
+  - section: release-notes
+  - section: get-started
+  - section: learn
+  - section: use
+  - title: Automatizza con l'API REST di Astra Control
+    url: "/automation.html"
+  - section: support
+  - title: Note legali
+    url: "/legal-notices.html"
+product-family:
+  name: Astra
+  repo: astra-family
+  sidebar_label: Tutta la documentazione Astra

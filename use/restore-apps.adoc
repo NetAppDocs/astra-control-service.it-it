@@ -1,0 +1,146 @@
+---
+sidebar: sidebar 
+permalink: use/restore-apps.html 
+keywords: restore app, restoring an app, restore an app, restore, migrate nas-economy 
+summary: 'Astra Control può ripristinare la configurazione dell"applicazione e lo storage persistente da uno snapshot o da un backup. I backup persistenti dello storage vengono trasferiti dall"archivio di oggetti, pertanto il ripristino da un backup esistente verrà completato più rapidamente.' 
+---
+= Ripristinare le applicazioni
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control può ripristinare l'applicazione da uno snapshot o da un backup. Il ripristino da uno snapshot esistente sarà più rapido quando si ripristina l'applicazione nello stesso cluster. È possibile utilizzare l'interfaccia utente di Astra Control o. https://docs.netapp.com/us-en/astra-automation/index.html["L'API Astra Control"^] per ripristinare le applicazioni.
+
+
+NOTE: Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione che viene eseguito dopo un'operazione di ripristino o clonazione e l'origine e la destinazione del ripristino o del clone si trovano in spazi dei nomi diversi, il filtro dello spazio dei nomi viene applicato solo allo spazio dei nomi di destinazione.
+
+.A proposito di questa attività
+* *Proteggi prima le tue applicazioni*: Ti consigliamo vivamente di creare un'istantanea o un backup dell'applicazione prima di ripristinarla. In questo modo, è possibile clonare lo snapshot o il backup nel caso in cui il ripristino non abbia esito positivo.
+* *Check destination Volumes* (Controlla volumi di destinazione): Se si esegue il ripristino in un cluster diverso, assicurarsi che il cluster utilizzi la stessa modalità di accesso al volume persistente (ad esempio ReadWriteMany). L'operazione di ripristino non riesce se la modalità di accesso al volume persistente di destinazione è diversa.
+* *Pianificare le esigenze di spazio*: Quando si esegue un ripristino in-place di un'applicazione che utilizza lo storage NetApp ONTAP, lo spazio utilizzato dall'applicazione ripristinata può raddoppiare. Dopo aver eseguito un ripristino in-place, rimuovere eventuali snapshot indesiderati dall'applicazione ripristinata per liberare spazio di storage.
+
+
+[CAUTION]
+====
+L'esecuzione di un'operazione di ripristino in-place su un'applicazione che condivida le risorse con un'altra applicazione può avere risultati non intenzionale. Tutte le risorse condivise tra le applicazioni vengono sostituite quando viene eseguito un ripristino in-place su una delle applicazioni.
+
+====
+.Fasi
+. Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione.
+. Dal menu Opzioni nella colonna azioni, selezionare *Ripristina*.
+. Scegliere il tipo di ripristino:
++
+** *Ripristina gli spazi dei nomi originali*: Utilizzare questa procedura per ripristinare l'applicazione sul posto nel cluster originale.
++
+... Seleziona lo snapshot o il backup da utilizzare per ripristinare l'applicazione in-place, che ripristina l'applicazione a una versione precedente di se stessa.
+... Selezionare *Avanti*.
++
+
+NOTE: Se si ripristina uno spazio dei nomi precedentemente cancellato, viene creato un nuovo spazio dei nomi con lo stesso nome come parte del processo di ripristino. Tutti gli utenti che disponevano dei diritti per gestire le applicazioni nello spazio dei nomi precedentemente cancellato devono ripristinare manualmente i diritti nello spazio dei nomi appena ricreato.
+
+
+
+** *Ripristina nuovi spazi dei nomi*: Utilizzare questa procedura per ripristinare l'applicazione in un altro cluster o con spazi dei nomi diversi dall'origine.
++
+... Specificare il nome dell'applicazione ripristinata.
+... Scegliere il cluster di destinazione per l'applicazione che si desidera ripristinare.
+... Immettere uno spazio dei nomi di destinazione per ogni spazio dei nomi di origine associato all'applicazione.
++
+
+NOTE: Astra Control crea nuovi spazi dei nomi di destinazione come parte di questa opzione di ripristino. Gli spazi dei nomi di destinazione specificati non devono essere già presenti nel cluster di destinazione.
+
+... Selezionare *Avanti*.
+... Selezionare lo snapshot o il backup da utilizzare per ripristinare l'applicazione.
+... Selezionare *Avanti*.
+
+
+
+
+. Scegli le risorse da filtrare:
++
+** *Restore all resources* (Ripristina tutte le risorse): Ripristina tutte le risorse associate all'applicazione originale.
+** *Filter resources*: Specificare le regole per ripristinare un sottoinsieme delle risorse applicative originali:
++
+... Scegliere di includere o escludere risorse dall'applicazione ripristinata.
+... Selezionare *Aggiungi regola di inclusione* o *Aggiungi regola di esclusione* e configurare la regola per filtrare le risorse corrette durante il ripristino dell'applicazione. È possibile modificare una regola o rimuoverla e crearne di nuovo fino a quando la configurazione non è corretta.
++
+
+NOTE: Per ulteriori informazioni sulla configurazione delle regole di inclusione ed esclusione, vedere <<Filtrare le risorse durante il ripristino di un'applicazione>>.
+
+
+
+
+
+. Selezionare *Avanti*.
+. Esaminare attentamente i dettagli relativi all'azione di ripristino, digitare "restore" (se richiesto) e selezionare *Restore*.
+
+
+.Risultato
+Astra Control ripristina l'applicazione in base alle informazioni fornite. Se hai ripristinato l'applicazione in-place, il contenuto dei volumi persistenti esistenti viene sostituito con il contenuto dei volumi persistenti dell'applicazione ripristinata.
+
+
+NOTE: Dopo un'operazione di protezione dei dati (cloning, backup o ripristino) e il successivo ridimensionamento persistente del volume, si verifica un ritardo fino a venti minuti prima che la nuova dimensione del volume venga visualizzata nell'interfaccia utente Web. L'operazione di protezione dei dati viene eseguita correttamente in pochi minuti ed è possibile utilizzare il software di gestione per il back-end dello storage per confermare la modifica delle dimensioni del volume.
+
+
+NOTE: Qualsiasi utente membro con vincoli di spazio dei nomi in base al nome/ID dello spazio dei nomi o alle etichette dello spazio dei nomi può clonare o ripristinare un'applicazione in un nuovo spazio dei nomi nello stesso cluster o in qualsiasi altro cluster dell'account dell'organizzazione. Tuttavia, lo stesso utente non può accedere all'applicazione clonata o ripristinata nel nuovo namespace. Dopo la creazione di un nuovo spazio dei nomi mediante un'operazione di clone o ripristino, l'amministratore/proprietario dell'account può modificare l'account utente membro e aggiornare i vincoli di ruolo per consentire all'utente interessato di accedere al nuovo spazio dei nomi.
+
+
+
+== Filtrare le risorse durante il ripristino di un'applicazione
+
+È possibile aggiungere una regola di filtro a un link:../use/restore-apps.html["ripristinare"] operazione che specifica le risorse applicative esistenti da includere o escludere dall'applicazione ripristinata. È possibile includere o escludere risorse in base a uno spazio dei nomi, un'etichetta o un GVK (GroupVersionKind) specificati.
+
+.Scopri di più sugli scenari di inclusione ed esclusione
+[%collapsible]
+====
+* *Si seleziona una regola di inclusione con spazi dei nomi originali (ripristino in-place)*: Le risorse applicative esistenti definite nella regola verranno eliminate e sostituite da quelle dello snapshot o del backup selezionato che si sta utilizzando per il ripristino. Tutte le risorse non specificate nella regola di inclusione resteranno invariate.
+* *Selezionare una regola di inclusione con nuovi spazi dei nomi*: Utilizzare la regola per selezionare le risorse specifiche che si desidera utilizzare nell'applicazione ripristinata. Le risorse non specificate nella regola di inclusione non verranno incluse nell'applicazione ripristinata.
+* *Si seleziona una regola di esclusione con spazi dei nomi originali (ripristino in-place)*: Le risorse specificate per l'esclusione non verranno ripristinate e rimarranno invariate. Le risorse non specificate da escludere verranno ripristinate dallo snapshot o dal backup. Tutti i dati sui volumi persistenti verranno cancellati e ricreati se il corrispondente StatefulSet fa parte delle risorse filtrate.
+* *Selezionare una regola di esclusione con nuovi spazi dei nomi*: Utilizzare la regola per selezionare le risorse specifiche che si desidera rimuovere dall'applicazione ripristinata. Le risorse non specificate da escludere verranno ripristinate dallo snapshot o dal backup.
+
+
+====
+Le regole possono includere o escludere tipi. Non sono disponibili regole che combinano inclusione ed esclusione delle risorse.
+
+.Fasi
+. Dopo aver scelto di filtrare le risorse e aver selezionato un'opzione di inclusione o esclusione nella procedura guidata Restore App, selezionare *Aggiungi regola di inclusione* o *Aggiungi regola di esclusione*.
++
+
+NOTE: Non è possibile escludere risorse con ambito cluster che vengono automaticamente incluse da Astra Control.
+
+. Configurare la regola di filtro:
++
+
+NOTE: È necessario specificare almeno uno spazio dei nomi, un'etichetta o un GVK. Assicurarsi che tutte le risorse conservate dopo l'applicazione delle regole di filtro siano sufficienti per mantenere l'applicazione ripristinata in uno stato di integrità.
+
++
+.. Selezionare uno spazio dei nomi specifico per la regola. Se non si effettua una selezione, nel filtro verranno utilizzati tutti gli spazi dei nomi.
++
+
+NOTE: Se l'applicazione conteneva originariamente più spazi dei nomi e la ripristinerai in nuovi spazi dei nomi, tutti gli spazi dei nomi verranno creati anche se non contengono risorse.
+
+.. (Facoltativo) inserire un nome di risorsa.
+.. (Facoltativo) *selettore di etichette*: Includere un https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors["selettore di etichette"^] da aggiungere alla regola. Il selettore di etichette viene utilizzato per filtrare solo le risorse corrispondenti all'etichetta selezionata.
+.. (Facoltativo) selezionare *Use GVK (GroupVersionKind) set to filter resources* for additional filtering options.
++
+
+NOTE: Se si utilizza un filtro GVK, è necessario specificare versione e tipo.
+
++
+... (Facoltativo) *Group*: Dall'elenco a discesa, selezionare il gruppo Kubernetes API.
+... *Kind*: Dall'elenco a discesa, selezionare lo schema dell'oggetto per il tipo di risorsa Kubernetes da utilizzare nel filtro.
+... *Version* (versione): Selezionare la versione dell'API Kubernetes.
+
+
+
+
+. Esaminare la regola creata in base alle voci immesse.
+. Selezionare *Aggiungi*.
++
+
+TIP: È possibile creare tutte le regole di inclusione ed esclusione delle risorse desiderate. Le regole vengono visualizzate nel riepilogo dell'applicazione di ripristino prima di avviare l'operazione.
+
+

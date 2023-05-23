@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: get-started/quick-start.html 
+keywords: get started, quick start 
+summary: Inizia subito a utilizzare Astra Control Service in pochi passaggi. 
+---
+= Avvio rapido per Astra Control Service
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Questa pagina fornisce una panoramica generale dei passaggi da completare per iniziare a utilizzare Astra Control Service. I collegamenti all'interno di ogni passaggio consentono di accedere a una pagina che fornisce ulteriori dettagli.
+
+
+
+== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Configura il tuo cloud provider
+
+ifdef::gcp[]
+
+[role="quick-margin-list"]
+. Google Cloud:
++
+** Esaminare i requisiti del cluster di Google Kubernetes Engine.
+** Acquista Cloud Volumes Service per Google Cloud da Google Cloud Marketplace.
+** Abilitare le API richieste.
+** Creare un account di servizio e una chiave dell'account di servizio.
+** Imposta il peering di rete dal tuo VPC a Cloud Volumes Service per Google Cloud.
++
+link:set-up-google-cloud.html["Scopri di più sui requisiti di Google Cloud"].
+
+
+
+
+
+endif::gcp[]
+
+ifdef::aws[]
+
+. Servizi Web Amazon:
++
+** Esaminare i requisiti del cluster di Amazon Web Services.
+** Crea un account Amazon.
+** Installare la CLI di Amazon Web Services.
+** Creare un utente IAM.
+** Creare e allegare un criterio di autorizzazioni.
+** Salvare le credenziali per l'utente IAM.
++
+link:set-up-amazon-web-services.html["Scopri di più sui requisiti di Amazon Web Services"].
+
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+. Microsoft Azure:
++
+** Esaminate i requisiti del cluster di Azure Kubernetes Service per il backend di storage che intendete utilizzare.
++
+link:set-up-microsoft-azure-with-anf.html["Scopri di più sui requisiti di Microsoft Azure e Azure NetApp Files"].
+
++
+link:set-up-microsoft-azure-with-amd.html["Scopri di più sui requisiti dei dischi gestiti di Microsoft Azure e Azure"].
+
+
+
+
+
+endif::azure[]
+
+Se stai gestendo il tuo cluster e non è ospitato da un cloud provider, esamina i requisiti per i cluster autogestiti.link:add-first-cluster.html#start-managing-kubernetes-clusters["Scopri di più sui requisiti del cluster a gestione automatica"].
+
+
+
+== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Completare la registrazione di Astra Control
+
+[role="quick-margin-list"]
+. Creare un https://cloud.netapp.com["NetApp Cloud Central"^] account.
+. Specificare l'ID e-mail di NetApp Cloud Central durante la creazione dell'account Astra Control https://cloud.netapp.com/astra["Dalla pagina del prodotto Astra"^].
+
+
+[role="quick-margin-para"]
+link:register.html["Scopri di più sul processo di registrazione"].
+
+
+
+== image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"] Aggiungere cluster ad Astra Control
+
+[role="quick-margin-para"]
+Dopo aver effettuato l'accesso, selezionare *Add cluster* (Aggiungi cluster) per iniziare a gestire il cluster con Astra Control.
+
+[role="quick-margin-para"]
+link:add-first-cluster.html["Scopri di più sull'aggiunta di cluster"].

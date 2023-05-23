@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: use/monitor-account-activity.html 
+keywords: activity, log, activities, download log, download csv, csv 
+summary: 'Puoi visualizzare i dettagli delle attività nel tuo account Astra Control. Ad esempio, quando sono stati invitati nuovi utenti, quando è stato aggiunto il calcolo o quando è stata scattata una snapshot. È inoltre possibile esportare l"attività dell"account in un file CSV.' 
+---
+= Monitorare l'attività dell'account
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Puoi visualizzare i dettagli delle attività nel tuo account Astra Control. Ad esempio, quando sono stati invitati nuovi utenti, quando è stato aggiunto un cluster o quando è stata acquisita una snapshot. È inoltre possibile esportare l'attività dell'account in un file CSV.
+
+.Visualizza tutte le attività dell'account in Astra Control
+. Selezionare *Activity* (attività).
+. Utilizza i filtri per restringere l'elenco delle attività o utilizza la casella di ricerca per trovare esattamente ciò che stai cercando.
+. Selezionare *Export to CSV* (Esporta in CSV) per scaricare l'attività dell'account in un file CSV.
+
+
+.Visualizzare l'attività dell'account per un'applicazione specifica
+. Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione.
+. Selezionare *Activity* (attività).
+
+
+.Visualizzare l'attività dell'account per i cluster
+. Selezionare *Clusters*, quindi il nome del cluster.
+. Selezionare *Activity* (attività).
+

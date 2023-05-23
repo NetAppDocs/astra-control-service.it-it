@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: use/manage-cloud-instances.html 
+keywords: cloud, instance, manage, delete, remove, edit 
+summary: Gestisci le istanze cloud aggiunte quando hai aggiunto nuovi cluster. 
+---
+= Gestire le istanze cloud
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Un'istanza di cloud è un dominio unico all'interno di un cloud provider. È possibile creare più istanze cloud per ciascun provider cloud e ogni istanza cloud ha il proprio nome, le proprie credenziali e i cluster associati.
+
+Si crea un'istanza cloud quando si aggiunge un nuovo cluster ad Astra Control. È possibile modificare un'istanza cloud per modificarne il nome o il bucket predefinito utilizzando l'interfaccia utente di Astra Control ed eseguire altre azioni con l'istanza cloud utilizzando l'API di Astra Control.
+
+
+
+== Aggiungere un'istanza cloud
+
+È possibile aggiungere una nuova istanza di cloud quando si aggiunge un nuovo cluster ad Astra Control. Fare riferimento a. link:../get-started/add-first-cluster.html["Inizia a gestire i cluster Kubernetes da Astra Control Service"] per ulteriori informazioni.
+
+
+
+== Modificare un'istanza di cloud
+
+È possibile modificare un'istanza di cloud esistente per un provider di cloud.
+
+.Fasi
+. Accedere a *istanze cloud*.
+. Nell'elenco delle istanze cloud, selezionare il menu *azioni* dell'istanza cloud che si desidera modificare.
+. Selezionare *Modifica*.
++
+In questa pagina, è possibile aggiornare il nome e il bucket predefinito per l'istanza del cloud.
+
++
+
+NOTE: Ogni istanza di cloud in Astra Control deve avere un nome univoco.
+
+
+
+
+
+== Ruotare le credenziali per un'istanza cloud
+
+È possibile utilizzare l'API di controllo Astra per ruotare le credenziali per un'istanza cloud. Per saperne di più, https://docs.netapp.com/us-en/astra-automation["Consultare i documenti di automazione Astra"^].
+
+
+
+== Rimuovere un'istanza cloud
+
+È possibile utilizzare l'API Astra Control per rimuovere un'istanza cloud da un provider cloud. Per saperne di più, https://docs.netapp.com/us-en/astra-automation["Consultare i documenti di automazione Astra"^].

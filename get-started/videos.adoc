@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: get-started/videos.html 
+keywords: videos, Astra Control Service videos 
+summary: 'Molte delle pagine di questo sito di documentazione includono video che mostrano come completare un"attività utilizzando Astra Control Service. Se ti interessa solo i video, abbiamo semplificato la raccolta di tutti i video su questa singola pagina (come una playlist).' 
+---
+= Video di Astra Control Service
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri NetApp TV per i contenuti video più recenti con Astra Control Service. NetApp TV include video che mostrano alcune funzionalità di Astra Control Service o mostrano come completare determinate attività comuni.
+
+https://www.netapp.tv/search/astra%20control%20service["Video di Astra Control Service"^]
+
+endif::gcp[]

@@ -1,0 +1,50 @@
+---
+section: use
+title: Utilizzare Astra Control Service
+entries:
+- title: Effettuare l'accesso
+  url: "/use/log-in.html"
+- title: Gestire e proteggere le applicazioni
+  entries:
+  - title: Inizia a gestire le app
+    url: "/use/manage-apps.html"
+  - title: Proteggi le app
+    url: "/use/protect-apps.html"
+  - title: Ripristinare le applicazioni
+    url: "/use/restore-apps.html"
+  - title: Clonare e migrare le applicazioni
+    url: "/use/clone-apps.html"
+  - title: Gestire gli hook di esecuzione delle applicazioni
+    url: "/use/manage-app-execution-hooks.html"
+- title: Visualizza lo stato di salute delle applicazioni e del calcolo
+  entries:
+  - title: Riepilogo della dashboard
+    url: "/use/view-dashboard.html"
+  - title: Integrità e dettagli del cluster
+    url: "/use/view-clusters.html"
+  - title: Salute e dettagli dell'app
+    url: "/use/view-apps.html"
+- title: Gestire i bucket
+  url: "/use/manage-buckets.html"
+- title: Monitorare le attività in esecuzione
+  url: "/use/monitor-running-tasks.html"
+- title: Gestisci il tuo account
+  entries:
+  - title: Impostare la fatturazione
+    url: "/use/set-up-billing.html"
+  - title: Invitare e gestire gli utenti
+    url: "/use/manage-users.html"
+  - title: Gestire i ruoli
+    url: "/use/manage-roles.html"
+  - title: Gestire le credenziali del cloud provider
+    url: "/use/manage-credentials.html"
+  - title: Monitorare l'attività dell'account
+    url: "/use/monitor-account-activity.html"
+  - title: Gestire le notifiche
+    url: "/use/manage-notifications.html"
+  - title: Chiudere l'account
+    url: "/use/close-account.html"
+- title: Gestire le istanze cloud
+  url: "/use/manage-cloud-instances.html"
+- title: Annulla la gestione di app e cluster
+  url: "/use/unmanage.html"

@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: get-started/whats-next.html 
+keywords: get started, manage apps, manage account 
+summary: 'Ora che hai effettuato l"accesso e aggiunto i cluster ad Astra Control, sei pronto per iniziare a utilizzare le funzionalità di gestione dei dati applicativi di Astra Control.' 
+---
+= Cosa succederà?
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Ora che hai effettuato l'accesso e aggiunto un cluster ad Astra Control, sei pronto per iniziare a utilizzare le funzionalità di gestione dei dati delle applicazioni di Astra Control.
+
+* link:../use/manage-apps.html["Inizia a gestire le app"]
+* link:../use/protect-apps.html["Proteggi le app"]
+* link:../use/clone-apps.html["Clonare le applicazioni"]
+* link:../use/set-up-billing.html["Impostare la fatturazione"]
+* link:../use/manage-users.html["Invitare e gestire gli utenti"]
+* link:../use/manage-credentials.html["Gestire le credenziali del cloud provider"]
+* link:../use/manage-notifications.html["Gestire le notifiche"]
+

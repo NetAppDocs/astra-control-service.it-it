@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: use/view-clusters.html 
+keywords: view cluster, cluster storage, cluster overview 
+summary: Dopo aver aggiunto i cluster Kubernetes ad Astra Control, è possibile visualizzare i dettagli del cluster, ad esempio la sua posizione, i nodi di lavoro, i volumi persistenti e le classi di storage. 
+---
+= Visualizza lo stato di salute e i dettagli dei cluster
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Dopo aver aggiunto i cluster Kubernetes ad Astra Control, è possibile visualizzare i dettagli del cluster, ad esempio la sua posizione, i nodi di lavoro, i volumi persistenti e le classi di storage.
+
+.Fasi
+. Nell'interfaccia utente di Astra Control Service, selezionare *Clusters*.
+. Nella pagina *Clusters*, selezionare il cluster di cui si desidera visualizzare i dettagli.
++
+
+NOTE: Se un cluster si trova in `removed` state Yet la connettività di rete e del cluster sembra sana (i tentativi esterni di accesso al cluster utilizzando le API di Kubernetes sono riusciti), il kubeconfig che hai fornito ad Astra Control potrebbe non essere più valido. Ciò può essere dovuto alla rotazione o alla scadenza del certificato sul cluster. Per risolvere questo problema, aggiornare le credenziali associate al cluster in Astra Control utilizzando link:https://docs.netapp.com/us-en/astra-automation/index.html["API di controllo Astra"].
+
+. Visualizzare le informazioni nelle schede *Overview*, *Storage* e *Activity* per trovare le informazioni desiderate.
++
+** *Panoramica*: Dettagli sui nodi di lavoro, incluso il loro stato.
+** *Storage*: I volumi persistenti associati al calcolo, inclusi la classe e lo stato dello storage.
+** *Attività*: Le attività correlate al cluster.
+
+
+
+
+
+NOTE: È inoltre possibile visualizzare le informazioni sul cluster partendo da Astra Control Service *Dashboard*. Nella scheda *Clusters* sotto *Riepilogo risorse*, è possibile selezionare i cluster gestiti, che consentono di accedere alla pagina *Clusters*. Una volta visualizzata la pagina *Clusters*, seguire la procedura descritta in precedenza.

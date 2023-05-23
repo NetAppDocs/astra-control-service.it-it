@@ -1,0 +1,175 @@
+---
+sidebar: sidebar 
+permalink: use/protect-apps.html 
+keywords: backup, back up, backup apps, back up apps, snapshots, snapshot an app, take a snapshot, take a backup, view backups, view snapshots, set policy, set schedule, schedule backups, schedule snapshots 
+summary: Proteggi le tue applicazioni eseguendo snapshot e backup utilizzando una policy di protezione automatica o ad-hoc. 
+---
+= Proteggi le app con snapshot e backup
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Proteggi le tue applicazioni eseguendo snapshot e backup utilizzando una policy di protezione automatica o ad-hoc. È possibile utilizzare l'interfaccia utente Astra o. https://docs.netapp.com/us-en/astra-automation/index.html["L'API Astra Control"^] per proteggere le applicazioni.
+
+Scopri di più link:../learn/data-protection.html["Protezione dei dati in Astra Control"^].
+
+È possibile eseguire le seguenti attività relative alla protezione dei dati dell'applicazione:
+
+* <<Configurare un criterio di protezione>>
+* <<Creare un'istantanea>>
+* <<Creare un backup>>
+* <<Visualizzare snapshot e backup>>
+* <<Eliminare le istantanee>>
+* <<Annullare i backup>>
+* <<Eliminare i backup>>
+
+
+
+
+== Configurare un criterio di protezione
+
+Una policy di protezione protegge un'applicazione creando snapshot, backup o entrambi in base a una pianificazione definita. È possibile scegliere di creare snapshot e backup ogni ora, ogni giorno, ogni settimana e ogni mese, nonché specificare il numero di copie da conservare.
+
+Se hai bisogno di backup o snapshot per eseguire più frequentemente di una volta all'ora, è possibile https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html["Utilizza l'API REST di Astra Control per creare snapshot e backup"^].
+
+.Fasi
+. Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione gestita.
+. Selezionare *Data Protection* (protezione dati).
+. Selezionare *Configura policy di protezione*.
+. Definire una pianificazione di protezione scegliendo il numero di snapshot e backup da conservare per le pianificazioni orarie, giornaliere, settimanali e mensili.
++
+È possibile definire le pianificazioni orarie, giornaliere, settimanali e mensili contemporaneamente. Un programma non diventa attivo fino a quando non viene impostato un livello di conservazione per snapshot e backup.
+
++
+Quando si imposta un livello di conservazione per i backup, è possibile scegliere il bucket in cui si desidera memorizzare i backup.
+
++
+Nell'esempio seguente vengono impostati quattro programmi di protezione: ogni ora, ogni giorno, ogni settimana e ogni mese per snapshot e backup.
+
++
+image:screenshot-protection-policy.png["Schermata di una policy di configurazione di esempio in cui è possibile scegliere di eseguire snapshot e backup su base oraria, giornaliera, settimanale o mensile."]
+
+. Selezionare *Revisione*.
+. Selezionare *Imposta policy di protezione*.
+
+
+.Risultato
+Astra Control implementa la policy di protezione dei dati creando e conservando snapshot e backup utilizzando la policy di pianificazione e conservazione definita dall'utente.
+
+
+
+== Creare un'istantanea
+
+Puoi creare uno snapshot on-demand in qualsiasi momento.
+
+.Fasi
+. Selezionare *applicazioni*.
+. Dal menu Options (Opzioni) nella colonna *Actions* (azioni) dell'applicazione desiderata, selezionare *Snapshot*.
+. Personalizzare il nome dell'istantanea, quindi selezionare *Avanti*.
+. Esaminare il riepilogo dell'istantanea e selezionare *Snapshot*.
+
+
+.Risultato
+Viene avviato il processo di snapshot. Un'istantanea ha successo quando lo stato è *integro* nella colonna *Stato* della pagina *Data Protection* > *Snapshot*.
+
+
+
+== Creare un backup
+
+Puoi anche eseguire il backup di un'applicazione in qualsiasi momento.
+
+ifdef::azure[]
+
+[NOTE]
+====
+Tenere presente come viene gestito lo spazio di storage quando si esegue il backup di un'applicazione ospitata sullo storage Azure NetApp Files. Fare riferimento a. link:../learn/azure-storage.html#application-backups["Backup delle applicazioni"] per ulteriori informazioni.
+
+====
+endif::azure[]
+
+.Fasi
+. Selezionare *applicazioni*.
+. Dal menu Opzioni nella colonna *azioni* dell'applicazione desiderata, selezionare *Backup*.
+. Personalizzare il nome del backup.
+. Scegliere se eseguire il backup dell'applicazione da uno snapshot esistente. Se si seleziona questa opzione, è possibile scegliere da un elenco di snapshot esistenti.
+. Scegliere un bucket di destinazione per il backup dall'elenco dei bucket di storage.
+. Selezionare *Avanti*.
+. Esaminare il riepilogo del backup e selezionare *Backup*.
+
+
+.Risultato
+Astra Control crea un backup dell'applicazione.
+
+
+NOTE: Per annullare un backup in esecuzione, seguire le istruzioni riportate in <<Annullare i backup>>. Per eliminare il backup, attendere il completamento, quindi seguire le istruzioni riportate in <<Eliminare i backup>>.
+
+
+
+== Visualizzare snapshot e backup
+
+È possibile visualizzare le istantanee e i backup di un'applicazione dalla scheda Data Protection (protezione dati).
+
+.Fasi
+. Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione gestita.
+. Selezionare *Data Protection* (protezione dati).
++
+Le istantanee vengono visualizzate per impostazione predefinita.
+
+. Selezionare *Backup* per fare riferimento all'elenco dei backup.
+
+
+
+
+== Eliminare le istantanee
+
+Eliminare le snapshot pianificate o on-demand non più necessarie.
+
+.Fasi
+. Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione gestita.
+. Selezionare *Data Protection* (protezione dati).
+. Dal menu Options (Opzioni) nella colonna *Actions* (azioni) per lo snapshot desiderato, selezionare *Delete snapshot* (Elimina snapshot).
+. Digitare la parola "DELETE" per confermare l'eliminazione, quindi selezionare *Yes, Delete snapshot*.
+
+
+.Risultato
+Astra Control elimina lo snapshot.
+
+
+
+== Annullare i backup
+
+È possibile annullare un backup in corso.
+
+
+TIP: Per annullare un backup, il backup deve essere in `Running` stato. Non è possibile annullare un backup in `Pending` stato.
+
+.Fasi
+. Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione.
+. Selezionare *Data Protection* (protezione dati).
+. Selezionare *Backup*.
+. Dal menu Options (Opzioni) nella colonna *Actions* (azioni) per il backup desiderato, selezionare *Cancel* (Annulla).
+. Digitare la parola "CANCEL" per confermare l'operazione, quindi selezionare *Yes, CANCEL backup* (Sì, Annulla backup*).
+
+
+
+
+== Eliminare i backup
+
+Eliminare i backup pianificati o on-demand non più necessari.
+
+
+NOTE: Per annullare un backup in esecuzione, seguire le istruzioni riportate in <<Annullare i backup>>. Per eliminare il backup, attendere che sia stato completato, quindi seguire queste istruzioni.
+
+.Fasi
+. Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione.
+. Selezionare *Data Protection* (protezione dati).
+. Selezionare *Backup*.
+. Dal menu Options (Opzioni) nella colonna *Actions* (azioni) per il backup desiderato, selezionare *Delete backup* (Elimina backup).
+. Digitare la parola "DELETE" per confermare l'eliminazione, quindi selezionare *Yes, Delete backup*.
+
+
+.Risultato
+Astra Control elimina il backup.

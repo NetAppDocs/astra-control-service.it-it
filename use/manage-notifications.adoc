@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: use/manage-notifications.html 
+keywords: notifications, delete notifications, mark notifications as read 
+summary: 'Astra Control avvisa l"utente quando le azioni sono state completate o non sono riuscite. Ad esempio, se il backup di un"applicazione è stato completato correttamente, viene visualizzata una notifica.' 
+---
+= Visualizzare e gestire le notifiche
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Astra Control avvisa l'utente quando le azioni sono state completate o non sono riuscite. Ad esempio, se il backup di un'applicazione è stato completato correttamente, viene visualizzata una notifica.
+
+Il numero di notifiche non lette è disponibile nella parte superiore destra dell'interfaccia.
+
+Puoi visualizzare queste notifiche e contrassegnarle come lette (questa operazione può risultare utile se desideri cancellare le notifiche non lette come noi).
+
+.Fasi
+. Selezionare il numero di notifiche non lette in alto a destra.
+. Esaminare le notifiche, quindi selezionare *Contrassegna come letto* o *Mostra tutte le notifiche*.
++
+Se si seleziona *Mostra tutte le notifiche*, viene caricata la pagina Notifiche.
+
+. Nella pagina *Notifiche*, visualizzare le notifiche, selezionare quelle che si desidera contrassegnare come lette, selezionare *azione* e selezionare *Contrassegna come letta*.
+

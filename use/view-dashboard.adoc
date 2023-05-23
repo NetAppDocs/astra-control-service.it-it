@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: use/view-dashboard.html 
+keywords: dashboard, cluster health, unhealthy apps, protected apps, managed apps 
+summary: Fare clic su Dashboard per visualizzare una vista di alto livello delle applicazioni, dei cluster e della loro salute. 
+---
+= Visualizza un riepilogo dello stato delle applicazioni e dei cluster
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Fai clic su *Dashboard* per visualizzare una vista di alto livello delle tue applicazioni, dei cluster e della loro salute.
+
+Il riquadro Apps (applicazioni) consente di identificare i seguenti elementi:
+
+* Quante applicazioni stai attualmente gestendo.
+* Se queste applicazioni gestite sono in buona salute.
+* Se le applicazioni sono completamente protette (sono protette se sono disponibili backup recenti).
+
+
+Si noti che questi non sono solo numeri o stati, ma è possibile eseguire il drill-down da ciascuno di questi. Ad esempio, se le applicazioni non sono completamente protette, puoi passare il mouse sull'icona per identificare le applicazioni non completamente protette, il che include un motivo.
+
+Il riquadro Clusters fornisce dettagli simili sullo stato del cluster ed è possibile eseguire il drill-down per ottenere ulteriori dettagli come si può fare con un'applicazione.

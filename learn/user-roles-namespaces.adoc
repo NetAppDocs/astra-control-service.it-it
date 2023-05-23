@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: learn/user-roles-namespaces.html 
+keywords: users, roles, user roles, namespace, namespaces, account, accounts, permissions, restriction, restrict, constraint 
+summary: Scopri i tipi di protezione dei dati disponibili in Astra Control e come utilizzarli al meglio per proteggere le tue app. 
+---
+= Ruoli e spazi dei nomi degli utenti
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/learn/
+
+
+[role="lead"]
+Scopri i ruoli e gli spazi dei nomi degli utenti in Astra Control e come utilizzarli per controllare l'accesso alle risorse della tua organizzazione.
+
+
+
+== Ruoli utente
+
+È possibile utilizzare i ruoli per controllare l'accesso degli utenti alle risorse o alle funzionalità di Astra Control. Di seguito sono riportati i ruoli utente in Astra Control:
+
+* Un *Owner* dispone delle autorizzazioni di amministratore e può eliminare gli account.
+* Un *Admin* dispone delle autorizzazioni Member e può invitare altri utenti.
+* Un *Member* può gestire completamente app e cluster.
+* Un *Viewer* può visualizzare le risorse.
+
+
+È possibile aggiungere vincoli a un utente membro o Viewer per limitare l'utente a uno o più utenti <<Spazi dei nomi>>.
+
+
+
+== Spazi dei nomi
+
+Uno spazio dei nomi è un ambito che è possibile assegnare a risorse specifiche all'interno di un cluster gestito da Astra Control. Astra Control rileva gli spazi dei nomi di un cluster quando si aggiunge il cluster ad Astra Control. Una volta rilevati, gli spazi dei nomi sono disponibili per l'assegnazione come vincoli agli utenti. Solo i membri che hanno accesso a tale spazio dei nomi possono utilizzare tale risorsa. È possibile utilizzare gli spazi dei nomi per controllare l'accesso alle risorse utilizzando un paradigma adatto alla propria organizzazione, ad esempio per aree fisiche o divisioni all'interno di un'azienda. Quando si aggiungono vincoli a un utente, è possibile configurare tale utente in modo che abbia accesso a tutti gli spazi dei nomi o solo a un set specifico di spazi dei nomi. È inoltre possibile assegnare vincoli dello spazio dei nomi utilizzando le etichette dello spazio dei nomi.
+
+
+
+== Trova ulteriori informazioni
+
+* link:../use/manage-roles.html["Gestire i ruoli"]
+

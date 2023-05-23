@@ -1,0 +1,140 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-limitations.html 
+keywords: limitations, known limitations, interoperability 
+summary: Le limitazioni note identificano piattaforme, dispositivi o funzioni non supportate da questa versione del prodotto o che non interagiscono correttamente con esso. Esaminare attentamente queste limitazioni. 
+---
+= Limitazioni note
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+[role="lead"]
+Le limitazioni note identificano piattaforme, dispositivi o funzioni non supportate da questa versione del prodotto o che non interagiscono correttamente con esso. Esaminare attentamente queste limitazioni.
+
+
+
+== Limitazioni generali
+
+Le seguenti limitazioni influiscono sulla gestione dei cluster Kubernetes da parte di Astra Control Service in qualsiasi implementazione di Kubernetes supportata.
+
+
+
+=== Astra Trident non viene disinstallato da un cluster
+
+Quando si disgestisce un cluster da Astra Control Service, Astra Trident non viene disinstallato automaticamente dal cluster. Per disinstallare Astra Trident, è necessario https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Seguire questa procedura nella documentazione di Astra Trident"^].
+
+
+
+=== Le connessioni esistenti a un pod Postgres causano errori
+
+Quando si eseguono operazioni su POD Postgres, non si dovrebbe connettersi direttamente all'interno del pod per utilizzare il comando psql. Astra Control Service richiede l'accesso a psql per bloccare e scongelare i database. Se è presente una connessione preesistente, lo snapshot, il backup o il clone non avranno esito positivo.
+
+
+
+=== La pagina Activity (attività) visualizza fino a 100,000 eventi
+
+La pagina Astra Control Activity (attività di controllo Astra) può visualizzare fino a 100,000 eventi. Per visualizzare tutti gli eventi registrati, recuperare gli eventi utilizzando link:../rest-api/api-intro.html["API REST di Astra Control"^].
+
+ifdef::gcp[]
+
+
+
+== Limitazioni per la gestione dei cluster GKE
+
+Le seguenti limitazioni si applicano alla gestione dei cluster Kubernetes in Google Kubernetes Engine (GKE).
+
+
+
+=== Le applicazioni Google Marketplace non sono state validate
+
+NetApp non ha convalidato le applicazioni implementate da Google Marketplace. Alcuni utenti hanno segnalato problemi di rilevamento o backup delle applicazioni Postgres, MariaDB e MySQL implementate da Google Marketplace.
+
+Indipendentemente dal tipo di applicazione utilizzata con Astra Control Service, è sempre necessario testare autonomamente il flusso di lavoro di backup e ripristino per assicurarsi di poter soddisfare i requisiti di disaster recovery.
+
+endif::gcp[]
+
+
+
+== Limitazioni della gestione delle applicazioni
+
+Le seguenti limitazioni influiscono sulla gestione delle applicazioni da parte di Astra Control Service.
+
+
+
+=== Non è possibile ripristinare collettivamente più applicazioni che utilizzano lo stesso namespace in un namespace diverso
+
+Se si gestiscono più applicazioni che utilizzano lo stesso namespace (creando più definizioni di applicazioni in Astra Control), non è possibile ripristinare tutte le applicazioni in un singolo namespace diverso. È necessario ripristinare ogni applicazione nel proprio spazio dei nomi separato.
+
+
+
+=== Astra Control non assegna automaticamente i bucket predefiniti per le istanze cloud
+
+Astra Control non assegna automaticamente un bucket predefinito per nessuna istanza di cloud. È necessario impostare manualmente un bucket predefinito per un'istanza di cloud. Se non viene impostato un bucket predefinito, non sarà possibile eseguire operazioni di cloni tra due cluster.
+
+
+
+=== Le operazioni di ripristino in-place delle applicazioni che utilizzano un gestore dei certificati non sono supportate
+
+Questa versione di Astra Control Service non supporta il ripristino in-place delle applicazioni con i gestori dei certificati. Sono supportate le operazioni di ripristino su uno spazio dei nomi diverso e le operazioni di clonazione.
+
+
+
+=== I cloni delle applicazioni si guastano dopo l'implementazione di un'applicazione con una classe di storage set
+
+Dopo che un'applicazione è stata distribuita con una classe di storage esplicitamente impostata (ad esempio, `helm install ...-set global.storageClass=netapp-cvs-perf-extreme`), i successivi tentativi di clonare l'applicazione richiedono che il cluster di destinazione abbia la classe di storage specificata in origine. La clonazione di un'applicazione con una classe di storage esplicitamente impostata su un cluster che non ha la stessa classe di storage non avrà esito positivo. In questo scenario non sono disponibili procedure di ripristino.
+
+
+
+=== I cloni delle applicazioni installate utilizzando gli operatori di riferimento pass-by possono fallire
+
+Astra Control supporta le applicazioni installate con operatori con ambito namespace. Questi operatori sono generalmente progettati con un'architettura "pass-by-value" piuttosto che "pass-by-reference". Di seguito sono riportate alcune applicazioni per operatori che seguono questi modelli:
+
+* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
++
+
+NOTE: Per K8ssandra, sono supportate le operazioni di ripristino in-place. Un'operazione di ripristino su un nuovo namespace o cluster richiede che l'istanza originale dell'applicazione venga tolto. In questo modo si garantisce che le informazioni del peer group trasportate non conducano a comunicazioni tra istanze. La clonazione dell'applicazione non è supportata.
+
+* https://github.com/jenkinsci/kubernetes-operator["Ci Jenkins"^]
+* https://github.com/percona/percona-xtradb-cluster-operator["Cluster XtraDB Percona"^]
+
+
+Si noti che Astra Control potrebbe non essere in grado di clonare un operatore progettato con un'architettura "pass-by-reference" (ad esempio, l'operatore CockroachDB). Durante questi tipi di operazioni di cloning, l'operatore clonato tenta di fare riferimento ai segreti di Kubernetes dall'operatore di origine, nonostante abbia il proprio nuovo segreto come parte del processo di cloning. L'operazione di clonazione potrebbe non riuscire perché Astra Control non è a conoscenza dei segreti di Kubernetes nell'operatore di origine.
+
+
+NOTE: Durante le operazioni di cloni, le applicazioni che necessitano di una risorsa IngressClass o di webhook per funzionare correttamente non devono disporre di tali risorse già definite nel cluster di destinazione.
+
+
+
+== Limitazioni RBAC (Role-Based Access Control)
+
+Le seguenti limitazioni si applicano al modo in cui Astra Control limita l'accesso degli utenti alle risorse o alle funzionalità.
+
+
+
+=== Un utente con vincoli RBAC dello spazio dei nomi può aggiungere e annullare la gestione di un cluster
+
+Un utente con vincoli RBAC dello spazio dei nomi non deve essere autorizzato ad aggiungere o annullare la gestione dei cluster. A causa di un limite corrente, Astra non impedisce a tali utenti di annullare la gestione dei cluster.
+
+
+
+=== Un utente membro con vincoli dello spazio dei nomi non può accedere alle applicazioni clonate o ripristinate fino a quando un utente Admin non aggiunge lo spazio dei nomi al vincolo
+
+Qualsiasi `member` Gli utenti con vincoli RBAC in base al nome/ID dello spazio dei nomi possono clonare o ripristinare un'applicazione in un nuovo spazio dei nomi nello stesso cluster o in qualsiasi altro cluster nell'account dell'organizzazione. Tuttavia, lo stesso utente non può accedere all'applicazione clonata o ripristinata nel nuovo namespace. Una volta creato un nuovo spazio dei nomi mediante un'operazione di clonazione o ripristino, l'amministratore/proprietario dell'account può modificare `member` account utente e limitazioni del ruolo di aggiornamento per consentire all'utente interessato di concedere l'accesso al nuovo spazio dei nomi.
+
+
+
+=== Gli snapshot potrebbero non funzionare per i cluster Kubernetes 1.25 o versioni successive con determinate versioni di snapshot controller
+
+Le snapshot per i cluster Kubernetes che eseguono la versione 1.25 o successiva possono non riuscire se sul cluster è installata la versione v1beta1 delle API del controller di snapshot.
+
+Per risolvere il problema, eseguire le seguenti operazioni quando si aggiornano le installazioni esistenti di Kubernetes 1.25 o versioni successive:
+
+. Rimuovere tutti gli Snapshot CRD esistenti e tutti gli snapshot controller esistenti.
+. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Disinstallare Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installare gli snapshot CRD e lo snapshot controller"^].
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installare la versione più recente di Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Creare una classe VolumeSnapshotClass"^].
+

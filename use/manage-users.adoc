@@ -1,0 +1,92 @@
+---
+sidebar: sidebar 
+permalink: use/manage-users.html 
+keywords: invite users, add users, remove users, delete users 
+summary: Invita gli utenti a unirsi al tuo account Astra Control e rimuovi gli utenti che non dovrebbero più avere accesso al tuo account. 
+---
+= Invitare e rimuovere utenti
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Invita gli utenti a unirsi al tuo account Astra Control e rimuovi gli utenti che non dovrebbero più avere accesso all'account.
+
+
+
+== Invitare utenti
+
+I proprietari e gli amministratori dell'account possono invitare altri utenti a iscriversi all'account Astra Control.
+
+.Fasi
+. Assicurarsi che l'utente disponga di un link:../get-started/register.html["Accesso a Cloud Central"].
+. Selezionare *account*.
+. Nella scheda *utenti*, selezionare *invita*.
+. Inserire il nome, l'indirizzo e-mail e il ruolo dell'utente.
++
+Tenere presente quanto segue:
+
++
+** L'indirizzo e-mail deve corrispondere all'indirizzo e-mail utilizzato dall'utente per iscriversi a Cloud Central.
+** Ciascun ruolo fornisce le seguenti autorizzazioni:
++
+*** Un *Owner* dispone delle autorizzazioni di amministratore e può eliminare gli account.
+*** Un *Admin* dispone delle autorizzazioni Member e può invitare altri utenti.
+*** Un *Member* può gestire completamente app e cluster.
+*** Un *Viewer* può visualizzare le risorse.
+
+
+
+
+. Per aggiungere vincoli a un utente con ruolo membro o visualizzatore, attivare la casella di controllo *limita ruolo ai vincoli*.
++
+Per ulteriori informazioni sull'aggiunta di vincoli, fare riferimento a. link:manage-roles.html["Gestire i ruoli"].
+
+. Per invitare un altro utente, selezionare *Aggiungi un altro utente* e immettere le informazioni relative al nuovo utente.
++
+È possibile invitare fino a 10 utenti alla volta. È possibile spostarsi tra gli utenti che si stanno invitando nella parte sinistra della finestra di dialogo *invita utenti*.
+
+. Selezionare *invita utenti*.
+
+
+.Risultato
+L'utente o gli utenti riceveranno un'e-mail che li invita a unirsi al tuo account.
+
+
+
+== Modificare il ruolo di un utente
+
+Un account Owner può modificare il ruolo di tutti gli utenti, mentre un account Admin può modificare il ruolo degli utenti che hanno il ruolo di Amministratore, membro o visualizzatore.
+
+.Fasi
+. Selezionare *account*.
+. Nella scheda *utenti*, selezionare il menu nella colonna *azioni* dell'utente.
+. Selezionare *Modifica ruolo*.
+. Selezionare un nuovo ruolo.
+. Per aggiungere vincoli a un utente con ruolo membro o visualizzatore, attivare la casella di controllo *limita ruolo ai vincoli*.
++
+Per ulteriori informazioni sull'aggiunta di vincoli, fare riferimento a. link:manage-roles.html["Gestire i ruoli"].
+
+. Selezionare *Conferma*.
+
+
+.Risultato
+Astra Control aggiorna le autorizzazioni dell'utente in base al nuovo ruolo selezionato.
+
+
+
+== Rimuovere gli utenti
+
+Un utente con il ruolo Owner può rimuovere altri utenti dall'account in qualsiasi momento.
+
+.Fasi
+. Selezionare *account*.
+. Nella scheda *utenti*, selezionare gli utenti che si desidera rimuovere.
+. Selezionare il menu nella colonna *azioni* e selezionare *Rimuovi utente*.
+. Quando richiesto, confermare l'eliminazione digitando "Remove" (Rimuovi), quindi selezionare *Yes (Sì), Remove User (Rimuovi utente)*.
+
+
+.Risultato
+Astra Control rimuove l'utente dall'account.

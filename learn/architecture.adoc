@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: learn/architecture.html 
+keywords: astra, astra control, architecture, astra control center, kubernetes, netapp, clusters, trident, astra control service 
+summary: 'Ecco una panoramica dei vari componenti dell"ambiente Astra Control.' 
+---
+= Architettura e componenti
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/learn/
+
+
+[role="lead"]
+Ecco una panoramica dei vari componenti dell'ambiente Astra Control.
+
+image:astra-architecture-diagram-v5.png["Diagramma e componenti dell'architettura di Astra Control"]
+
+
+
+== Componenti di controllo Astra
+
+* *Kubernetes Clusters*: Kubernetes è una piattaforma open-source portatile, estensibile per la gestione di carichi di lavoro e servizi containerizzati, che facilita sia la configurazione dichiarativa che l'automazione. Astra fornisce servizi di gestione per le applicazioni ospitate in un cluster Kubernetes.
+* * Astra Trident*: In qualità di provider di storage open source e orchestrator gestiti da NetApp, Astra Trident consente di creare volumi di storage per applicazioni containerizzate gestite da Docker e Kubernetes. Se implementato con il centro di controllo Astra, Astra Trident include un backend di storage ONTAP configurato.
+
+
+* *Cloud Insights*: Uno strumento di monitoraggio dell'infrastruttura cloud NetApp, Cloud Insights consente di monitorare le performance e l'utilizzo dei cluster Kubernetes gestiti dal centro di controllo Astra. Cloud Insights mette in relazione l'utilizzo dello storage con i carichi di lavoro. Quando si attiva la connessione Cloud Insights in Astra Control Center, le informazioni di telemetria vengono visualizzate nelle pagine dell'interfaccia utente di Astra Control Center.
+
+
+
+
+== Interfacce di controllo Astra
+
+È possibile completare le attività utilizzando diverse interfacce:
+
+* *Interfaccia utente Web (UI)*: Sia Astra Control Service che Astra Control Center utilizzano la stessa interfaccia utente basata sul Web, in cui è possibile gestire, migrare e proteggere le applicazioni. Utilizzare l'interfaccia utente anche per gestire gli account utente e le impostazioni di configurazione.
+* *API*: Sia Astra Control Service che Astra Control Center utilizzano la stessa API Astra Control. Utilizzando l'API, è possibile eseguire le stesse attività dell'interfaccia utente.
+
+
+Astra Control Center consente inoltre di gestire, migrare e proteggere i cluster Kubernetes in esecuzione negli ambienti delle macchine virtuali.
+
+
+
+== Per ulteriori informazioni
+
+* https://docs.netapp.com/us-en/astra/index.html["Documentazione del servizio Astra Control"^]
+* https://docs.netapp.com/us-en/astra-control-center/index.html["Documentazione di Astra Control Center"^]
+* https://docs.netapp.com/us-en/trident/index.html["Documentazione di Astra Trident"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Utilizzare l'API di controllo Astra"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Documentazione Cloud Insights"^]
+* https://docs.netapp.com/us-en/ontap/index.html["Documentazione ONTAP"^]
+

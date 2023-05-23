@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: automation.html 
+keywords: api, rest api, automate, automation, endpoints, api reference, curl, ansible, automation, token 
+summary: 'Astra Control dispone di un"API REST che consente di accedere direttamente alla funzionalità Astra Control utilizzando un linguaggio di programmazione o un"utility come Curl. Puoi anche gestire le implementazioni di Astra Control utilizzando Ansible e altre tecnologie di automazione.' 
+---
+= Automazione mediante l'API REST di Astra Control
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Astra Control dispone di un'API REST che consente di accedere direttamente alla funzionalità Astra Control utilizzando un linguaggio di programmazione o un'utility come Curl. Puoi anche gestire le implementazioni di Astra Control utilizzando Ansible e altre tecnologie di automazione.
+
+Per saperne di più, https://docs.netapp.com/us-en/astra-automation["Consultare i documenti di automazione Astra"^].

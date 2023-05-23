@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: support/troubleshooting.html 
+keywords: support, register for support, support registration 
+summary: Suggerimenti per la risoluzione dei problemi comuni. 
+---
+= Risoluzione dei problemi
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/support/
+
+
+[role="lead"]
+Scopri come risolvere alcuni problemi comuni che potresti incontrare.
+
+https://kb.netapp.com/Cloud/Astra/Control[]
+
+
+
+== Per ulteriori informazioni
+
+* https://kb.netapp.com/Cloud/Astra/Control["Risoluzione dei problemi"^]
+
