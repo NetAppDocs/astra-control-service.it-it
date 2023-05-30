@@ -190,13 +190,13 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/it-it/astra-control-service/aws">
+    <li data-value="aws" data-url="/it-it/astra-control-service/aws/get-started/manage-private-cluster.html">
       <img alt="" src="/it-it/astra-control-service/images/aws-ico.svg" onerror="this.src='/it-it/astra-control-service/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
     </li>
     
     
     
-    <li data-value="gcp" data-url="/it-it/astra-control-service/gcp">
+    <li data-value="gcp" data-url="/it-it/astra-control-service/gcp/get-started/manage-private-cluster.html">
       <img alt="" src="/it-it/astra-control-service/images/gcp-ico.svg" onerror="this.src='/it-it/astra-control-service/images/blank-ico.png'" class="custom-icon" />Google Cloud
     </li>
     
@@ -462,6 +462,31 @@
 
 
 
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/astra-control-service/pdfs/sidebar/Gestire_i_cluster.pdf" 
+            
+          >
+            <img src="/it-it/astra-control-service/images/pdf.png" alt="" width="16" height="16"/>
+            Gestire i cluster
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
 
 
     <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
@@ -835,11 +860,27 @@
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Gestire i cluster"
-      data-li-level="2#" 
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/it-it/astra-control-service/get-started/add-first-cluster.html">
+        <div class="na-navbar-padding"> Gestire i cluster</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Controllare la versione di Astra Trident"
+      data-li-level="3#" 
       class=" "
-    ><a class="na-navbar-padding" href="/it-it/astra-control-service/get-started/add-first-cluster.html">
-        Gestire i cluster
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/get-started/check-astra-trident-version.html">
+        Controllare la versione di Astra Trident
       </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare un file kubeconfig per il ruolo di amministratore del cluster"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/get-started/create-kubeconfig.html">
+        Creare un file kubeconfig per il ruolo di amministratore del cluster
+      </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Gestire cluster privati"
       data-li-level="2#" 
@@ -1216,7 +1257,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 12:24:55 +0000">05/23/2023</time>
+    <time datetime="2023-05-30 21:26:47 +0000">05/30/2023</time>
     
   
 
@@ -1229,6 +1270,19 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
+<p>Puoi utilizzare Astra Control Service per gestire cluster privati Azure Kubernetes Service (AKS) e Red Hat OpenShift in AKS. Queste istruzioni presuppongono che sia già stato creato un cluster AKS o OpenShift privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l&#8217;accesso a cluster AKS o OpenShift privati, fare riferimento alla seguente documentazione:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/azure/aks/private-clusters" target="_blank" rel="noopener">"Documentazione di Azure per cluster AKS privati"</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x" target="_blank" rel="noopener">"Documentazione di Azure per cluster OpenShift privati"</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Puoi utilizzare Astra Control Service per gestire cluster privati Azure Kubernetes Service (AKS) e cluster privati Red Hat OpenShift in AKS. Queste istruzioni presuppongono che sia già stato creato un cluster AKS o OpenShift privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l&#8217;accesso a cluster AKS o OpenShift privati, fare riferimento alla seguente documentazione:</p>
 </div>
 <div class="ulist">
@@ -1240,6 +1294,9 @@
 <p><a href="https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x" target="_blank" rel="noopener">"Documentazione di Azure per cluster OpenShift privati"</a></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Puoi utilizzare Astra Control Service per gestire cluster privati Amazon Elastic Kubernetes Service (EKS). Queste istruzioni presuppongono che sia già stato creato un cluster EKS privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l&#8217;accesso a cluster EKS privati, fare riferimento a. <a href="https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html" target="_blank" rel="noopener">"Documentazione Amazon EKS"</a>.</p>
 </div>
 </div>
 </div>
@@ -1291,7 +1348,26 @@
 <p>Generare un token API Astra Control seguendo le istruzioni contenute in <a href="https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html" target="_blank" rel="noopener">"Documentazione di Astra Automation"</a>.</p>
 </li>
 <li>
-<p>Modificare il file di configurazione di esempio nella directory config/samples del repository dell&#8217;operatore di Astra Connector per includere <code>spec.natssync-client.cloud-bridge-url</code> chiave. Ad esempio:</p>
+<p>Modificare il file di configurazione di esempio nella directory config/samples del repository dell&#8217;operatore Astra Connector in modo da includere i valori specifici dell&#8217;ambiente per le seguenti chiavi:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>spec.natssync-client.cloud-bridge-url</code></p>
+</li>
+<li>
+<p><code>spec.astra.token</code></p>
+</li>
+<li>
+<p><code>spec.astra.clusterName</code></p>
+</li>
+<li>
+<p><code>spec.astra.accountId</code></p>
+<div class="paragraph">
+<p>Ad esempio:</p>
+</div>
+</li>
+</ul>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre>apiVersion: netapp.astraconnector.com/v1
@@ -1334,7 +1410,7 @@ spec:
 </div>
 </div>
 <div class="paragraph">
-<p>Si consiglia di fare riferimento a un output simile a quanto segue:</p>
+<p>L&#8217;output dovrebbe essere simile a quanto segue:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1351,17 +1427,7 @@ astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19</code></pre>
 <h2 id="configurare-lo-storage-persistente">Configurare lo storage persistente</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Configurare lo storage persistente per il cluster. È possibile utilizzare dischi gestiti da Azure NetApp Files o Azure. Per ulteriori informazioni sulla configurazione di Azure con le seguenti opzioni, consultare la documentazione introduttiva:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html">"Configurare Microsoft Azure con Azure NetApp Files"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-amd.html">"Configurare Microsoft Azure con dischi gestiti Azure"</a></p>
-</li>
-</ul>
+<p>Configurare lo storage persistente per il cluster. Fare riferimento alla documentazione introduttiva per ulteriori informazioni sulla configurazione dello storage persistente:</p>
 </div>
 </div>
 </div>

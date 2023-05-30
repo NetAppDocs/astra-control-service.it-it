@@ -15,7 +15,7 @@
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/get-started/add-first-cluster.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
@@ -55,16 +55,23 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/it-it/astra-control-service/get-started/check-astra-trident-version.html</loc>
+      
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/learn/choose-class-and-size.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/use/clone-apps.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
@@ -72,6 +79,13 @@
       <loc>https://docs.netapp.com/it-it/astra-control-service/use/close-account.html</loc>
       
       <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/it-it/astra-control-service/get-started/create-kubeconfig.html</loc>
+      
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
@@ -183,7 +197,7 @@
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/get-started/manage-private-cluster.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
@@ -246,14 +260,14 @@
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/use/restore-apps.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service//search.html</loc>
       
-      <lastmod>2023-05-24T08:13:25+00:00</lastmod>
+      <lastmod>2023-05-30T21:27:02+00:00</lastmod>
       
     </url>
   
@@ -267,14 +281,14 @@
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/use/set-up-billing.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/get-started/set-up-google-cloud.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   
@@ -351,7 +365,7 @@
     <url>
       <loc>https://docs.netapp.com/it-it/astra-control-service/release-notes/whats-new.html</loc>
       
-      <lastmod>2023-05-23T12:24:55+00:00</lastmod>
+      <lastmod>2023-05-30T21:26:47+00:00</lastmod>
       
     </url>
   

@@ -467,6 +467,31 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/astra-control-service/pdfs/gcp/sidebar/Gestire_i_cluster.pdf" 
+            
+          >
+            <img src="/it-it/astra-control-service/images/pdf.png" alt="" width="16" height="16"/>
+            Gestire i cluster
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
 
 
 
@@ -816,10 +841,33 @@
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Gestire i cluster"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/it-it/astra-control-service/gcp/get-started/add-first-cluster.html">
+        <div class="na-navbar-padding"> Gestire i cluster</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Controllare la versione di Astra Trident"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/gcp/get-started/check-astra-trident-version.html">
+        Controllare la versione di Astra Trident
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare un file kubeconfig per il ruolo di amministratore del cluster"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/gcp/get-started/create-kubeconfig.html">
+        Creare un file kubeconfig per il ruolo di amministratore del cluster
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestire cluster privati"
       data-li-level="2#" 
       class=" "
-    ><a class="na-navbar-padding" href="/it-it/astra-control-service/gcp/get-started/add-first-cluster.html">
-        Gestire i cluster
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/gcp/get-started/manage-private-cluster.html">
+        Gestire cluster privati
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Quali sono le prossime novità?"
@@ -1176,7 +1224,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 12:24:55 +0000">05/23/2023</time>
+    <time datetime="2023-05-30 21:26:47 +0000">05/30/2023</time>
     
   
 
@@ -1367,6 +1415,10 @@ Se non si inizia a utilizzare Google Cloud Volumes Service per Google Cloud come
 <dt class="hdlist1">Modalità operativa per un cluster GKE</dt>
 <dd>
 <p>Si consiglia di utilizzare la modalità operativa standard. La modalità Autopilot non è stata testata al momento. <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#modes" target="_blank" rel="noopener">"Scopri di più sulle modalità operative"</a>.</p>
+</dd>
+<dt class="hdlist1">Pool di storage</dt>
+<dd>
+<p>Se si utilizza NetApp Cloud Volumes Service come backend di storage con il tipo di servizio CVS, è necessario configurare i pool di storage prima di poter eseguire il provisioning dei volumi. Fare riferimento a. <a href="../learn/choose-class-and-size.html#overview" target="_blank" rel="noopener">"Tipo di servizio, classi di storage e dimensione PV per cluster GKE"</a> per ulteriori informazioni.</p>
 </dd>
 </dl>
 </div>
