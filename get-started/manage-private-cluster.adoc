@@ -12,11 +12,19 @@ summary: 'Dopo aver configurato l"ambiente, è possibile creare un cluster Kuber
 
 
 [role="lead"]
+Puoi utilizzare Astra Control Service per gestire cluster privati Azure Kubernetes Service (AKS) e Red Hat OpenShift in AKS. Queste istruzioni presuppongono che sia già stato creato un cluster AKS o OpenShift privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l'accesso a cluster AKS o OpenShift privati, fare riferimento alla seguente documentazione:
+
+* https://docs.microsoft.com/azure/aks/private-clusters["Documentazione di Azure per cluster AKS privati"^]
+* https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x["Documentazione di Azure per cluster OpenShift privati"^]
+
+
 Puoi utilizzare Astra Control Service per gestire cluster privati Azure Kubernetes Service (AKS) e cluster privati Red Hat OpenShift in AKS. Queste istruzioni presuppongono che sia già stato creato un cluster AKS o OpenShift privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l'accesso a cluster AKS o OpenShift privati, fare riferimento alla seguente documentazione:
 
 * https://docs.microsoft.com/azure/aks/private-clusters["Documentazione di Azure per cluster AKS privati"^]
 * https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x["Documentazione di Azure per cluster OpenShift privati"^]
 
+
+Puoi utilizzare Astra Control Service per gestire cluster privati Amazon Elastic Kubernetes Service (EKS). Queste istruzioni presuppongono che sia già stato creato un cluster EKS privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l'accesso a cluster EKS privati, fare riferimento a. https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html["Documentazione Amazon EKS"^].
 
 
 
@@ -51,7 +59,15 @@ kubectl apply -f astraconnector_operator.yaml -n astra-connector-operator
 kubectl create ns astra-connector
 ----
 . Generare un token API Astra Control seguendo le istruzioni contenute in https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Documentazione di Astra Automation"^].
-. Modificare il file di configurazione di esempio nella directory config/samples del repository dell'operatore di Astra Connector per includere `spec.natssync-client.cloud-bridge-url` chiave. Ad esempio:
+. Modificare il file di configurazione di esempio nella directory config/samples del repository dell'operatore Astra Connector in modo da includere i valori specifici dell'ambiente per le seguenti chiavi:
++
+** `spec.natssync-client.cloud-bridge-url`
+** `spec.astra.token`
+** `spec.astra.clusterName`
+** `spec.astra.accountId`
++
+Ad esempio:
+
 +
 [listing]
 ----
@@ -77,6 +93,8 @@ spec:
     accountId: <Astra Control account id>
     acceptEULA: yes
 ----
+
+
 . Applicare il CRD (Custom Resource Definition) di Astra Connector.
 +
 [source, console]
@@ -90,7 +108,7 @@ kubectl apply -f config/samples/astraconnector_v1.yaml -n astra-connector
 kubectl get astraconnector astra-connector -n astra-connector
 ----
 +
-Si consiglia di fare riferimento a un output simile a quanto segue:
+L'output dovrebbe essere simile a quanto segue:
 
 +
 [source, console]
@@ -104,11 +122,7 @@ astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19
 
 == Configurare lo storage persistente
 
-Configurare lo storage persistente per il cluster. È possibile utilizzare dischi gestiti da Azure NetApp Files o Azure. Per ulteriori informazioni sulla configurazione di Azure con le seguenti opzioni, consultare la documentazione introduttiva:
-
-* https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html["Configurare Microsoft Azure con Azure NetApp Files"]
-* https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-amd.html["Configurare Microsoft Azure con dischi gestiti Azure"]
-
+Configurare lo storage persistente per il cluster. Fare riferimento alla documentazione introduttiva per ulteriori informazioni sulla configurazione dello storage persistente:
 
 
 

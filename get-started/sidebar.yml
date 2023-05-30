@@ -26,8 +26,12 @@ entries:
   url: "/get-started/register.html"
 - title: Gestire i cluster
   url: "/get-started/add-first-cluster.html"
+  entries:
+  - title: Controllare la versione di Astra Trident
+    url: "/get-started/check-astra-trident-version.html"
+  - title: Creare un file kubeconfig per il ruolo di amministratore del cluster
+    url: "/get-started/create-kubeconfig.html"
 - title: Gestire cluster privati
-  flavor: azure
   url: "/get-started/manage-private-cluster.html"
 - title: Quali sono le prossime novità?
   url: "/get-started/whats-next.html"

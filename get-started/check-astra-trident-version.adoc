@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: get-started/check-astra-trident-version.html 
+keywords: astra trident, check, version 
+summary: Per i cluster autogestiti, potrebbe essere necessario assicurarsi di utilizzare la versione corretta di Astra Trident. 
+---
+= Controllare la versione di Astra Trident
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Per aggiungere un cluster a gestione automatica che utilizza Astra Trident per i servizi storage, assicurarsi che la versione installata di Astra Trident sia la più recente.
+
+.Fasi
+. Controllare la versione di Astra Trident.
++
+[source, console]
+----
+kubectl get tridentversions -n trident
+----
++
+Se Astra Trident è installato, viene visualizzato un output simile a quanto segue:
+
++
+[listing]
+----
+NAME      VERSION
+trident   22.10.0
+----
++
+Se Astra Trident non è installato, viene visualizzato un output simile a quanto segue:
+
++
+[listing]
+----
+error: the server doesn't have a resource type "tridentversions"
+----
++
+
+NOTE: Se Astra Trident non è installato o non è aggiornato e si desidera che il cluster utilizzi Astra Trident per i servizi di storage, è necessario installare l'ultima versione di Astra Trident prima di procedere. Fare riferimento a. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Documentazione di Astra Trident"^] per istruzioni.
+
+. Assicurarsi che i pod siano in funzione:
++
+[source, console]
+----
+kubectl get pods -n trident
+----
+. Controllare se le classi di storage utilizzano i driver Astra Trident supportati. Il nome del provider deve essere `csi.trident.netapp.io`. Fare riferimento al seguente esempio:
++
+[source, console]
+----
+kubectl get sc
+----
++
+Esempio di risposta:
+
++
+[listing]
+----
+NAME                   PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+ontap-gold (default)   csi.trident.netapp.io          Delete          Immediate           true                   5d23h
+----
+

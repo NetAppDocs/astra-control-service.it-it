@@ -511,14 +511,9 @@
   <block id="48812784c9e7b02bc76402c5a0c3ca10" category="list-text">Creare uno spazio dei nomi per i componenti del cluster privato.</block>
   <block id="e36d851dc2ff79e16c7cfbbb4e4fbe97" category="inline-link">Documentazione di Astra Automation</block>
   <block id="e9c498c38ce73fcff282ff152abd7d47" category="list-text">Generare un token API Astra Control seguendo le istruzioni contenute in<block ref="c02899be0babfb1350e3b2576a6e8c97" category="inline-link-rx"></block>.</block>
-  <block id="fe81019bf8ba8d2ac0185cd8a4af1faa" category="list-text">Modificare il file di configurazione di esempio nella directory config/samples del repository dell'operatore di Astra Connector per includere<block ref="ee45b718b9170963d4b014935dcf1f92" prefix=" " category="inline-code"></block> chiave. Ad esempio:</block>
   <block id="f831baeb7ae8c560addc2916d8b1096e" category="list-text">Applicare il CRD (Custom Resource Definition) di Astra Connector.</block>
   <block id="138db2318815f6b9fc7cc55dd6a6ad32" category="list-text">Controllare lo stato del connettore Astra.</block>
-  <block id="6a1ee7a7d4b8f2fc793568f158af438f" category="paragraph">Si consiglia di fare riferimento a un output simile a quanto segue:</block>
   <block id="61ddd26ba79b5e63c1e52be1beb28889" category="section-title">Configurare lo storage persistente</block>
-  <block id="2497006a3d717fa05f4253255b4682d2" category="paragraph">Configurare lo storage persistente per il cluster. È possibile utilizzare dischi gestiti da Azure NetApp Files o Azure. Per ulteriori informazioni sulla configurazione di Azure con le seguenti opzioni, consultare la documentazione introduttiva:</block>
-  <block id="395e3e6bfbbde5a5e2d5c7679dcc81e9" category="list-text"><block ref="395e3e6bfbbde5a5e2d5c7679dcc81e9" category="inline-link-rx"></block></block>
-  <block id="19d863b4572c9f53c276383bbf2540e0" category="list-text"><block ref="19d863b4572c9f53c276383bbf2540e0" category="inline-link-rx"></block></block>
   <block id="1cef3f8b6a3670bf3c09d6cab3c3c3d1" category="section-title">Aggiungere il cluster privato ad Astra Control Service</block>
   <block id="ed22187ccd9f4d7245c81d9a6c00b947" category="paragraph">È ora possibile aggiungere il cluster privato ad Astra Control Service. Seguire il flusso di lavoro standard per aggiungere un cluster ad Astra Control Service:<block ref="240044c611ecbc1dfa48c963d44f13ca" category="inline-link-rx"></block>.</block>
   <block id="dd8bffb9f01b6b0228b1dd2776302148" category="summary">Sono necessari alcuni passaggi per preparare il tuo progetto Google Cloud prima di poter gestire i cluster di Google Kubernetes Engine con Astra Control Service.</block>
@@ -683,21 +678,14 @@
   <block id="58585810a4337be95bcfebedb828d056" category="list-text">Il cluster deve essere accessibile via Internet.</block>
   <block id="285cc7142d57c8f6e6a93562de77e160" category="list-text">Il cluster non può essere ospitato all'interno della rete on-premise; deve essere ospitato in un ambiente di cloud pubblico.</block>
   <block id="834a9cd206312978cd28b32979a72bf7" category="list-text">Se si utilizza o si prevede di utilizzare lo storage abilitato con i driver CSI, i driver CSI appropriati devono essere installati sul cluster. Per ulteriori informazioni sull'utilizzo dei driver CSI per integrare lo storage, consultare la documentazione del servizio di storage.</block>
-  <block id="cac25a8107e0ae4e458a81d1cd3dc8d2" category="list-text">Se si utilizza o si intende utilizzare lo storage NetApp, assicurarsi di aver installato la versione più recente di Astra Trident:</block>
   <block id="f658d356d0697be75622e7d5d6d94798" category="inline-link">Implementare Astra Trident</block>
   <block id="e9f0d7eb2b9e30339763cb7819bdf45e" category="inline-link">frontend, backend e configurazioni host supportati</block>
   <block id="3c172a48713bf18882de70235bb9b4ee" category="admonition">È possibile<block ref="ec89e21f8106b8624273185ce464dfb2" category="inline-link-rx"></block> Utilizzando l'operatore Trident (manualmente o utilizzando la mappa Helm) o.<block ref="c67fd1b99934afa248dfeb285a9a4191" prefix=" " category="inline-code"></block>. Prima di installare o aggiornare Astra Trident, consultare<block ref="c11537a174ec95a098cfff995b6e8b14" category="inline-link-rx"></block>.</block>
   <block id="48e54afcf03ca45bfe38f6b7ff58764a" category="inline-link">configurato</block>
-  <block id="a0129d46679c1e10fbee3d462fc52fa1" category="list-text">*Trident storage backend configurato*: Almeno un backend di storage Astra Trident deve essere<block ref="5225aa45493862e8671db3c546f615ec" category="inline-link-rx"></block> sul cluster.</block>
-  <block id="83dff6768dc3337083f9e61fb96d773b" category="list-text">*Classi di storage Trident configurate*: Deve essere almeno una classe di storage Astra Trident<block ref="56eee92baaddefbebda4bc1d0011f25b" category="inline-link-rx"></block> sul cluster. Se è configurata una classe di storage predefinita, assicurarsi che solo una classe di storage disponga di tale annotazione.</block>
   <block id="73329564760013a7824ff9d5d1af91ff" category="inline-link">installato</block>
   <block id="d5158c215f75d40b3dc3a9efd519b60a" category="inline-link">configurazione</block>
   <block id="6e623f58f3de0088c1a5e9284fd0aba0" category="list-text">*Astra Trident volume snapshot controller e volume snapshot class installati e configurati*: Il volume snapshot controller deve essere<block ref="8c0af001953d4be1cc072658538e955b" category="inline-link-rx"></block> In modo che le snapshot possano essere create in Astra Control. Almeno un tridente Astra<block ref="19476662cd814e0aa085eca121de89b8" prefix=" " category="inline-code"></block> lo è stato<block ref="75fbdf7a5c036fb3ab281101e48530be" category="inline-link-rx"></block> da un amministratore.</block>
-  <block id="9d9542e5b4db9b70118c8d71a180a912" category="inline-xref">configurazione del cluster</block>
-  <block id="1aec847a00d9758f901c82fc829ba738" category="list-text">*Kubbeconfig accessibile*: Hai accesso a. <block ref="5c481c89be9c4fdcaa80bfd3c3829692" category="inline-xref-macro-rx"></block> che include un solo elemento di contesto.</block>
   <block id="cf6c596a44d2e4c76a3a7da085c47495" category="list-text">*Solo Rancher*: Quando si gestiscono i cluster di applicazioni in un ambiente Rancher, modificare il contesto predefinito del cluster di applicazioni nel file kubeconfig fornito da Rancher per utilizzare un contesto del piano di controllo invece del contesto del server API Rancher. In questo modo si riduce il carico sul server API Rancher e si migliorano le performance.</block>
-  <block id="f18a26b9b45443052e0fe2464848258b" category="paragraph-title">(Facoltativo) selezionare la versione di Astra Trident</block>
-  <block id="2ed51f16f28e4dd32dfd5df75788423d" category="paragraph">Se il cluster utilizza Astra Trident per i servizi storage, assicurarsi che la versione installata di Astra Trident sia la più recente.</block>
   <block id="617eb1530b145e1d6b1e3a0d2ec1478d" category="list-text">Controllare la versione di Astra Trident.</block>
   <block id="296a853ce5b2af1089a92d18fb98dbf2" category="paragraph">Se Astra Trident è installato, viene visualizzato un output simile a quanto segue:</block>
   <block id="ffcc0feca3c8cd069d4965c88a5c1ebb" category="paragraph">Se Astra Trident non è installato, viene visualizzato un output simile a quanto segue:</block>
@@ -705,7 +693,6 @@
   <block id="6c8bc25bbb383bdd569b3a8b67462c4a" category="list-text">Assicurarsi che i pod siano in funzione:</block>
   <block id="ceb1396f571b46844bfc0042be1d74da" category="list-text">Controllare se le classi di storage utilizzano i driver Astra Trident supportati. Il nome del provider deve essere<block ref="08044207e9f63bb0fd474dab347a776c" prefix=" " category="inline-code"></block>. Fare riferimento al seguente esempio:</block>
   <block id="6d55356ca8cb9b27cfa6e2bb46ebb089" category="paragraph">Esempio di risposta:</block>
-  <block id="1a6b6e95b95a8e0de09a6566562ea376" category="paragraph-title">Creare un kubeconfig con ruolo di amministratore (valido per i cluster che eseguono Rancher, OpenShift e Kubernetes upstream)</block>
   <block id="7e4e5121275b933eab9a9d5689c80875" category="paragraph">Prima di eseguire la procedura, assicurarsi di disporre dei seguenti elementi sul computer:</block>
   <block id="f6ca4dc4443aea5e0b0f91e229709c7c" category="list-text">kubectl v1.19 o versione successiva installata</block>
   <block id="ee6257954c2f973cd54453583dc792ca" category="list-text">Un kubeconfig attivo con diritti di amministratore del cluster per il contesto attivo</block>
@@ -941,7 +928,6 @@
   <block id="73b2ad293eda73ca2acff9008e7ac0e8" category="list-text"><block ref="73b2ad293eda73ca2acff9008e7ac0e8" category="inline-link-macro-rx"></block></block>
   <block id="bd5cde8fc544622a3633d73962bcd705" category="summary">Il servizio di controllo Astra utilizza Cloud Volumes Service per Google Cloud come back-end dello storage per i volumi persistenti. Devi capire come scegliere un livello di servizio, una classe di storage e una dimensione del volume persistente possono aiutarti a raggiungere i tuoi obiettivi di performance.</block>
   <block id="afd5c3412d8aaa89e4ade2ddff8cac9b" category="doc">Tipo di servizio, classi di storage e dimensione PV per cluster GKE</block>
-  <block id="6bab6ac71f743f37f154b7b0219c56a8" category="paragraph">Il servizio di controllo Astra supporta Cloud Volumes Service per Google Cloud, Google Persistent Disk o NetApp Cloud Volumes ONTAP come opzioni di back-end dello storage per i volumi persistenti.</block>
   <block id="2cafdb551953c7afd397b12eee1ce505" category="paragraph">Il servizio di controllo Astra può utilizzare Cloud Volumes Service per Google Cloud come back-end dello storage per i volumi persistenti. Devi capire come scegliere un tipo di servizio, una classe di storage e una dimensione del volume persistente possono aiutarti a raggiungere i tuoi obiettivi di performance.</block>
   <block id="244763a8bcf1786e84650aa8b0aeeb25" category="paragraph">Cloud Volumes Service per Google Cloud offre due tipi di servizi: _CVS_ e _CVS-Performance_. Questi tipi di servizio sono supportati in aree specifiche di Google Cloud.<block ref="6fccf359b538aaaeb2b6ee13ea815763" category="inline-link-rx"></block> Per identificare il tipo di servizio supportato nell'area di Google Cloud in cui risiedono i cluster.</block>
   <block id="d3f5696e3e2a02aef97b3ec088f9f1bb" category="paragraph">Se i cluster Kubernetes devono risiedere in una regione specifica, verrà utilizzato il tipo di servizio supportato in tale regione.</block>
@@ -1382,8 +1368,6 @@
   <block id="e426491368911ddd627b7404e37bfba5" category="section-title">Iscriviti a Astra Control Service in AWS Marketplace</block>
   <block id="72496bd39fd9ae39a72c45e51248b6ab" category="paragraph">Puoi iscriverti ad Astra Control Service utilizzando AWS Marketplace. Il tuo account e i dati di fatturazione vengono gestiti tramite Marketplace.</block>
   <block id="cab27dc53edb571cac663ce2e16450dc" category="inline-link">Mercato AWS</block>
-  <block id="4e0cb716824c5bbf10b6615c5ec77360" category="list-text">Accedere alla<block ref="90a631d717728c768cce45f0f9d8f736" category="inline-link-rx"></block>.</block>
-  <block id="9afef6b2e6bfae3c1516f6a5615e147a" category="list-text">Selezionare *continua per iscriversi*.</block>
   <block id="91038e0679273c26bc019c15bd0d5c26" category="section-title">Iscriviti ad Astra Control Service direttamente con NetApp</block>
   <block id="a08810c868c50b2d6d63acd21453e57e" category="paragraph">Puoi iscriverti ad Astra Control Service dall'interfaccia utente di Astra Control Service o contattando NetApp Sales.</block>
   <block id="f214bd90b585df0c59897b6bec394d75" category="section-title">Passa dal piano gratuito al piano Premium PayGo</block>
@@ -2010,7 +1994,6 @@
   <block id="90d21d98503ddae05ddf0a1a34b7d790" category="list-text">*Ripristina gli spazi dei nomi originali*: Utilizzare questa procedura per ripristinare l'applicazione sul posto nel cluster originale.</block>
   <block id="fb43cf9ce5f31c6de66316a29725099b" category="list-text">Seleziona lo snapshot o il backup da utilizzare per ripristinare l'applicazione in-place, che ripristina l'applicazione a una versione precedente di se stessa.</block>
   <block id="f2ab44c105acc97c54a227f6c52ad099" category="admonition">Se si ripristina uno spazio dei nomi precedentemente cancellato, viene creato un nuovo spazio dei nomi con lo stesso nome come parte del processo di ripristino. Tutti gli utenti che disponevano dei diritti per gestire le applicazioni nello spazio dei nomi precedentemente cancellato devono ripristinare manualmente i diritti nello spazio dei nomi appena ricreato.</block>
-  <block id="440c25a54f1d6be365d93551da3bc3f9" category="list-text">*Ripristina nuovi spazi dei nomi*: Utilizzare questa procedura per ripristinare l'applicazione in un altro cluster o con spazi dei nomi diversi dall'origine.</block>
   <block id="45e20b859ef908c43b3e94787a84c70c" category="list-text">Specificare il nome dell'applicazione ripristinata.</block>
   <block id="5ffc80657fe4c0bd046f794a0b287613" category="list-text">Scegliere il cluster di destinazione per l'applicazione che si desidera ripristinare.</block>
   <block id="2e9b30622dd6f4053fb1f81819061361" category="list-text">Immettere uno spazio dei nomi di destinazione per ogni spazio dei nomi di origine associato all'applicazione.</block>
@@ -2132,4 +2115,47 @@
   <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
   <block id="b010c7530103ef9947582474d65ff9a3" category="paragraph">ifdef::azure[]</block>
   <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
+  <block id="3865e2c640ef43dc8b6cdde8577fdae3" category="summary">Per i cluster autogestiti, potrebbe essere necessario assicurarsi di utilizzare la versione corretta di Astra Trident.</block>
+  <block id="c58984b36e9505bff0dfa89bc0d17033" category="doc">Controllare la versione di Astra Trident</block>
+  <block id="190b68a154719afc372800ea3a0b1df0" category="paragraph">Per aggiungere un cluster a gestione automatica che utilizza Astra Trident per i servizi storage, assicurarsi che la versione installata di Astra Trident sia la più recente.</block>
+  <block id="03ae56ea52e1d5c8f0588d85da03b245" category="paragraph">Puoi utilizzare Astra Control Service per gestire cluster privati Azure Kubernetes Service (AKS) e Red Hat OpenShift in AKS. Queste istruzioni presuppongono che sia già stato creato un cluster AKS o OpenShift privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l'accesso a cluster AKS o OpenShift privati, fare riferimento alla seguente documentazione:</block>
+  <block id="e35275b4b4a62199b607326f4cc2e619" category="inline-link">Documentazione Amazon EKS</block>
+  <block id="e0ab955e38e9d09e11bb4ce661de116e" category="paragraph">Puoi utilizzare Astra Control Service per gestire cluster privati Amazon Elastic Kubernetes Service (EKS). Queste istruzioni presuppongono che sia già stato creato un cluster EKS privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l'accesso a cluster EKS privati, fare riferimento a.<block ref="25cfe69edfa7c63ce11681ed9b1756b6" category="inline-link-rx"></block>.</block>
+  <block id="74b1e5c348a848bb4ce21d77b42cc99d" category="list-text">Modificare il file di configurazione di esempio nella directory config/samples del repository dell'operatore Astra Connector in modo da includere i valori specifici dell'ambiente per le seguenti chiavi:</block>
+  <block id="68be0da5bed11ebd00d3c25f1c35fd33" category="list-text"><block ref="ee45b718b9170963d4b014935dcf1f92" prefix="" category="inline-code"></block></block>
+  <block id="706df4873c9abebfb12bbbce94eea59e" category="list-text"><block ref="e4906094d39f2d4e06b2ae62d33a367d" prefix="" category="inline-code"></block></block>
+  <block id="5da0e75e632878ad7543a7a3509a3b72" category="list-text"><block ref="1880aaef19ef807bec19563ae1d07a45" prefix="" category="inline-code"></block></block>
+  <block id="27f514d9b9bd32e1adf37803dc94ee77" category="list-text"><block ref="f5030bbb60417bae3aabe8040f9f6de4" prefix="" category="inline-code"></block></block>
+  <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">Ad esempio:</block>
+  <block id="f30fbd4ef5cb7bea87622409fb60cedc" category="paragraph">Configurare lo storage persistente per il cluster. Fare riferimento alla documentazione introduttiva per ulteriori informazioni sulla configurazione dello storage persistente:</block>
+  <block id="209360388d2327cf0da8f0db9d83d822" category="list-text">Pool di storage</block>
+  <block id="b61e26b74720f596080e0b8b7cc19a51" category="list-text">Se si utilizza NetApp Cloud Volumes Service come backend di storage con il tipo di servizio CVS, è necessario configurare i pool di storage prima di poter eseguire il provisioning dei volumi. Fare riferimento a. <block ref="429770a6434e67b528ee2674b1263f6f" category="inline-link-macro-rx"></block> per ulteriori informazioni.</block>
+  <block id="648076d1ba75a7ad5fece7ac72d037cb" category="list-text">Si ha accesso al file cluster kubeconfig che include un solo elemento di contesto. Segui <block ref="9d8ee3d0d4f5c967db921af26c4c5a7a" category="inline-link-macro-rx"></block> per generare un file kubeconfig di ruolo del cluster di amministrazione.</block>
+  <block id="a70a43b113125b1448d1fcb519d36b91" category="inline-link-macro">verificare che sia la versione più recente</block>
+  <block id="c3c1443d616920fc43d7d7477292d060" category="list-text">*Astra Trident*: Se stai utilizzando o intendi utilizzare lo storage NetApp, assicurati di aver installato l'ultima versione di Astra Trident. Se Astra Trident è già installato, <block ref="331db620f278bf6f4c96acfa252801e6" category="inline-link-macro-rx"></block>.</block>
+  <block id="84333d7ff615717c719381f57406a949" category="list-text">*Astra Trident storage backend configurato*: Almeno un backend di storage Astra Trident deve essere<block ref="5225aa45493862e8671db3c546f615ec" category="inline-link-rx"></block> sul cluster.</block>
+  <block id="0df1bbdefb6c7ab54388f20e615d6ff6" category="list-text">*Classi di storage Astra Trident configurate*: Deve essere almeno una classe di storage Astra Trident<block ref="56eee92baaddefbebda4bc1d0011f25b" category="inline-link-rx"></block> sul cluster. Se è configurata una classe di storage predefinita, assicurarsi che solo una classe di storage disponga di tale annotazione.</block>
+  <block id="eddf0b0c77ced4551605b01f9388baea" category="summary">È necessario creare un file kubeconfig con ruolo di amministratore per i cluster autogestiti.</block>
+  <block id="9dc913e0573023f0b54d8d304c10a592" category="doc">Creare un file kubeconfig per il ruolo di amministratore del cluster</block>
+  <block id="8737bd0c30a0b2e2c8127074a8e8ff3b" category="paragraph">Per aggiungere un cluster a gestione automatica, è necessario creare un file kubeconfig per il ruolo di amministratore del cluster.</block>
+  <block id="ddc9715607fb981646b02ffaaae9d35b" category="section-title">Crea un file kubeconfig per i cluster Rancher, Kubernetes upstream e Red Hat OpenShift</block>
+  <block id="bacde2d5f8907c39cfce03260081b849" category="section-title">Creare un file kubeconfig per i cluster Amazon EKS</block>
+  <block id="b54e0018cc383761560c8cea8c440181" category="paragraph">Seguire le istruzioni nella documentazione di Amazon per creare un file kubeconfig per i cluster Amazon EKS:</block>
+  <block id="219018d1a7fc0ccfc7ae0919efd38830" category="inline-link">Creazione o aggiornamento di un file kubeconfig per un cluster Amazon EKS</block>
+  <block id="5efa640818add52a71a9634fe973dd16" category="paragraph"><block ref="5efa640818add52a71a9634fe973dd16" category="inline-link-rx"></block></block>
+  <block id="0f2007d7b4634d1a7885862c6f181b9a" category="paragraph">Il servizio di controllo Astra supporta NetApp Cloud Volumes Service per Google Cloud, Google Persistent Disk o NetApp Cloud Volumes ONTAP come opzioni di back-end dello storage per i volumi persistenti.</block>
+  <block id="2bb207919bf6f4a923276cffca81d5b6" category="inline-link">Documentazione Cloud Volumes Service</block>
+  <block id="f6badf2ea0b8925a32fd7a8939c49d76" category="admonition">Se si utilizza il tipo di servizio CVS con Astra Trident 23.01 o versione successiva, è necessario configurare i pool di storage prima di poter eseguire il provisioning dei volumi. Se si esegue il provisioning di volumi senza pool di storage configurati, il provisioning del volume non avrà esito positivo. Fare riferimento a.<block ref="c8e96960daef0620d62e613312bed1b3" category="inline-link-rx"></block> per ulteriori informazioni sulla creazione di volumi.</block>
+  <block id="fe0e59bea1249a422ae632fb679a3eb4" category="section-title">30 maggio 2023</block>
+  <block id="a3713717b03d2915f6765e05ed6b1408" category="list-text">Supporto per cluster Amazon EKS privati</block>
+  <block id="bc5c44b285a0165e3fe1a37a7fb809b8" category="list-text">Supporto per la selezione della classe di storage di destinazione durante le operazioni di ripristino o clonazione</block>
+  <block id="6b232a7c52529298a8d8659da49a6c55" category="inline-link">Visualizza i piani e i prezzi dei servizi Astra Control in Azure Marketplace</block>
+  <block id="561ecf6f2d051ab4729a8a9277ea7778" category="list-text"><block ref="561ecf6f2d051ab4729a8a9277ea7778" category="inline-link-rx"></block></block>
+  <block id="bcc2e0d21e0f1a00c0be8199d1e80246" category="list-text">Accedere alla<block ref="6f6aa6ec8b4edd29e99f72f87495c932" category="inline-link-rx"></block>.</block>
+  <block id="cc5b03fa4f937c63363767c812feeb34" category="list-text">Selezionare *Visualizza opzioni di acquisto*.</block>
+  <block id="7934395fd856fdc8728077a88a0b2b96" category="list-text">Se richiesto, accedere all'account AWS o creare un nuovo account.</block>
+  <block id="71cebf6cc339e547055d19b1ebb71cfb" category="list-text">*Ripristina nuovi spazi dei nomi*: Utilizzare questa procedura per ripristinare l'applicazione in un altro cluster o con spazi dei nomi diversi dall'origine. È inoltre possibile utilizzare questa procedura per migrare un'applicazione a una classe di storage diversa.</block>
+  <block id="a7a08622ee5c8019b57354b99b7693b2" category="list-text">Scegliere una delle seguenti opzioni:</block>
+  <block id="42f6c62242bb567ac4a309a82717d6e9" category="list-text">*Ripristina utilizzando le classi di storage originali*: L'applicazione utilizza la classe di storage originariamente associata, a meno che non esista nel cluster di destinazione. In questo caso, viene utilizzata la classe di storage predefinita per il cluster.</block>
+  <block id="cc9916e812cf950bc0992213a1e5cc57" category="list-text">*Ripristinare utilizzando una classe di storage diversa*: Selezionare una classe di storage esistente nel cluster di destinazione. Tutti i volumi delle applicazioni, indipendentemente dalle classi di storage originariamente associate, verranno migrati in questa diversa classe di storage come parte del ripristino.</block>
 </blocks>

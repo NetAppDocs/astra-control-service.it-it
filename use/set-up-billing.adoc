@@ -71,6 +71,7 @@ Quando gestisci i cluster AKS con il servizio di controllo Astra, i volumi persi
 
 * https://azure.microsoft.com/en-us/pricing/details/netapp["Visualizza i dettagli dei prezzi per Azure NetApp Files"^].
 * https://azure.microsoft.com/en-us/pricing/details/storage/blobs["Visualizza i dettagli sui prezzi per lo storage Microsoft Azure Blob"^].
+* https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-astra-acs?tab=PlansAndPrice["Visualizza i piani e i prezzi dei servizi Astra Control in Azure Marketplace"]
 
 
 endif::azure[]
@@ -110,8 +111,9 @@ NOTE: Per visualizzare una panoramica video della procedura di abbonamento a Azu
 Puoi iscriverti ad Astra Control Service utilizzando AWS Marketplace. Il tuo account e i dati di fatturazione vengono gestiti tramite Marketplace.
 
 .Fasi
-. Accedere alla https://aws.amazon.com/marketplace/["Mercato AWS"^].
-. Selezionare *continua per iscriversi*.
+. Accedere alla https://aws.amazon.com/marketplace/pp/prodview-auupmqjoq43ey?sr=0-1&ref_=beagle&applicationId=AWSMPContessa["Mercato AWS"^].
+. Selezionare *Visualizza opzioni di acquisto*.
+. Se richiesto, accedere all'account AWS o creare un nuovo account.
 . Seguire le istruzioni per iscriversi a un piano.
 
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/restore-apps.html 
-keywords: restore app, restoring an app, restore an app, restore, migrate nas-economy 
+keywords: restore app, restoring an app, restore an app, restore, migrate storage class 
 summary: 'Astra Control può ripristinare la configurazione dell"applicazione e lo storage persistente da uno snapshot o da un backup. I backup persistenti dello storage vengono trasferiti dall"archivio di oggetti, pertanto il ripristino da un backup esistente verrà completato più rapidamente.' 
 ---
 = Ripristinare le applicazioni
@@ -43,7 +43,7 @@ NOTE: Se si ripristina uno spazio dei nomi precedentemente cancellato, viene cre
 
 
 
-** *Ripristina nuovi spazi dei nomi*: Utilizzare questa procedura per ripristinare l'applicazione in un altro cluster o con spazi dei nomi diversi dall'origine.
+** *Ripristina nuovi spazi dei nomi*: Utilizzare questa procedura per ripristinare l'applicazione in un altro cluster o con spazi dei nomi diversi dall'origine. È inoltre possibile utilizzare questa procedura per migrare un'applicazione a una classe di storage diversa.
 +
 ... Specificare il nome dell'applicazione ripristinata.
 ... Scegliere il cluster di destinazione per l'applicazione che si desidera ripristinare.
@@ -54,6 +54,13 @@ NOTE: Astra Control crea nuovi spazi dei nomi di destinazione come parte di ques
 
 ... Selezionare *Avanti*.
 ... Selezionare lo snapshot o il backup da utilizzare per ripristinare l'applicazione.
+... Selezionare *Avanti*.
+... Scegliere una delle seguenti opzioni:
++
+**** *Ripristina utilizzando le classi di storage originali*: L'applicazione utilizza la classe di storage originariamente associata, a meno che non esista nel cluster di destinazione. In questo caso, viene utilizzata la classe di storage predefinita per il cluster.
+**** *Ripristinare utilizzando una classe di storage diversa*: Selezionare una classe di storage esistente nel cluster di destinazione. Tutti i volumi delle applicazioni, indipendentemente dalle classi di storage originariamente associate, verranno migrati in questa diversa classe di storage come parte del ripristino.
+
+
 ... Selezionare *Avanti*.
 
 
