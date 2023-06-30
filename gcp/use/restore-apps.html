@@ -83,7 +83,7 @@
       head.appendChild(onetrustScript);
     }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
     addAdobeLaunch("launch-e9ff3acac59f");
-    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+    addGoogleAnalytics("G-KYN6T440WN");function OptanonWrapper() { }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -1224,7 +1224,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-06-27 15:25:52 +0000">06/27/2023</time>
+    <time datetime="2023-06-30 15:45:52 +0000">06/30/2023</time>
     
   
 
@@ -1258,7 +1258,7 @@ Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione che vie
 <p><strong>Proteggi prima le tue applicazioni</strong>: Ti consigliamo vivamente di creare un&#8217;istantanea o un backup dell&#8217;applicazione prima di ripristinarla. In questo modo, è possibile clonare lo snapshot o il backup nel caso in cui il ripristino non abbia esito positivo.</p>
 </li>
 <li>
-<p><strong>Check destination Volumes</strong> (Controlla volumi di destinazione): Se si esegue il ripristino in una classe di storage diversa, assicurarsi che la classe di storage utilizzi la stessa modalità di accesso al volume persistente (ad esempio ReadWriteMany). L&#8217;operazione di ripristino non riesce se la modalità di accesso al volume persistente di destinazione è diversa.</p>
+<p><strong>Check destination Volumes</strong> (Controlla volumi di destinazione): Se si esegue il ripristino in una classe di storage diversa, assicurarsi che la classe di storage utilizzi la stessa modalità di accesso al volume persistente (ad esempio ReadWriteMany). L&#8217;operazione di ripristino non riesce se la modalità di accesso al volume persistente di destinazione è diversa. Ad esempio, se il volume persistente di origine utilizza la modalità di accesso RWX, selezionare una classe di storage di destinazione che non è in grado di fornire RWX, come Azure Managed Disks, AWS EBS, Google Persistent Disk o. <code>ontap-san</code>, causa l&#8217;errore dell&#8217;operazione di ripristino. Per ulteriori informazioni sulle modalità di accesso al volume persistente, fare riferimento a. <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes" target="_blank" rel="noopener">"Kubernetes"</a> documentazione.</p>
 </li>
 <li>
 <p><strong>Pianificare le esigenze di spazio</strong>: Quando si esegue un ripristino in-place di un&#8217;applicazione che utilizza lo storage NetApp ONTAP, lo spazio utilizzato dall&#8217;applicazione ripristinata può raddoppiare. Dopo aver eseguito un ripristino in-place, rimuovere eventuali snapshot indesiderati dall&#8217;applicazione ripristinata per liberare spazio di storage.</p>

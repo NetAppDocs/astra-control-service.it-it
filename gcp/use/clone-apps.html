@@ -83,7 +83,7 @@
       head.appendChild(onetrustScript);
     }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
     addAdobeLaunch("launch-e9ff3acac59f");
-    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+    addGoogleAnalytics("G-KYN6T440WN");function OptanonWrapper() { }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -1224,7 +1224,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-30 21:26:47 +0000">05/30/2023</time>
+    <time datetime="2023-06-30 15:45:52 +0000">06/30/2023</time>
     
   
 
@@ -1255,6 +1255,9 @@ Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione che vie
 <div class="ulist">
 <div class="title">Prima di iniziare</div>
 <ul>
+<li>
+<p><strong>Check destination Volumes</strong> (Controlla volumi di destinazione): Se si esegue la clonazione in una classe di storage diversa, assicurarsi che la classe di storage utilizzi la stessa modalità di accesso al volume persistente (ad esempio ReadWriteMany). L&#8217;operazione di clonazione non riesce se la modalità di accesso al volume persistente di destinazione è diversa. Ad esempio, se il volume persistente di origine utilizza la modalità di accesso RWX, selezionare una classe di storage di destinazione che non è in grado di fornire RWX, come Azure Managed Disks, AWS EBS, Google Persistent Disk o. <code>ontap-san</code>, causerà l&#8217;errore dell&#8217;operazione di clonazione. Per ulteriori informazioni sulle modalità di accesso al volume persistente, fare riferimento a. <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes" target="_blank" rel="noopener">"Kubernetes"</a> documentazione.</p>
+</li>
 <li>
 <p>Per clonare le applicazioni in un cluster diverso, è necessario assicurarsi di aver assegnato un bucket predefinito per l&#8217;istanza cloud contenente il cluster di origine. Se l&#8217;istanza del cloud di origine non ha un bucket predefinito impostato, l&#8217;operazione di cloni tra cluster avrà esito negativo.</p>
 </li>
