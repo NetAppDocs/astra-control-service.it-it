@@ -1,0 +1,253 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-public-self-managed-cluster.html 
+keywords: discover cluster, add cluster, add kubernetes cluster, discover kubernetes cluster, add cluster 
+summary: 'Dopo aver configurato l"ambiente, è possibile creare un cluster Kubernetes e aggiungerlo ad Astra Control Service.' 
+---
+= Aggiungere un cluster pubblico autogestato ad Astra Control Service
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Dopo aver configurato l'ambiente, è possibile creare un cluster Kubernetes e aggiungerlo ad Astra Control Service.
+
+Un cluster a gestione automatica è un cluster che viene direttamente provisioning e gestione. Astra Control Service supporta cluster autogestiti eseguiti in un ambiente di cloud pubblico. È possibile aggiungere un cluster a gestione automatica ad Astra Control Service caricando un `kubeconfig.yaml` file. È necessario assicurarsi che il cluster soddisfi i requisiti descritti di seguito.
+
+
+
+== Distribuzioni Kubernetes supportate
+
+È possibile utilizzare Astra Control Service per gestire i seguenti tipi di cluster pubblici e autogestati:
+
+|===
+| Distribuzione Kubernetes | Versioni supportate 
+
+
+| Azure Kubernetes Service su Azure Stack HCI | Azure Stack HCI 21H2 e 22H2 con AKS 1.23 e 1.24 
+
+
+| Google anthos | da 1.12 a 1.14 
+
+
+| Kubernetes (upstream) | Da 1.24 a 1.26 (Astra Trident 22.10 o versione successiva è richiesto per Kubernetes 1.25 o versione successiva) 
+
+
+| Rancher Kubernetes Engine (RKE) | RKE 1.3 con Rancher 2.6
+RKE 1.4 con Rancher 2.7
+RKE 2 (v1.23.x) con Rancher 2.6
+RKE 2 (v1.24.x) con Rancher 2.7 
+
+
+| Red Hat OpenShift Container Platform | da 4.10 a 4.12 
+
+
+| Griglia VMware Tanzu Kubernetes | 1.6 
+
+
+| VMware Tanzu Kubernetes Grid Integrated Edition | 1.14 e 1.15 
+|===
+Queste istruzioni presuppongono che sia già stato creato un cluster a gestione automatica.
+
+* <<Aggiungere il cluster ad Astra Control Service>>
+* <<Modificare la classe di storage predefinita>>
+
+
+
+
+== Aggiungere il cluster ad Astra Control Service
+
+Dopo aver effettuato l'accesso ad Astra Control Service, il primo passo è iniziare a gestire i cluster. Prima di aggiungere un cluster ad Astra Control Service, è necessario eseguire attività specifiche e assicurarsi che il cluster soddisfi determinati requisiti.
+
+.Prima di iniziare
+[%collapsible%open]
+====
+Un cluster a gestione automatica è un cluster che viene direttamente provisioning e gestione. Astra Control Service supporta cluster autogestiti eseguiti in un ambiente di cloud pubblico. I cluster a gestione automatica possono utilizzare Astra Trident per interfacciarsi con i servizi di storage NetApp oppure i driver CSI (Container Storage Interface) per interfacciarsi con Amazon Elastic Block Store (EBS), Azure Managed Disks e Google Persistent Disk.
+
+Astra Control Service supporta cluster autogestiti che utilizzano le seguenti distribuzioni Kubernetes:
+
+* Red Hat OpenShift Container Platform
+* Motore di rancher Kubernetes
+* Kubernetes upstream
+
+
+Il cluster a gestione automatica deve soddisfare i seguenti requisiti:
+
+* Il cluster deve essere accessibile via Internet.
+* Il cluster non può essere ospitato all'interno della rete on-premise; deve essere ospitato in un ambiente di cloud pubblico.
+* Se si utilizza o si prevede di utilizzare lo storage abilitato con i driver CSI, i driver CSI appropriati devono essere installati sul cluster. Per ulteriori informazioni sull'utilizzo dei driver CSI per integrare lo storage, consultare la documentazione del servizio di storage.
+* Si ha accesso al file cluster kubeconfig che include un solo elemento di contesto. Segui link:create-kubeconfig.html["queste istruzioni"^] per generare un file kubeconfig.
+* *Solo Rancher*: Quando si gestiscono i cluster di applicazioni in un ambiente Rancher, modificare il contesto predefinito del cluster di applicazioni nel file kubeconfig fornito da Rancher per utilizzare un contesto del piano di controllo invece del contesto del server API Rancher. In questo modo si riduce il carico sul server API Rancher e si migliorano le performance.
+* *Astra Trident*: Se stai utilizzando o intendi utilizzare lo storage NetApp, assicurati di aver installato l'ultima versione di Astra Trident. Se Astra Trident è già installato, link:check-astra-trident-version.html["verificare che sia la versione più recente"^].
++
+
+NOTE: È possibile https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Implementare Astra Trident"^] Utilizzando l'operatore Trident (manualmente o utilizzando la mappa Helm) o. `tridentctl`. Prima di installare o aggiornare Astra Trident, consultare https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["frontend, backend e configurazioni host supportati"^].
+
++
+** *Astra Trident storage backend configurato*: Almeno un backend di storage Astra Trident deve essere https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["configurato"^] sul cluster.
+** *Classi di storage Astra Trident configurate*: Deve essere almeno una classe di storage Astra Trident https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["configurato"^] sul cluster. Se è configurata una classe di storage predefinita, assicurarsi che solo una classe di storage disponga di tale annotazione.
+** *Astra Trident volume snapshot controller e volume snapshot class installati e configurati*: Il volume snapshot controller deve essere https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["installato"^] In modo che le snapshot possano essere create in Astra Control. Almeno un tridente Astra `VolumeSnapshotClass` lo è stato https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["configurazione"^] da un amministratore.
+
+
+
+
+====
+.Fasi
+. Nella dashboard, selezionare *Manage Kubernetes cluster* (Gestisci cluster Kubernetes).
++
+Seguire le istruzioni per aggiungere il cluster.
+
+. *Provider*: Selezionare la scheda *Other* per aggiungere dettagli sul cluster a gestione automatica.
++
+.. *Altro*: Fornisci dettagli sul tuo cluster autogestito caricando un `kubeconfig.yaml` o incollando il contenuto di `kubeconfig.yaml` file dagli appunti.
++
+
+NOTE: Se crei il tuo `kubeconfig` file, è necessario definire solo *un* elemento di contesto al suo interno. Fare riferimento a. https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Documentazione Kubernetes"^] per informazioni sulla creazione `kubeconfig` file.
+
+
+
+. *Nome credenziale*: Fornire un nome per la credenziale del cluster a gestione automatica che si sta caricando su Astra Control. Per impostazione predefinita, il nome della credenziale viene compilato automaticamente come nome del cluster.
+. *Private route identifier*: Questo campo può essere utilizzato solo con cluster privati.
+. Selezionare *Avanti*.
+. (Facoltativo) *Storage*: Facoltativamente, selezionare la classe di storage che si desidera utilizzare per impostazione predefinita per le applicazioni Kubernetes distribuite in questo cluster.
++
+.. Per selezionare una nuova classe di storage predefinita per il cluster, attivare la casella di controllo *Assegna una nuova classe di storage predefinita*.
+.. Selezionare una nuova classe di storage predefinita dall'elenco.
++
+[NOTE]
+====
+Ogni servizio di storage del cloud provider visualizza le seguenti informazioni su prezzo, performance e resilienza:
+
+ifdef::gcp[]
+
+*** Cloud Volumes Service per Google Cloud: Informazioni su prezzi, performance e resilienza
+*** Google Persistent Disk: Non sono disponibili informazioni su prezzi, performance o resilienza
+
+
+endif::gcp[]
+
+ifdef::azure[]
+
+*** Azure NetApp Files: Informazioni su performance e resilienza
+*** Dischi gestiti Azure: Non sono disponibili informazioni su prezzi, performance o resilienza
+
+
+endif::azure[]
+
+ifdef::aws[]
+
+*** Amazon Elastic Block Store: Nessuna informazione su prezzi, performance o resilienza disponibile
+*** Amazon FSX per NetApp ONTAP: Nessuna informazione su prezzi, performance o resilienza disponibile
+
+
+endif::aws[]
+
+*** NetApp Cloud Volumes ONTAP: Non sono disponibili informazioni su prezzi, performance o resilienza
+
+
+====
++
+Ogni classe di storage può utilizzare uno dei seguenti servizi:
+
++
+ifdef::gcp[]
+
++
+*** https://cloud.netapp.com/cloud-volumes-service-for-gcp["Cloud Volumes Service per Google Cloud"^]
+*** https://cloud.google.com/persistent-disk/["Disco persistente di Google"^]
+
+
+
+
+
+
+endif::gcp[]
+
+ifdef::azure[]
+
+* https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files"^]
+* https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview["Dischi gestiti da Azure"^]
+
+
+endif::azure[]
+
+ifdef::aws[]
+
+* https://docs.aws.amazon.com/ebs/["Amazon Elastic Block Store"^]
+* https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html["Amazon FSX per NetApp ONTAP"^]
+
+
+endif::aws[]
+
+* https://www.netapp.com/cloud-services/cloud-volumes-ontap/what-is-cloud-volumes/["NetApp Cloud Volumes ONTAP"^]
++
+Scopri di più link:../learn/aws-storage.html["Classi di storage per cluster Amazon Web Services"]. Scopri di più link:../learn/azure-storage.html["Classi di storage per cluster AKS"]. Scopri di più link:../learn/choose-class-and-size.html["Classi di storage per cluster GKE"].
+
++
+.. Selezionare *Avanti*.
+.. *Review & Approve* (Rivedi e approva): Verifica dei dettagli della configurazione.
+.. Selezionare *Add* per aggiungere il cluster ad Astra Control Service.
+
+
+
+
+
+
+== Modificare la classe di storage predefinita
+
+È possibile modificare la classe di storage predefinita per un cluster.
+
+
+
+=== Modificare la classe di storage predefinita utilizzando Astra Control
+
+È possibile modificare la classe di storage predefinita per un cluster da Astra Control. Se il cluster utilizza un servizio backend di storage precedentemente installato, potrebbe non essere possibile utilizzare questo metodo per modificare la classe di storage predefinita (l'azione *Set as default* non è selezionabile). In questo caso, è possibile <<Modificare la classe di storage predefinita utilizzando la riga di comando>>.
+
+.Fasi
+. Nell'interfaccia utente di Astra Control Service, selezionare *Clusters*.
+. Nella pagina *Clusters*, selezionare il cluster che si desidera modificare.
+. Selezionare la scheda *Storage*.
+. Selezionare la categoria *classi di storage*.
+. Selezionare il menu *azioni* per la classe di storage che si desidera impostare come predefinita.
+. Selezionare *Imposta come predefinito*.
+
+
+
+
+=== Modificare la classe di storage predefinita utilizzando la riga di comando
+
+È possibile modificare la classe di storage predefinita per un cluster utilizzando i comandi Kubernetes. Questo metodo funziona indipendentemente dalla configurazione del cluster.
+
+.Fasi
+. Accedere al cluster Kubernetes.
+. Elencare le classi di storage nel cluster:
++
+[source, console]
+----
+kubectl get storageclass
+----
+. Rimuovere la designazione predefinita dalla classe di storage predefinita. Sostituire <SC_NAME> con il nome della classe di storage:
++
+[source, console]
+----
+kubectl patch storageclass <SC_NAME> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+----
+. Contrassegna una classe di storage diversa come predefinita. Sostituire <SC_NAME> con il nome della classe di storage:
++
+[source, console]
+----
+kubectl patch storageclass <SC_NAME> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+----
+. Confermare la nuova classe di storage predefinita:
++
+[source, console]
+----
+kubectl get storageclass
+----
+
+
+ifdef::azure[]
+
+endif::azure[]

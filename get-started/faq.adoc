@@ -74,7 +74,7 @@ ifdef::aws[]
 
 *Posso aggiungere un cluster EKS privato ad Astra Control Service?*
 
-Al momento, i cluster EKS privati non sono supportati in Astra Control Service.
+Sì, puoi aggiungere cluster EKS privati ad Astra Control Service. Per aggiungere un cluster EKS privato, fare riferimento a. link:add-first-cluster.html["Inizia a gestire i cluster Kubernetes da Astra Control Service"].
 
 endif::aws[]
 
@@ -99,6 +99,14 @@ ifdef::gcp[]
 
 
 == Registrazione dei cluster Google Kubernetes Engine (GKE)
+
+*Posso aggiungere un cluster GKE privato ad Astra Control Service?*
+
+Sì, è possibile aggiungere cluster GKE privati a Astra Control Service.  Per aggiungere un cluster GKE privato, fare riferimento a. link:add-first-cluster.html["Inizia a gestire i cluster Kubernetes da Astra Control Service"].
+
+I cluster GKE privati devono disporre di https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept["reti autorizzate"^] Impostare per consentire l'indirizzo IP di Astra Control:
+
+52.188.218.166/32
 
 *Il cluster GKE può risiedere su un VPC condiviso?*
 

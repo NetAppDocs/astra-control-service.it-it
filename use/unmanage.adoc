@@ -62,8 +62,8 @@ Quando si annulla la gestione di un cluster:
 .Fasi
 . Selezionare *Clusters*.
 . Selezionare la casella di controllo del cluster che non si desidera più gestire.
-. Dal menu Opzioni nella colonna *azioni*, selezionare *Annulla gestione*.
-. Confermare che si desidera annullare la gestione del cluster, quindi selezionare *Sì, Annulla gestione cluster*.
+. Dal menu delle opzioni nella colonna *azioni*, selezionare *Annulla gestione*.
+. Confermare che si desidera annullare la gestione del cluster, quindi selezionare *Sì, Annulla gestione*.
 
 
 .Risultato
@@ -73,7 +73,7 @@ Lo stato del cluster cambia in *Removing* (Rimozione). In seguito, il cluster ve
 
 == Eliminazione di cluster dal provider cloud
 
-Prima di eliminare un cluster Kubernetes con volumi persistenti (PV) che risiedono nelle classi di storage NetApp, è necessario prima eliminare le dichiarazioni di volumi persistenti (PVC) seguendo uno dei metodi riportati di seguito. L'eliminazione di PVC e PV prima dell'eliminazione del cluster garantisce che non si ricevano fatture impreviste dal provider di servizi cloud.
+Prima di eliminare un cluster Kubernetes con volumi persistenti (PV) che risiedono nelle classi di storage NetApp, è necessario prima eliminare le dichiarazioni di volumi persistenti (PVC) seguendo uno dei metodi riportati di seguito. Eliminando PVC e PV prima di eliminare il cluster, non riceverai fatture inattese dal tuo cloud provider.
 
 * Metodo n. 1*: Eliminare gli spazi dei nomi dei carichi di lavoro dell'applicazione dal cluster. Non eliminare lo spazio dei nomi Trident.
 * Metodo 2*: Eliminare i PVC e i pod o l'implementazione in cui sono montati i PVS.
@@ -83,4 +83,4 @@ Quando gestisci un cluster Kubernetes da Astra Control, le applicazioni su quel 
 
 Utilizzando uno dei metodi descritti in precedenza, il PVS corrispondente viene eliminato dal cluster. Assicurarsi che non vi siano PVS che risiedono nelle classi di storage NetApp sul cluster prima di eliminarlo.
 
-Se i volumi persistenti non sono stati eliminati prima dell'eliminazione del cluster, sarà necessario eliminare manualmente i volumi di back-end dal provider di cloud.
+Se i volumi persistenti non sono stati eliminati prima dell'eliminazione del cluster, sarà necessario eliminare manualmente i volumi di back-end dal provider cloud.

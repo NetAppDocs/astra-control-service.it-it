@@ -12,7 +12,7 @@ summary: 'Ora che hai effettuato l"accesso e aggiunto i cluster ad Astra Control
 
 
 [role="lead"]
-Ora che hai effettuato l'accesso e aggiunto un cluster ad Astra Control, sei pronto per iniziare a utilizzare le funzionalità di gestione dei dati delle applicazioni di Astra Control.
+Ora che hai effettuato l'accesso e aggiunto un cluster ad Astra Control, sei pronto per iniziare a utilizzare le funzionalità di gestione dei dati applicativi di Astra Control.
 
 * link:../use/manage-apps.html["Inizia a gestire le app"]
 * link:../use/protect-apps.html["Proteggi le app"]
