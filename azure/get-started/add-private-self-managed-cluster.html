@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
   <head class="at-element-marker">
-  <title>Gestire i cluster privati da Astra Control Service | NetApp Documentation</title>
+  <title>Aggiungere un cluster privato autogestato ad Astra Control Service | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Gestire i cluster privati da Astra Control Service | NetApp Documentation" />
+  <meta property="og:title" content="Aggiungere un cluster privato autogestato ad Astra Control Service | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/it-it/astra-control-service/get-started/manage-private-cluster.html" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/astra-control-service/get-started/add-private-self-managed-cluster.html" />
 	<meta property="og:description" content="Dopo aver configurato l"ambiente, è possibile creare un cluster Kubernetes e aggiungerlo ad Astra Control Service." />
   <meta property="og:image" content="https://docs.netapp.com/it-it/astra-control-service/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
@@ -17,7 +17,7 @@
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Dopo aver configurato l"ambiente, è possibile creare un cluster Kubernetes e aggiungerlo ad Astra Control Service.">
-  <meta name="keywords" content=" discover private cluster, add cluster, add kubernetes cluster, private, discover kubernetes cluster, add private cluster"><!-- Icons -->
+  <meta name="keywords" content=" discover cluster, add cluster, add kubernetes cluster, discover kubernetes cluster, add cluster"><!-- Icons -->
   <link rel="icon" href="/it-it/astra-control-service/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/it-it/astra-control-service/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -32,17 +32,17 @@
   <link rel="stylesheet" href="/it-it/astra-control-service/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/it-it/astra-control-service/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
-  <link rel="canonical" href="https://docs.netapp.com/it-it/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/astra-control-service/get-started/manage-private-cluster.html" />
-  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/astra-control-service/get-started/manage-private-cluster.html" />
+  <link rel="canonical" href="https://docs.netapp.com/it-it/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/astra-control-service/get-started/add-private-self-managed-cluster.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/astra-control-service/get-started/add-private-self-managed-cluster.html" />
   <link rel='stylesheet' href='/it-it/astra-control-service/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
@@ -178,7 +178,7 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar">
-<div id="flavor-dropdown" class="custom-dropdown" data-url="/it-it/astra-control-service/get-started/manage-private-cluster.html">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/it-it/astra-control-service/get-started/add-private-self-managed-cluster.html">
   
   
   <div class="custom-dropdown-select selected" title="Azure">
@@ -192,26 +192,26 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/it-it/astra-control-service/aws/get-started/manage-private-cluster.html">
+    <li data-value="aws" data-url="/it-it/astra-control-service/aws/get-started/add-private-self-managed-cluster.html">
       <img alt="" src="/it-it/astra-control-service/images/aws-ico.svg" onerror="this.src='/it-it/astra-control-service/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
     </li>
     
     
     
-    <li data-value="gcp" data-url="/it-it/astra-control-service/gcp/get-started/manage-private-cluster.html">
+    <li data-value="gcp" data-url="/it-it/astra-control-service/gcp/get-started/add-private-self-managed-cluster.html">
       <img alt="" src="/it-it/astra-control-service/images/gcp-ico.svg" onerror="this.src='/it-it/astra-control-service/images/blank-ico.png'" class="custom-icon" />Google Cloud
     </li>
     
     
     
-    <li data-value="azure" data-url="/it-it/astra-control-service/azure/get-started/manage-private-cluster.html">
+    <li data-value="azure" data-url="/it-it/astra-control-service/azure/get-started/add-private-self-managed-cluster.html">
       <img alt="" src="/it-it/astra-control-service/images/azure-ico.svg" onerror="this.src='/it-it/astra-control-service/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
     </li>
     
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-control-service.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/astra-control-service/get-started/manage-private-cluster.html&page-title=Gestire i cluster privati da Astra Control Service" class="page-nav-contribute-link" role="button"><img src="/it-it/astra-control-service/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/astra-control-service/blob/main/get-started/manage-private-cluster.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/astra-control-service/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/astra-control-service/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-control-service.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/astra-control-service/get-started/add-private-self-managed-cluster.html&page-title=Aggiungere un cluster privato autogestato ad Astra Control Service" class="page-nav-contribute-link" role="button"><img src="/it-it/astra-control-service/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/astra-control-service/blob/main/get-started/add-private-self-managed-cluster.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/astra-control-service/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/astra-control-service/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">IN QUESTA PAGINA</div>
@@ -331,23 +331,23 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/it-it/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+          <a href="https://docs.netapp.com/it-it/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/de-de/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+          <a href="https://docs.netapp.com/de-de/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/es-es/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+          <a href="https://docs.netapp.com/es-es/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/fr-fr/astra-control-service/get-started/manage-private-cluster.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+          <a href="https://docs.netapp.com/fr-fr/astra-control-service/get-started/add-private-self-managed-cluster.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
         </li></ul>
     </div>
     <!-- End Language Selector -->
@@ -473,11 +473,27 @@
           
           <a target="_blank" 
             
-              href="/it-it/astra-control-service/pdfs/azure/sidebar/Gestire_i_cluster.pdf" 
+              href="/it-it/astra-control-service/pdfs/azure/sidebar/Aggiungere_un_cluster.pdf" 
             
           >
             <img src="/it-it/astra-control-service/images/pdf.png" alt="" width="16" height="16"/>
-            Gestire i cluster
+            Aggiungere un cluster
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/astra-control-service/pdfs/azure/sidebar/Aggiungere_un_cluster_gestito_dal_provider.pdf" 
+            
+          >
+            <img src="/it-it/astra-control-service/images/pdf.png" alt="" width="16" height="16"/>
+            Aggiungere un cluster gestito dal provider
           </a>
           
 
@@ -491,7 +507,43 @@
   
 
 
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/astra-control-service/pdfs/azure/sidebar/Aggiungere_un_cluster_a_gestione_automatica.pdf" 
+            
+          >
+            <img src="/it-it/astra-control-service/images/pdf.png" alt="" width="16" height="16"/>
+            Aggiungere un cluster a gestione automatica
+          </a>
+          
+
+
     <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
   
 
 
@@ -847,35 +899,74 @@
         Registrati per un account
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Gestire i cluster"
+      data-pdf-filename="Aggiungere un cluster"
       data-li-level="2" 
       class="subfolders "
     ><a href="/it-it/astra-control-service/azure/get-started/add-first-cluster.html">
-        <div class="na-navbar-padding"> Gestire i cluster</div>
+        <div class="na-navbar-padding"> Aggiungere un cluster</div>
       </a>
       <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere un cluster gestito dal provider"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Aggiungere un cluster gestito dal provider</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere un cluster gestito da un provider pubblico"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/azure/get-started/add-public-provider-managed-cluster.html">
+        Aggiungere un cluster gestito da un provider pubblico
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere un cluster gestito da provider privato"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/azure/get-started/add-private-provider-managed-cluster.html">
+        Aggiungere un cluster gestito da provider privato
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere un cluster a gestione automatica"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Aggiungere un cluster a gestione automatica</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere un cluster pubblico self-managed"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/azure/get-started/add-public-self-managed-cluster.html">
+        Aggiungere un cluster pubblico self-managed
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere un cluster privato autogestato"
+      data-li-level="4#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/it-it/astra-control-service/azure/get-started/add-private-self-managed-cluster.html">
+        Aggiungere un cluster privato autogestato
+      </a></li><li 
+      data-pdf-exists="true" 
       data-pdf-filename="Controllare la versione di Astra Trident"
-      data-li-level="3#" 
+      data-li-level="4#" 
       class=" "
     ><a class="na-navbar-padding" href="/it-it/astra-control-service/azure/get-started/check-astra-trident-version.html">
         Controllare la versione di Astra Trident
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Creare un file kubeconfig per il ruolo di amministratore del cluster"
-      data-li-level="3#" 
+      data-pdf-filename="Creare un file kubeconfig"
+      data-li-level="4#" 
       class=" "
     ><a class="na-navbar-padding" href="/it-it/astra-control-service/azure/get-started/create-kubeconfig.html">
-        Creare un file kubeconfig per il ruolo di amministratore del cluster
-      </a></li></ul></li><li 
-      data-pdf-exists="true" 
-      data-pdf-filename="Gestire cluster privati"
-      data-li-level="2#" 
-      class="  active "
-    ><a class="na-navbar-padding" href="/it-it/astra-control-service/azure/get-started/manage-private-cluster.html">
-        Gestire cluster privati
-      </a></li><li 
+        Creare un file kubeconfig
+      </a></li></ul></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Quali sono le prossime novità?"
       data-li-level="2#" 
@@ -1209,29 +1300,29 @@
   </div>
 </div>
 
-      <div class="ie-nmt-disclaimer">
-  <span>
-    <div class="ie-nmt-disclaimer-container">
-      <div class="ie-nmt-disclaimer-icon">
-        <svg class="luci-icon" aria-hidden="true">
-          <use xlink:href="/it-it/astra-control-service/images/sprite.svg#circle-info">
-        </svg>
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <svg class="luci-icon" aria-hidden="true">
+            <use xlink:href="/it-it/astra-control-service/images/sprite.svg#circle-info">
+          </svg>
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+        </div>
+        <div style="clear:both;"></div>
       </div>
-      <div class="ie-nmt-disclaimer-content">
-        <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
-      </div>
-      <div style="clear:both;"></div>
-    </div>
-  </span>
-</div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Gestire i cluster privati da Astra Control Service</h1>
+    </span>
+  </div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Aggiungere un cluster privato autogestato ad Astra Control Service</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2023-05-30 21:26:47 +0000">05/30/2023</time>
+    <time datetime="2023-07-10 14:51:55 +0000">07/10/2023</time>
     
   
 
@@ -1244,33 +1335,82 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Puoi utilizzare Astra Control Service per gestire cluster privati Azure Kubernetes Service (AKS) e Red Hat OpenShift in AKS. Queste istruzioni presuppongono che sia già stato creato un cluster AKS o OpenShift privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l&#8217;accesso a cluster AKS o OpenShift privati, fare riferimento alla seguente documentazione:</p>
+<p>Dopo aver configurato l&#8217;ambiente, è possibile creare un cluster Kubernetes e aggiungerlo ad Astra Control Service.</p>
+</div>
+<div class="paragraph">
+<p>Un cluster a gestione automatica è un cluster che viene direttamente provisioning e gestione. Astra Control Service supporta cluster autogestiti eseguiti in un ambiente di cloud pubblico. È possibile aggiungere un cluster a gestione automatica ad Astra Control Service caricando un <code>kubeconfig.yaml</code> file. È necessario assicurarsi che il cluster soddisfi i requisiti descritti di seguito.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="distribuzioni-kubernetes-supportate">Distribuzioni Kubernetes supportate</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>È possibile utilizzare Astra Control Service per gestire i seguenti tipi di cluster privati a gestione automatica:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Distribuzione Kubernetes</th>
+<th class="tableblock halign-left valign-top">Versioni supportate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Kubernetes Service su Azure Stack HCI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Stack HCI 21H2 e 22H2 con AKS 1.23 e 1.24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google anthos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">da 1.12 a 1.14</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes (upstream)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Da 1.24 a 1.26 (Astra Trident 22.10 o versione successiva è richiesto per Kubernetes 1.25 o versione successiva)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rancher Kubernetes Engine (RKE)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RKE 1.3 con Rancher 2.6<br>
+RKE 1.4 con Rancher 2.7<br>
+RKE 2 (v1.23.x) con Rancher 2.6<br>
+RKE 2 (v1.24.x) con Rancher 2.7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Red Hat OpenShift Container Platform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">da 4.10 a 4.12</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Griglia VMware Tanzu Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VMware Tanzu Kubernetes Grid Integrated Edition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.14 e 1.15</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Queste istruzioni presuppongono che sia già stato creato un cluster privato e che sia stato preparato un metodo sicuro per accedervi in remoto.</p>
+</div>
+<div class="paragraph">
+<p>Per aggiungere il cluster privato ad Astra Control Service, è necessario eseguire le seguenti operazioni:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.microsoft.com/azure/aks/private-clusters" target="_blank" rel="noopener">"Documentazione di Azure per cluster AKS privati"</a></p>
+<p><a href="#installare-loperatore-del-connettore-astra">Installare l&#8217;operatore del connettore Astra</a></p>
 </li>
 <li>
-<p><a href="https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x" target="_blank" rel="noopener">"Documentazione di Azure per cluster OpenShift privati"</a></p>
+<p><a href="#configurare-lo-storage-persistente">Configurare lo storage persistente</a></p>
+</li>
+<li>
+<p><a href="#aggiungere-il-cluster-privato-autogestato-ad-astra-control-service">Aggiungere il cluster privato autogestato ad Astra Control Service</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Puoi utilizzare Astra Control Service per gestire cluster privati Azure Kubernetes Service (AKS) e cluster privati Red Hat OpenShift in AKS. Queste istruzioni presuppongono che sia già stato creato un cluster AKS o OpenShift privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l&#8217;accesso a cluster AKS o OpenShift privati, fare riferimento alla seguente documentazione:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.microsoft.com/azure/aks/private-clusters" target="_blank" rel="noopener">"Documentazione di Azure per cluster AKS privati"</a></p>
-</li>
-<li>
-<p><a href="https://learn.microsoft.com/en-us/azure/openshift/howto-create-private-cluster-4x" target="_blank" rel="noopener">"Documentazione di Azure per cluster OpenShift privati"</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Puoi utilizzare Astra Control Service per gestire cluster privati Amazon Elastic Kubernetes Service (EKS). Queste istruzioni presuppongono che sia già stato creato un cluster EKS privato e che sia stato preparato un metodo sicuro per accedervi in remoto; per ulteriori informazioni sulla creazione e l&#8217;accesso a cluster EKS privati, fare riferimento a. <a href="https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html" target="_blank" rel="noopener">"Documentazione Amazon EKS"</a>.</p>
 </div>
 </div>
 </div>
@@ -1333,6 +1473,18 @@
 </li>
 <li>
 <p><code>spec.astra.clusterName</code></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-service/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<code>spec.astra.clusterName</code> È necessario solo se si importa un cluster AKS privato e non si fornisce il file kubeconfig ad Astra Control Service. In caso contrario, rimuovere questa riga.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><code>spec.astra.accountId</code></p>
@@ -1362,7 +1514,7 @@ spec:
     name: theotw
   astra:
     token: &lt;Astra Control API token&gt;
-    clusterName: &lt;your-cluster-name&gt;
+    clusterName: &lt;your-private-AKS-cluster-name&gt;
     accountId: &lt;Astra Control account id&gt;
     acceptEULA: yes</pre>
 </div>
@@ -1403,13 +1555,298 @@ astra-connector   true         22b839aa-8b85-445a-85dd-0b1f53b5ea19</code></pre>
 <div class="paragraph">
 <p>Configurare lo storage persistente per il cluster. Fare riferimento alla documentazione introduttiva per ulteriori informazioni sulla configurazione dello storage persistente:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="set-up-microsoft-azure-with-anf.html" target="_blank" rel="noopener">"Configurare Microsoft Azure con Azure NetApp Files"</a></p>
+</li>
+<li>
+<p><a href="set-up-microsoft-azure-with-amd.html" target="_blank" rel="noopener">"Configurare Microsoft Azure con dischi gestiti Azure"</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="aggiungere-il-cluster-privato-ad-astra-control-service">Aggiungere il cluster privato ad Astra Control Service</h2>
+<h2 id="aggiungere-il-cluster-privato-autogestato-ad-astra-control-service">Aggiungere il cluster privato autogestato ad Astra Control Service</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>È ora possibile aggiungere il cluster privato ad Astra Control Service. Seguire il flusso di lavoro standard per aggiungere un cluster ad Astra Control Service: <a href="https://docs.netapp.com/us-en/astra-control-service/get-started/add-first-cluster.html">"Inizia a gestire i cluster Kubernetes da Astra Control Service"</a>.</p>
+<p>È ora possibile aggiungere il cluster privato ad Astra Control Service.</p>
+</div>
+<details open>
+<summary class="title">Prima di iniziare</summary>
+<div class="content">
+<div class="paragraph">
+<p>Un cluster a gestione automatica è un cluster che viene direttamente provisioning e gestione. Astra Control Service supporta cluster autogestiti eseguiti in un ambiente di cloud pubblico. I cluster a gestione automatica possono utilizzare Astra Trident per interfacciarsi con i servizi di storage NetApp oppure i driver CSI (Container Storage Interface) per interfacciarsi con Amazon Elastic Block Store (EBS), Azure Managed Disks e Google Persistent Disk.</p>
+</div>
+<div class="paragraph">
+<p>Astra Control Service supporta cluster autogestiti che utilizzano le seguenti distribuzioni Kubernetes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Red Hat OpenShift Container Platform</p>
+</li>
+<li>
+<p>Motore di rancher Kubernetes</p>
+</li>
+<li>
+<p>Kubernetes upstream</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Il cluster a gestione automatica deve soddisfare i seguenti requisiti:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Il cluster deve essere accessibile via Internet.</p>
+</li>
+<li>
+<p>Il cluster non può essere ospitato all&#8217;interno della rete on-premise; deve essere ospitato in un ambiente di cloud pubblico.</p>
+</li>
+<li>
+<p>Se si utilizza o si prevede di utilizzare lo storage abilitato con i driver CSI, i driver CSI appropriati devono essere installati sul cluster. Per ulteriori informazioni sull&#8217;utilizzo dei driver CSI per integrare lo storage, consultare la documentazione del servizio di storage.</p>
+</li>
+<li>
+<p>Si ha accesso al file cluster kubeconfig che include un solo elemento di contesto. Segui <a href="create-kubeconfig.html" target="_blank" rel="noopener">"queste istruzioni"</a> per generare un file kubeconfig.</p>
+</li>
+<li>
+<p><strong>Solo Rancher</strong>: Quando si gestiscono i cluster di applicazioni in un ambiente Rancher, modificare il contesto predefinito del cluster di applicazioni nel file kubeconfig fornito da Rancher per utilizzare un contesto del piano di controllo invece del contesto del server API Rancher. In questo modo si riduce il carico sul server API Rancher e si migliorano le performance.</p>
+</li>
+<li>
+<p><strong>Astra Trident</strong>: Se stai utilizzando o intendi utilizzare lo storage NetApp, assicurati di aver installato l&#8217;ultima versione di Astra Trident. Se Astra Trident è già installato, <a href="check-astra-trident-version.html" target="_blank" rel="noopener">"verificare che sia la versione più recente"</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-service/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+È possibile <a href="https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method" target="_blank" rel="noopener">"Implementare Astra Trident"</a> Utilizzando l&#8217;operatore Trident (manualmente o utilizzando la mappa Helm) o. <code>tridentctl</code>. Prima di installare o aggiornare Astra Trident, consultare <a href="https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html" target="_blank" rel="noopener">"frontend, backend e configurazioni host supportati"</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Astra Trident storage backend configurato</strong>: Almeno un backend di storage Astra Trident deve essere <a href="https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend" target="_blank" rel="noopener">"configurato"</a> sul cluster.</p>
+</li>
+<li>
+<p><strong>Classi di storage Astra Trident configurate</strong>: Deve essere almeno una classe di storage Astra Trident <a href="https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html" target="_blank" rel="noopener">"configurato"</a> sul cluster. Se è configurata una classe di storage predefinita, assicurarsi che solo una classe di storage disponga di tale annotazione.</p>
+</li>
+<li>
+<p><strong>Astra Trident volume snapshot controller e volume snapshot class installati e configurati</strong>: Il volume snapshot controller deve essere <a href="https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller" target="_blank" rel="noopener">"installato"</a> In modo che le snapshot possano essere create in Astra Control. Almeno un tridente Astra <code>VolumeSnapshotClass</code> lo è stato <a href="https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass" target="_blank" rel="noopener">"configurazione"</a> da un amministratore.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Nella dashboard, selezionare <strong>Manage Kubernetes cluster</strong> (Gestisci cluster Kubernetes).</p>
+<div class="paragraph">
+<p>Seguire le istruzioni per aggiungere il cluster.</p>
+</div>
+</li>
+<li>
+<p><strong>Provider</strong>: Selezionare la scheda <strong>Other</strong> per aggiungere dettagli sul cluster a gestione automatica.</p>
+</li>
+<li>
+<p><strong>Altro</strong>: Fornisci dettagli sul tuo cluster autogestito caricando un <code>kubeconfig.yaml</code> o incollando il contenuto di <code>kubeconfig.yaml</code> file dagli appunti.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-service/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Se crei il tuo <code>kubeconfig</code> file, è necessario definire solo <strong>un</strong> elemento di contesto al suo interno. Fare riferimento a. <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/" target="_blank" rel="noopener">"Documentazione Kubernetes"</a> per informazioni sulla creazione <code>kubeconfig</code> file.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>Nome credenziale</strong>: Fornire un nome per la credenziale del cluster a gestione automatica che si sta caricando su Astra Control. Per impostazione predefinita, il nome della credenziale viene compilato automaticamente come nome del cluster.</p>
+</li>
+<li>
+<p><strong>Private route identifier</strong>: Immettere l&#8217;identificativo di percorso privato, che è possibile ottenere da Astra Connector. Se si esegue una query su Astra Connector tramite <code>kubectl get</code> l&#8217;identificatore di route privato viene definito <code>ASTRACONNECTORID</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-service/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+L&#8217;identificatore di route privato è il nome associato al connettore Astra che consente la gestione di un cluster Kubernetes privato da parte di Astra. In questo contesto, un cluster privato è un cluster Kubernetes che non espone il proprio server API a Internet.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>(Facoltativo) <strong>Storage</strong>: Facoltativamente, selezionare la classe di storage che si desidera utilizzare per impostazione predefinita per le applicazioni Kubernetes distribuite in questo cluster.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Per selezionare una nuova classe di storage predefinita per il cluster, attivare la casella di controllo <strong>Assegna una nuova classe di storage predefinita</strong>.</p>
+</li>
+<li>
+<p>Selezionare una nuova classe di storage predefinita dall&#8217;elenco.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-control-service/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ogni servizio di storage del cloud provider visualizza le seguenti informazioni su prezzo, performance e resilienza:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Azure NetApp Files: Informazioni su performance e resilienza</p>
+</li>
+<li>
+<p>Dischi gestiti Azure: Non sono disponibili informazioni su prezzi, performance o resilienza</p>
+</li>
+<li>
+<p>NetApp Cloud Volumes ONTAP: Non sono disponibili informazioni su prezzi, performance o resilienza</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Ogni classe di storage può utilizzare uno dei seguenti servizi:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cloud.netapp.com/azure-netapp-files" target="_blank" rel="noopener">"Azure NetApp Files"</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview" target="_blank" rel="noopener">"Dischi gestiti da Azure"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/cloud-services/cloud-volumes-ontap/what-is-cloud-volumes/" target="_blank" rel="noopener">"NetApp Cloud Volumes ONTAP"</a></p>
+<div class="paragraph">
+<p>Scopri di più <a href="../learn/aws-storage.html">"Classi di storage per cluster Amazon Web Services"</a>. Scopri di più <a href="../learn/azure-storage.html">"Classi di storage per cluster AKS"</a>. Scopri di più <a href="../learn/choose-class-and-size.html">"Classi di storage per cluster GKE"</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p><strong>Review &amp; Approve</strong> (Rivedi e approva): Verifica dei dettagli della configurazione.</p>
+</li>
+<li>
+<p>Selezionare <strong>Add</strong> per aggiungere il cluster ad Astra Control Service.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="modificare-la-classe-di-storage-predefinita">Modificare la classe di storage predefinita</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>È possibile modificare la classe di storage predefinita per un cluster.</p>
+</div>
+<div class="sect2">
+<h3 id="modificare-la-classe-di-storage-predefinita-utilizzando-astra-control">Modificare la classe di storage predefinita utilizzando Astra Control</h3>
+<div class="paragraph">
+<p>È possibile modificare la classe di storage predefinita per un cluster da Astra Control. Se il cluster utilizza un servizio backend di storage precedentemente installato, potrebbe non essere possibile utilizzare questo metodo per modificare la classe di storage predefinita (l&#8217;azione <strong>Set as default</strong> non è selezionabile). In questo caso, è possibile <a href="#modificare-la-classe-di-storage-predefinita-utilizzando-la-riga-di-comando">Modificare la classe di storage predefinita utilizzando la riga di comando</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Nell&#8217;interfaccia utente di Astra Control Service, selezionare <strong>Clusters</strong>.</p>
+</li>
+<li>
+<p>Nella pagina <strong>Clusters</strong>, selezionare il cluster che si desidera modificare.</p>
+</li>
+<li>
+<p>Selezionare la scheda <strong>Storage</strong>.</p>
+</li>
+<li>
+<p>Selezionare la categoria <strong>classi di storage</strong>.</p>
+</li>
+<li>
+<p>Selezionare il menu <strong>azioni</strong> per la classe di storage che si desidera impostare come predefinita.</p>
+</li>
+<li>
+<p>Selezionare <strong>Imposta come predefinito</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="modificare-la-classe-di-storage-predefinita-utilizzando-la-riga-di-comando">Modificare la classe di storage predefinita utilizzando la riga di comando</h3>
+<div class="paragraph">
+<p>È possibile modificare la classe di storage predefinita per un cluster utilizzando i comandi Kubernetes. Questo metodo funziona indipendentemente dalla configurazione del cluster.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Accedere al cluster Kubernetes.</p>
+</li>
+<li>
+<p>Elencare le classi di storage nel cluster:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">kubectl get storageclass</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Rimuovere la designazione predefinita dalla classe di storage predefinita. Sostituire &lt;SC_NAME&gt; con il nome della classe di storage:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">kubectl patch storageclass &lt;SC_NAME&gt; -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Contrassegna una classe di storage diversa come predefinita. Sostituire &lt;SC_NAME&gt; con il nome della classe di storage:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">kubectl patch storageclass &lt;SC_NAME&gt; -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Confermare la nuova classe di storage predefinita:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">kubectl get storageclass</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
