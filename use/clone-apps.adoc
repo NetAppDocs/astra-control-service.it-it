@@ -57,12 +57,6 @@ NOTE: Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione c
 NOTE: Astra Control crea nuovi spazi dei nomi di destinazione come parte dell'operazione di clone. Gli spazi dei nomi di destinazione specificati non devono essere già presenti nel cluster di destinazione.
 
 ** Selezionare *Avanti*.
-** Scegliere se si desidera creare il clone da uno snapshot o da un backup esistente. Se non si seleziona questa opzione, Astra Control crea il clone dallo stato corrente dell'applicazione.
-+
-*** Se si sceglie di clonare da uno snapshot o da un backup esistente, scegliere lo snapshot o il backup che si desidera utilizzare.
-
-
-** Selezionare *Avanti*.
 ** Scegliere di mantenere la classe di storage originale associata all'applicazione o di selezionare una classe di storage diversa.
 +
 
