@@ -120,6 +120,12 @@ Un utente con vincoli RBAC dello spazio dei nomi non deve essere autorizzato ad 
 
 
 
+=== Un utente membro con vincoli dello spazio dei nomi non può accedere alle applicazioni clonate o ripristinate fino a quando un utente Admin non aggiunge lo spazio dei nomi al vincolo
+
+Qualsiasi `member` Gli utenti con vincoli RBAC in base al nome/ID dello spazio dei nomi possono clonare o ripristinare un'applicazione in un nuovo spazio dei nomi nello stesso cluster o in qualsiasi altro cluster nell'account dell'organizzazione. Tuttavia, lo stesso utente non può accedere all'applicazione clonata o ripristinata nel nuovo namespace. Una volta creato un nuovo spazio dei nomi mediante un'operazione di clonazione o ripristino, l'amministratore/proprietario dell'account può modificare `member` account utente e limitazioni del ruolo di aggiornamento per consentire all'utente interessato di concedere l'accesso al nuovo spazio dei nomi.
+
+
+
 === Gli snapshot potrebbero non funzionare per i cluster Kubernetes 1.25 o versioni successive con determinate versioni di snapshot controller
 
 Le snapshot per i cluster Kubernetes che eseguono la versione 1.25 o successiva possono non riuscire se sul cluster è installata la versione v1beta1 delle API del controller di snapshot.
