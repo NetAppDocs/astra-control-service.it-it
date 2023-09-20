@@ -501,13 +501,8 @@
   <block id="1c485bc46ff352eb7977d1a404cd382e" category="paragraph">È necessario installare l'operatore Astra Connector sul cluster privato. Se si utilizza un host Bastion, eseguire questi comandi dalla riga di comando dell'host Bastion.</block>
   <block id="756856619863426af3279d53a81b018d" category="list-text">Clonare il repository GitHub dell'operatore Astra Connector:</block>
   <block id="a968d335ed6555127f3fbdb020cecd5f" category="list-text">Modificare le directory al livello superiore del pacchetto operatore decompresso, in modo da visualizzare<block ref="f101e04500a8c699d435a8cc7d56f891" prefix=" " category="inline-code"></block> file con<block ref="44ba5ca65651b4f36f1927576dd35436" prefix=" " category="inline-code"></block> comando.</block>
-  <block id="37d0b0adf169e682e19c955d0cd73c29" category="list-text">Creare uno spazio dei nomi per l'operatore Astra Connector.</block>
-  <block id="38da14ec20cf0841c7dc45fab0adbf07" category="list-text">Applicare il<block ref="f101e04500a8c699d435a8cc7d56f891" prefix=" " category="inline-code"></block> nel namespace dell'operatore.</block>
-  <block id="48812784c9e7b02bc76402c5a0c3ca10" category="list-text">Creare uno spazio dei nomi per i componenti del cluster privato.</block>
   <block id="e36d851dc2ff79e16c7cfbbb4e4fbe97" category="inline-link">Documentazione di Astra Automation</block>
   <block id="e9c498c38ce73fcff282ff152abd7d47" category="list-text">Generare un token API Astra Control seguendo le istruzioni contenute in<block ref="c02899be0babfb1350e3b2576a6e8c97" category="inline-link-rx"></block>.</block>
-  <block id="f831baeb7ae8c560addc2916d8b1096e" category="list-text">Applicare il CRD (Custom Resource Definition) di Astra Connector.</block>
-  <block id="138db2318815f6b9fc7cc55dd6a6ad32" category="list-text">Controllare lo stato del connettore Astra.</block>
   <block id="61ddd26ba79b5e63c1e52be1beb28889" category="section-title">Configurare lo storage persistente</block>
   <block id="dd8bffb9f01b6b0228b1dd2776302148" category="summary">Sono necessari alcuni passaggi per preparare il tuo progetto Google Cloud prima di poter gestire i cluster di Google Kubernetes Engine con Astra Control Service.</block>
   <block id="40b96cc305f26bed96812c2920065f5d" category="doc">Configurare Google Cloud</block>
@@ -2225,4 +2220,8 @@ RKE 2 (v1.24.x) con Rancher 2.7</block>
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="3c873407a87c44620e1fc922d17cba7d" category="list-text">Applicare il<block ref="f101e04500a8c699d435a8cc7d56f891" prefix=" " category="inline-code"></block> file. Quando si esegue questo comando, viene creato lo spazio dei nomi corretto per l'operatore Astra Connector e la configurazione viene applicata allo spazio dei nomi:</block>
+  <block id="40fcdcafdc66ab23541a6bf36b499c0f" category="list-text">Creare uno spazio dei nomi per i componenti del cluster privato:</block>
+  <block id="f285f679ba0c90d91ce807d87ad3a50e" category="list-text">Applicare la definizione di risorsa personalizzata (CRD) di Astra Connector:</block>
+  <block id="c642f3e0823bc0255f23532494f80829" category="list-text">Controllare lo stato del connettore Astra:</block>
 </blocks>
