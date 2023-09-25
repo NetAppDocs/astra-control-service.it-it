@@ -79,6 +79,12 @@ Il cluster a gestione automatica deve soddisfare i seguenti requisiti:
 * Il cluster non può essere ospitato all'interno della rete on-premise; deve essere ospitato in un ambiente di cloud pubblico.
 * Se si utilizza o si prevede di utilizzare lo storage abilitato con i driver CSI, i driver CSI appropriati devono essere installati sul cluster. Per ulteriori informazioni sull'utilizzo dei driver CSI per integrare lo storage, consultare la documentazione del servizio di storage.
 * Si ha accesso al file cluster kubeconfig che include un solo elemento di contesto. Segui link:create-kubeconfig.html["queste istruzioni"^] per generare un file kubeconfig.
+* Se si aggiunge il cluster utilizzando un file kubeconfig che fa riferimento a un'autorità di certificazione privata, aggiungere la riga seguente al `cluster` sezione del file kubeconfig. In questo modo si permette ad Astra Control di aggiungere il cluster:
++
+[listing]
+----
+insecure-skip-tls-verify: true
+----
 * *Solo Rancher*: Quando si gestiscono i cluster di applicazioni in un ambiente Rancher, modificare il contesto predefinito del cluster di applicazioni nel file kubeconfig fornito da Rancher per utilizzare un contesto del piano di controllo invece del contesto del server API Rancher. In questo modo si riduce il carico sul server API Rancher e si migliorano le performance.
 * *Astra Trident*: Se stai utilizzando o intendi utilizzare lo storage NetApp, assicurati di aver installato l'ultima versione di Astra Trident. Se Astra Trident è già installato, link:check-astra-trident-version.html["verificare che sia la versione più recente"^].
 +
