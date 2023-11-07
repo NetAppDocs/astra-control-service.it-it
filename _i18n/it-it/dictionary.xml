@@ -2162,9 +2162,6 @@ RKE 2 (v1.24.x) con Rancher 2.7</block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="dce58385777428b5d9a30460fe36730a" category="list-text">Se si aggiunge il cluster utilizzando un file kubeconfig che fa riferimento a un'autorità di certificazione privata, aggiungere la riga seguente al<block ref="06b2d4b91b5c9eaa8c20a1c270f95b3c" prefix=" " category="inline-code"></block> sezione del file kubeconfig. In questo modo si permette ad Astra Control di aggiungere il cluster:</block>
   <block id="f4228b9bf977f4c9a1952ea84926975f" category="section-title">2 ottobre 2023</block>
-  <block id="33a97eec462a14258b6a1fe63f943ec5" category="list-text">kubectl v1,25 o versione successiva installata</block>
-  <block id="3b34edb55fd85d9b0636e2533b140b9f" category="list-text">Accesso kubectl al cluster che si intende aggiungere e gestire con Astra Control Center</block>
-  <block id="d5b7f62a909e346c0e1cd08be571c54f" category="admonition">Per questa procedura, non è necessario l'accesso kubectl al cluster che esegue Astra Control Center.</block>
   <block id="c49be33f592950e78d23dd417a4a75e5" category="list-text">Un kubeconfig attivo per il cluster che si intende gestire con i diritti di amministratore del cluster per il contesto attivo</block>
   <block id="565bfe8a9451afd10f3c41fe9fa4cf22" category="list-text">Creare un account di servizio:</block>
   <block id="5a20342984ee9d605acb505095dbcd0a" category="list-text">Creare uno dei seguenti ruoli del cluster con autorizzazioni sufficienti per la gestione di un cluster da parte di Astra Control:</block>
@@ -2555,4 +2552,5 @@ Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associ
   <block id="b518803a746e06a4f19197ae81406970" category="paragraph">Se elimini il backup immutabile di un'app dopo che il criterio di conservazione del bucket è scaduto, il backup viene eliminato da Astra Control ma non dal bucket. Per ovviare a questo problema, se è necessario eliminare i backup più recenti o tutti i backup per un'applicazione, rimuovere manualmente i backup dal back-end dello storage.</block>
   <block id="f318002a693e78e0cf366be52609a528" category="admonition">Se si dispone di più backup per un'applicazione, rimuovere i backup più recenti o tutti i backup per l'applicazione. Se si rimuovono backup incrementali intermedi, non sarà possibile ripristinare l'applicazione dall'ultimo backup.</block>
   <block id="03281739854e4951c0f98529e54a24f2" category="sidebar">Utilizza Astra Control Provisioner</block>
+  <block id="49219ed727d5145cd828958ebce847fa" category="list-text">kubectl v1,26 o versione successiva installata</block>
 </blocks>
