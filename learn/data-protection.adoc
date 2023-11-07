@@ -39,6 +39,24 @@ NOTE: Se si esegue uno snapshot o un backup, ma l'operazione non riesce e viene 
 
 
 
+=== Backup immutabili
+
+Astra Control Service supporta la creazione di backup immutabili con le seguenti piattaforme e tipi di bucket:
+
+* Amazon Web Services che utilizza un bucket Amazon S3 con blocco oggetti S3 configurato
+* Microsoft Azure mediante un bucket Azure con una policy di conservazione configurata
+* Google Kubernetes Engine (GKE) utilizzando un bucket Google Cloud Storage con una policy di conservazione configurata
+* NetApp StorageGRID che utilizza un bucket S3 con blocco oggetto S3 configurato
+
+
+Tenere presente quanto segue quando si utilizzano i backup immutabili:
+
+* Se si esegue il backup in un bucket WORM (Write Once Read Many) in una piattaforma non supportata o in un tipo di bucket non supportato, si potrebbero ottenere risultati imprevedibili, come il mancato completamento dell'eliminazione del backup anche se è trascorso il tempo di conservazione.
+* Astra Control non supporta le policy di data Lifecycle management o l'eliminazione manuale di oggetti nei bucket utilizzati con backup immutabili. Verifica che il back-end dello storage non sia configurato per gestire il ciclo di vita delle snapshot di Astra Control o dei dati di cui è stato eseguito il backup.
+
+
+
+
 == Cloni
 
 Un _clone_ è un duplicato esatto di un'applicazione, della sua configurazione e dei suoi volumi di dati persistenti. È possibile creare manualmente un clone sullo stesso cluster Kubernetes o su un altro cluster. La clonazione di un'applicazione può essere utile se è necessario spostare applicazioni e storage da un cluster Kubernetes a un altro.

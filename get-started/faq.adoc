@@ -8,7 +8,7 @@ summary: Queste FAQ possono essere utili se stai cercando una risposta rapida a 
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ../media/use/
 
 
 [role="lead"]
@@ -48,11 +48,11 @@ Sì. Dopo l'aggiornamento al Premium Plan, Astra Control inizia a addebitare tut
 
 *Ho eseguito l'upgrade al piano Premium PayGo a metà mese. Mi verrà addebitato l'intero mese?*
 
-No, la fatturazione inizia dal momento dell'aggiornamento al Premium Plan.
+No La fatturazione inizia dal momento dell'aggiornamento al piano Premium.
 
 *Utilizzo il piano gratuito, mi verrà addebitato il costo delle richieste di rimborso per volumi persistenti?*
 
-Sì, ti verranno addebitati i volumi persistenti utilizzati dai cluster del tuo cloud provider.
+Sì, otterrai dei costi per i volumi persistenti utilizzati dai cluster dal tuo cloud provider.
 
 
 
@@ -102,7 +102,7 @@ ifdef::gcp[]
 
 *Posso aggiungere un cluster GKE privato ad Astra Control Service?*
 
-Sì, è possibile aggiungere cluster GKE privati a Astra Control Service.  Per aggiungere un cluster GKE privato, fare riferimento a. link:add-first-cluster.html["Inizia a gestire i cluster Kubernetes da Astra Control Service"].
+Sì, è possibile aggiungere cluster GKE privati a Astra Control Service. Per aggiungere un cluster GKE privato, fare riferimento a. link:add-first-cluster.html["Inizia a gestire i cluster Kubernetes da Astra Control Service"].
 
 I cluster GKE privati devono disporre di https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept["reti autorizzate"^] Impostare per consentire l'indirizzo IP di Astra Control:
 
@@ -110,7 +110,7 @@ I cluster GKE privati devono disporre di https://cloud.google.com/kubernetes-eng
 
 *Il cluster GKE può risiedere su un VPC condiviso?*
 
-Sì, Astra Control può gestire i cluster che risiedono in un VPC condiviso. link:set-up-google-cloud.html["Scopri come configurare l'account di servizio Astra per una configurazione VPC condivisa"].
+Sì. Astra Control è in grado di gestire i cluster che risiedono in un VPC condiviso. link:set-up-google-cloud.html["Scopri come configurare l'account di servizio Astra per una configurazione VPC condivisa"].
 
 *Dove posso trovare le credenziali del mio account di servizio su GCP?*
 
@@ -192,4 +192,78 @@ Sì. Un'operazione snapshot su un'applicazione di Astra Control include snapshot
 
 *Posso gestire le snapshot scattate da Astra Control direttamente tramite il mio cloud provider?*
 
-No Le snapshot e i backup eseguiti da Astra Control possono essere gestiti solo con Astra Control.
+No Snapshot e backup creati da Astra Control possono essere gestiti solo con Astra Control.
+
+
+
+== Astra Control provisioner
+
+*In che modo le funzionalità di provisioning dello storage di Astra Control Provivisioner sono diverse da quelle di Astra Trident?*
+
+Astra Control Provivisioner, in qualità di parte di Astra Control, supporta un superset di funzionalità di provisioning dello storage che non sono disponibili in Astra Trident, open-source. Queste funzionalità si aggiungono a tutte le funzionalità disponibili per Trident open-source.
+
+*Astra Control Provisioner sostituisce Astra Trident?*
+
+In arrivo gli update di Astra Control, Astra Control Provivisioner sostituirà Astra Trident come provisioner di storage e orchestrator nell'architettura Astra Control. Per questo motivo, si consiglia vivamente agli utenti di Astra Control link:../use/enable-acp.html["Abilita Astra Control Provisioner"]. Astra Trident continuerà a rimanere open source e ad essere rilasciato, mantenuto, supportato e aggiornato con le nuove CSI e altre funzionalità di NetApp.
+
+*Devo pagare per Astra Trident?*
+
+No Astra Trident continuerà a essere open source e scaricabile gratuitamente.
+
+*È possibile utilizzare le funzionalità di gestione e provisioning dello storage di Astra Control senza installare e utilizzare Astra Control?*
+
+Sì, puoi eseguire l'aggiornamento a Astra Trident 23,10 o versione successiva e attivare la funzionalità Astra Control Provivisioner anche se non vuoi utilizzare il set completo di funzionalità di gestione dei dati di Astra Control.
+
+*Come posso passare da un utente Trident esistente a Astra Control per utilizzare funzionalità avanzate di provisioning e gestione dello storage?*
+
+Se sei un utente Trident (compresi gli utenti di Astra Trident nel cloud pubblico), devi prima acquistare una licenza Astra Control. Dopo che avrai fatto, puoi scaricare il bundle Astra Control Provivisioner, eseguire l'upgrade di Astra Trident e. link:../use/enable-acp.html["Attiva la funzionalità Astra Control Provisioner"].
+
+*Come faccio a sapere se Astra Control Provivisioner ha sostituito Astra Trident sul mio cluster?*
+
+Dopo l'installazione di Astra Control Provisioner, il cluster host nell'interfaccia utente di Astra Control mostrerà un `ACP version` piuttosto che `Trident version` campo e numero della versione installata corrente.
+
+image:ac-acp-version.png["Una schermata che mostra la posizione della versione ACP nell'interfaccia utente"]
+
+Se non si dispone dell'accesso all'interfaccia utente, è possibile confermare la corretta installazione utilizzando i seguenti metodi:
+
+[role="tabbed-block"]
+====
+.Operatore Astra Trident
+--
+Verificare `trident-acp` il container è in esecuzione e così `acpVersion` è `23.10.0` con stato di `Installed`:
+
+[listing]
+----
+kubectl get torc -o yaml
+----
+Risposta:
+
+[listing]
+----
+status:
+  acpVersion: 23.10.0
+  currentInstallationParams:
+    ...
+    acpImage: <my_custom_registry>/trident-acp:v23.10.0
+    enableACP: "true"
+    ...
+  ...
+  status: Installed
+----
+--
+.tridentctl
+--
+Confermare che Astra Control Provisioner è stato abilitato:
+
+[listing]
+----
+./tridentctl -n trident version
+----
+Risposta:
+
+[listing]
+----
++----------------+----------------+-------------+ | SERVER VERSION | CLIENT VERSION | ACP VERSION | +----------------+----------------+-------------+ | 23.10.0 | 23.10.0 | 23.10.0. | +----------------+----------------+-------------+
+----
+--
+====

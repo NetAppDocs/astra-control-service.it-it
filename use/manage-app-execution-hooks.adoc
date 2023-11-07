@@ -18,7 +18,7 @@ Un gancio di esecuzione è un'azione personalizzata che è possibile configurare
 
 == Tipi di hook di esecuzione
 
-Astra Control supporta i seguenti tipi di hook di esecuzione, in base al momento in cui possono essere eseguiti:
+Astra Control Service supporta i seguenti tipi di hook di esecuzione, in base a quando possono essere eseguiti:
 
 * Pre-snapshot
 * Post-snapshot
@@ -31,14 +31,12 @@ Astra Control supporta i seguenti tipi di hook di esecuzione, in base al momento
 
 == Esecuzione dei filtri hook
 
-Quando si aggiunge o si modifica un gancio di esecuzione a un'applicazione, è possibile aggiungere filtri a un gancio di esecuzione per gestire i contenitori corrispondenti. I filtri sono utili per le applicazioni che utilizzano la stessa immagine container su tutti i container, ma possono utilizzare ogni immagine per uno scopo diverso (ad esempio Elasticsearch). I filtri consentono di creare scenari in cui gli hook di esecuzione verranno eseguiti su alcuni di questi contenitori identici, ma non necessariamente su tutti. Se si creano più filtri per un singolo gancio di esecuzione, questi vengono combinati con un operatore AND logico. È possibile avere fino a 10 filtri attivi per gancio di esecuzione.
+Quando si aggiunge o si modifica un gancio di esecuzione a un'applicazione, è possibile aggiungere filtri a un gancio di esecuzione per gestire i contenitori corrispondenti. I filtri sono utili per le applicazioni che utilizzano la stessa immagine container su tutti i container, ma possono utilizzare ogni immagine per uno scopo diverso (ad esempio Elasticsearch). I filtri consentono di creare scenari in cui gli hook di esecuzione vengono eseguiti su alcuni container identici, ma non necessariamente su tutti. Se si creano più filtri per un singolo gancio di esecuzione, questi vengono combinati con un operatore AND logico. È possibile avere fino a 10 filtri attivi per gancio di esecuzione.
 
-Ogni filtro aggiunto a un gancio di esecuzione utilizza un'espressione regolare per far corrispondere i contenitori nel cluster. Quando un gancio corrisponde a un container, il gancio esegue lo script associato su quel container.
+Ogni filtro aggiunto a un gancio di esecuzione utilizza un'espressione regolare per far corrispondere i contenitori nel cluster. Quando un gancio corrisponde a un container, il gancio esegue lo script associato su quel container. Le espressioni regolari per i filtri utilizzano la sintassi RE2 (espressione regolare), che non supporta la creazione di un filtro che esclude i contenitori dall'elenco di corrispondenze. Per informazioni sulla sintassi supportata da Astra Control per le espressioni regolari nei filtri hook di esecuzione, vedere https://github.com/google/re2/wiki/Syntax["Supporto della sintassi RE2 (Regular Expression 2)"^].
 
 
-NOTE: Le espressioni regolari per i filtri utilizzano la sintassi RE2 (espressione regolare), che non supporta la creazione di un filtro che esclude i contenitori dall'elenco di corrispondenze.
-
-Per informazioni sulla sintassi supportata da Astra Control per le espressioni regolari nei filtri hook di esecuzione, vedere https://github.com/google/re2/wiki/Syntax["Supporto della sintassi RE2 (Regular Expression 2)"^].
+NOTE: Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione che viene eseguito dopo un'operazione di ripristino o clonazione e l'origine e la destinazione del ripristino o del clone si trovano in spazi dei nomi diversi, il filtro dello spazio dei nomi viene applicato solo allo spazio dei nomi di destinazione.
 
 
 
@@ -48,9 +46,17 @@ Quando si pianificano gli hook di esecuzione per le applicazioni, considerare qu
 
 [NOTE]
 ====
-Poiché gli hook di esecuzione spesso riducono o disattivano completamente le funzionalità dell'applicazione con cui vengono eseguiti, è consigliabile ridurre al minimo il tempo necessario per l'esecuzione degli hook di esecuzione personalizzati. Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associati, ma poi si annulla, gli hook possono ancora essere eseguiti se l'operazione di backup o snapshot è già iniziata. Ciò significa che la logica utilizzata in un gancio di esecuzione post-backup non può presumere che il backup sia stato completato.
+Poiché gli hook di esecuzione spesso riducono o disattivano completamente le funzionalità dell'applicazione con cui vengono eseguiti, si consiglia di ridurre al minimo il tempo necessario per l'esecuzione degli hook di esecuzione personalizzati.
+Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associati, ma poi si annulla, gli hook possono ancora essere eseguiti se l'operazione di backup o snapshot è già iniziata. Ciò significa che la logica utilizzata in un gancio di esecuzione post-backup non può presumere che il backup sia stato completato.
 
 ====
+* La funzionalità hook di esecuzione è disabilitata per impostazione predefinita per le nuove implementazioni di Astra Control.
++
+** È necessario attivare la funzione di hook di esecuzione prima di poter utilizzare i hook di esecuzione.
+** Gli utenti proprietari o amministratori possono attivare o disattivare la funzionalità di hook di esecuzione per tutti gli utenti definiti nell'account Astra Control corrente. Fare riferimento a. <<Attivare la funzione ganci di esecuzione>> e. <<Disattivare la funzione ganci di esecuzione>> per istruzioni.
+** Lo stato di abilitazione delle funzioni viene mantenuto durante gli aggiornamenti di Astra Control.
+
+
 * Un gancio di esecuzione deve utilizzare uno script per eseguire le azioni. Molti hook di esecuzione possono fare riferimento allo stesso script.
 * Astra Control richiede che gli script utilizzati dagli hook di esecuzione siano scritti nel formato degli script shell eseguibili.
 * La dimensione dello script è limitata a 96 KB.
@@ -59,7 +65,6 @@ Poiché gli hook di esecuzione spesso riducono o disattivano completamente le fu
 * Per creare, modificare o eliminare gli hook di esecuzione, è necessario essere un utente con autorizzazioni Owner, Admin o Member.
 * Se l'esecuzione di un gancio di esecuzione richiede più di 25 minuti, l'hook non riesce, creando una voce del registro eventi con un codice di ritorno "N/A". Qualsiasi snapshot interessata verrà contrassegnata come non riuscita e una voce del registro eventi risultante annoterà il timeout.
 * Per le operazioni di protezione dei dati ad hoc, tutti gli eventi hook vengono generati e salvati nel registro eventi della pagina *Activity*. Tuttavia, per le operazioni di protezione dei dati pianificate, nel registro eventi vengono registrati solo gli eventi di errore hook (gli eventi generati dalle operazioni di protezione dei dati pianificate vengono ancora registrati).
-* Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione che viene eseguito dopo un'operazione di ripristino o clonazione e l'origine e la destinazione del ripristino o del clone si trovano in spazi dei nomi diversi, il filtro dello spazio dei nomi viene applicato solo allo spazio dei nomi di destinazione.
 
 
 
@@ -73,7 +78,7 @@ Quando viene eseguita un'operazione di protezione dei dati, gli eventi hook di e
 . Gli eventuali hook di esecuzione post-operation personalizzati applicabili vengono eseguiti sui container appropriati. È possibile creare ed eseguire tutti gli hook post-operation personalizzati necessari, ma l'ordine di esecuzione di questi hook dopo l'operazione non è garantito né configurabile.
 
 
-Se si creano più hook di esecuzione dello stesso tipo (ad esempio, pre-snapshot), l'ordine di esecuzione di tali hook non è garantito. Tuttavia, è garantito l'ordine di esecuzione di ganci di tipi diversi. Ad esempio, l'ordine di esecuzione di una configurazione con tutti e cinque i diversi tipi di hook è simile al seguente:
+Se si creano più hook di esecuzione dello stesso tipo (ad esempio, pre-snapshot), l'ordine di esecuzione di tali hook non è garantito. Tuttavia, è garantito l'ordine di esecuzione di ganci di tipi diversi. Ad esempio, l'ordine di esecuzione di una configurazione con tutti i diversi tipi di hook è simile al seguente:
 
 . Hook pre-backup eseguiti
 . Hook pre-snapshot eseguiti
@@ -151,6 +156,41 @@ Visitare il https://github.com/NetApp/Verda["Progetto NetApp Verda GitHub"] Per 
 
 
 
+== Attivare la funzione ganci di esecuzione
+
+Se si è un utente Proprietario o Amministratore, è possibile attivare la funzione ganci di esecuzione. Quando si attiva la funzionalità, tutti gli utenti definiti in questo account Astra Control possono utilizzare i ganci di esecuzione e visualizzare i ganci di esecuzione e gli script hook esistenti.
+
+.Fasi
+. Accedere a *applicazioni* e selezionare il nome di un'applicazione gestita.
+. Selezionare la scheda *Execution Hooks*.
+. Selezionare *Abilita ganci di esecuzione*.
++
+Viene visualizzata la scheda *account* > *Impostazioni funzioni*.
+
+. Nel riquadro *ganci di esecuzione*, selezionare il menu delle impostazioni.
+. Selezionare *Abilita*.
+. Prendere nota dell'avviso di protezione visualizzato.
+. Selezionare *Sì, abilita i ganci di esecuzione*.
+
+
+
+
+== Disattivare la funzione ganci di esecuzione
+
+Se si è un utente Proprietario o Amministratore, è possibile disattivare la funzionalità Hook di esecuzione per tutti gli utenti definiti in questo account Astra Control. È necessario eliminare tutti i ganci di esecuzione esistenti prima di disattivare la funzione ganci di esecuzione. Fare riferimento a. <<Eliminare un gancio di esecuzione>> per istruzioni sull'eliminazione di un gancio di esecuzione esistente.
+
+.Fasi
+. Andare su *account*, quindi selezionare la scheda *Impostazioni funzione*.
+. Selezionare la scheda *Execution Hooks*.
+. Nel riquadro *ganci di esecuzione*, selezionare il menu delle impostazioni.
+. Selezionare *Disable* (Disattiva).
+. Prendere nota dell'avviso visualizzato.
+. Tipo `disable` per confermare che si desidera disattivare la funzione per tutti gli utenti.
+. Selezionare *Sì, disabilita*.
+
+
+
+
 == Visualizzare gli hook di esecuzione esistenti
 
 È possibile visualizzare gli hook di esecuzione personalizzati esistenti per un'applicazione.
@@ -184,6 +224,7 @@ In questa pagina è possibile visualizzare un elenco degli script caricati. La c
 Ogni gancio di esecuzione deve utilizzare uno script per eseguire le azioni. È possibile aggiungere uno o più script a cui possono fare riferimento gli hook di esecuzione. Molti hook di esecuzione possono fare riferimento allo stesso script; ciò consente di aggiornare molti hook di esecuzione modificando solo uno script.
 
 .Fasi
+. Verificare che la funzione ganci di esecuzione sia <<Attivare la funzione ganci di esecuzione,attivato>>.
 . Vai a *account*.
 . Selezionare la scheda *script*.
 . Selezionare *Aggiungi*.
@@ -234,12 +275,13 @@ NOTE: Se lo script è associato a uno o più hook di esecuzione, l'azione *Delet
 
 == Creare un gancio di esecuzione personalizzato
 
-È possibile creare un gancio di esecuzione personalizzato per un'applicazione. Fare riferimento a. <<Esempi di gancio di esecuzione>> per esempi di gancio. Per creare gli hook di esecuzione, è necessario disporre delle autorizzazioni Owner (Proprietario), Admin (Amministratore) o Member (membro).
+È possibile creare un gancio di esecuzione personalizzato per un'applicazione e aggiungerlo ad Astra Control. Fare riferimento a. <<Esempi di gancio di esecuzione>> per esempi di gancio. Per creare gli hook di esecuzione, è necessario disporre delle autorizzazioni Owner (Proprietario), Admin (Amministratore) o Member (membro).
 
 
 NOTE: Quando si crea uno script shell personalizzato da utilizzare come uncino di esecuzione, ricordarsi di specificare la shell appropriata all'inizio del file, a meno che non si stiano eseguendo comandi specifici o fornendo il percorso completo di un eseguibile.
 
 .Fasi
+. Verificare che la funzione ganci di esecuzione sia <<Attivare la funzione ganci di esecuzione,attivato>>.
 . Selezionare *applicazioni*, quindi selezionare il nome di un'applicazione gestita.
 . Selezionare la scheda *Execution Hooks*.
 . Selezionare *Aggiungi*.

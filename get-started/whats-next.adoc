@@ -4,7 +4,7 @@ permalink: get-started/whats-next.html
 keywords: get started, manage apps, manage account 
 summary: 'Ora che hai effettuato l"accesso e aggiunto i cluster ad Astra Control, sei pronto per iniziare a utilizzare le funzionalità di gestione dei dati applicativi di Astra Control.' 
 ---
-= Cosa succederà?
+= Quali sono le prossime novità?
 :hardbreaks:
 :allow-uri-read: 
 :icons: font

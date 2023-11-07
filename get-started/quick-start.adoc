@@ -73,7 +73,8 @@ link:set-up-microsoft-azure-with-amd.html["Scopri di più sui requisiti dei disc
 
 endif::azure[]
 
-Se stai gestendo il tuo cluster e non è ospitato da un cloud provider, esamina i requisiti per i cluster autogestiti.link:add-first-cluster.html#start-managing-kubernetes-clusters["Scopri di più sui requisiti del cluster a gestione automatica"].
+Se stai gestendo il tuo cluster e non è ospitato da un cloud provider, esamina i requisiti per i cluster autogestiti.
+link:add-first-cluster.html["Scopri di più sui requisiti del cluster a gestione automatica"].
 
 
 

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: use/restore-apps.html 
-keywords: restore app, restoring an app, restore an app, restore, migrate storage class 
-summary: 'Astra Control può ripristinare la configurazione dell"applicazione e lo storage persistente da uno snapshot o da un backup. I backup persistenti dello storage vengono trasferiti dall"archivio di oggetti, pertanto il ripristino da un backup esistente verrà completato più rapidamente.' 
+keywords: restore app, restoring an app, restore an app, restore, ontap-nas-economy, disruptive, migration 
+summary: 'Astra Control può ripristinare la configurazione dell"applicazione e lo storage persistente da uno snapshot o da un backup. I backup dello storage persistente vengono trasferiti dall"archivio di oggetti, pertanto il ripristino da un backup esistente verrà completato più velocemente.' 
 ---
 = Ripristinare le applicazioni
 :hardbreaks:
@@ -17,10 +17,11 @@ Astra Control può ripristinare l'applicazione da uno snapshot o da un backup. I
 
 NOTE: Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione che viene eseguito dopo un'operazione di ripristino o clonazione e l'origine e la destinazione del ripristino o del clone si trovano in spazi dei nomi diversi, il filtro dello spazio dei nomi viene applicato solo allo spazio dei nomi di destinazione.
 
-.A proposito di questa attività
-* *Proteggi prima le tue applicazioni*: Ti consigliamo vivamente di creare un'istantanea o un backup dell'applicazione prima di ripristinarla. In questo modo, è possibile clonare lo snapshot o il backup nel caso in cui il ripristino non abbia esito positivo.
+.Prima di iniziare
+* *Proteggi prima le tue applicazioni*: Ti consigliamo vivamente di creare un'istantanea o un backup dell'applicazione prima di ripristinarla. Ciò consente di clonare dallo snapshot o dal backup se il ripristino non ha avuto esito positivo.
 * *Check destination Volumes* (Controlla volumi di destinazione): Se si esegue il ripristino in una classe di storage diversa, assicurarsi che la classe di storage utilizzi la stessa modalità di accesso al volume persistente (ad esempio ReadWriteMany). L'operazione di ripristino non riesce se la modalità di accesso al volume persistente di destinazione è diversa. Ad esempio, se il volume persistente di origine utilizza la modalità di accesso RWX, selezionare una classe di storage di destinazione che non è in grado di fornire RWX, come Azure Managed Disks, AWS EBS, Google Persistent Disk o. `ontap-san`, causa l'errore dell'operazione di ripristino. Per ulteriori informazioni sulle modalità di accesso al volume persistente, fare riferimento a. https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes["Kubernetes"^] documentazione.
 * *Pianificare le esigenze di spazio*: Quando si esegue un ripristino in-place di un'applicazione che utilizza lo storage NetApp ONTAP, lo spazio utilizzato dall'applicazione ripristinata può raddoppiare. Dopo aver eseguito un ripristino in-place, rimuovere eventuali snapshot indesiderati dall'applicazione ripristinata per liberare spazio di storage.
+* * (Solo driver ontap-nas-Economy) esegue backup e ripristini*: Prima di eseguire il backup o il ripristino di un'app che utilizza una classe di storage supportata da `ontap-nas-economy` driver, verificare che link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["La directory snapshot sul backend dello storage ONTAP è nascosta"]. La mancata visualizzazione di questa directory potrebbe causare la perdita di accesso all'applicazione, in particolare se si utilizza NFSv3.
 
 
 [CAUTION]
@@ -92,7 +93,7 @@ Astra Control ripristina l'applicazione in base alle informazioni fornite. Se ha
 NOTE: Dopo un'operazione di protezione dei dati (cloning, backup o ripristino) e il successivo ridimensionamento persistente del volume, si verifica un ritardo fino a venti minuti prima che la nuova dimensione del volume venga visualizzata nell'interfaccia utente Web. L'operazione di protezione dei dati viene eseguita correttamente in pochi minuti ed è possibile utilizzare il software di gestione per il back-end dello storage per confermare la modifica delle dimensioni del volume.
 
 
-NOTE: Qualsiasi utente membro con vincoli di spazio dei nomi in base al nome/ID dello spazio dei nomi o alle etichette dello spazio dei nomi può clonare o ripristinare un'applicazione in un nuovo spazio dei nomi nello stesso cluster o in qualsiasi altro cluster dell'account dell'organizzazione. Tuttavia, lo stesso utente non può accedere all'applicazione clonata o ripristinata nel nuovo namespace. Dopo la creazione di un nuovo spazio dei nomi mediante un'operazione di clone o ripristino, l'amministratore/proprietario dell'account può modificare l'account utente membro e aggiornare i vincoli di ruolo per consentire all'utente interessato di accedere al nuovo spazio dei nomi.
+NOTE: Qualsiasi utente membro con vincoli di spazio dei nomi in base al nome/ID dello spazio dei nomi o alle etichette dello spazio dei nomi può clonare o ripristinare un'applicazione in un nuovo spazio dei nomi nello stesso cluster o in qualsiasi altro cluster dell'account dell'organizzazione. Tuttavia, lo stesso utente non può accedere all'applicazione clonata o ripristinata nel nuovo namespace. Dopo che un'operazione di clonazione o ripristino crea un nuovo spazio dei nomi, l'amministratore/proprietario dell'account può modificare l'account utente membro e aggiornare i vincoli di ruolo affinché l'utente interessato conceda l'accesso al nuovo spazio dei nomi.
 
 
 

@@ -73,8 +73,8 @@ Viene visualizzato l'elenco dei bucket disponibili per Astra Control Service.
 
 
 .Prima di iniziare
-* Il nome di un bucket esistente.
-* Le credenziali per il bucket che forniscono ad Astra Control Service le autorizzazioni necessarie per gestire il bucket.
+* Assicurarsi di conoscere il nome di un bucket esistente.
+* Assicurarsi di disporre di credenziali per il bucket che forniscono ad Astra Control le autorizzazioni necessarie per gestire il bucket.
 
 
 ifdef::azure[]
@@ -147,8 +147,13 @@ NOTE: Astra Control non assegna automaticamente un bucket predefinito per nessun
 
 È possibile rimuovere un bucket che non è più in uso o che non è integro. Questa operazione può essere utile per mantenere la configurazione dell'archivio di oggetti semplice e aggiornata.
 
-Non è possibile rimuovere un bucket predefinito. Se si desidera rimuovere tale bucket, selezionare prima un altro bucket come predefinito.
+[NOTE]
+====
+* Non è possibile rimuovere un bucket predefinito. Se si desidera rimuovere tale bucket, selezionare prima un altro bucket come predefinito.
+* Non è possibile rimuovere un bucket WORM (Write Once Read Many) prima che il periodo di conservazione del cloud provider del bucket sia scaduto. Le benne A VITE SENZA FINE sono contrassegnate con "bloccate" accanto al nome della benna.
 
+
+====
 .Prima di iniziare
 * Prima di iniziare, verificare che non vi siano backup in esecuzione o completati per questo bucket.
 * È necessario verificare che il bucket non venga utilizzato per i backup pianificati.
