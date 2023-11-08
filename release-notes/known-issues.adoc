@@ -69,10 +69,7 @@ NOTE: Quando si utilizza la crittografia in-flight Kerberos con volumi NFSv4, as
 
 == I dati di backup rimangono nel bucket dopo l'eliminazione per bucket con criteri di conservazione scaduti
 
-Se elimini il backup immutabile di un'app dopo che il criterio di conservazione del bucket è scaduto, il backup viene eliminato da Astra Control ma non dal bucket. Per ovviare a questo problema, se è necessario eliminare i backup più recenti o tutti i backup per un'applicazione, rimuovere manualmente i backup dal back-end dello storage.
-
-
-NOTE: Se si dispone di più backup per un'applicazione, rimuovere i backup più recenti o tutti i backup per l'applicazione. Se si rimuovono backup incrementali intermedi, non sarà possibile ripristinare l'applicazione dall'ultimo backup.
+Se elimini il backup immutabile di un'app dopo che il criterio di conservazione del bucket è scaduto, il backup viene eliminato da Astra Control ma non dal bucket. Questo problema verrà risolto in una prossima release.
 
 
 
