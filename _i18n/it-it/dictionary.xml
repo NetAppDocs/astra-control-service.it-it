@@ -2522,9 +2522,7 @@ Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associ
   <block id="d19668a1d8d1bd385693755af3a4d795" category="inline-link-macro">semplici passaggi</block>
   <block id="bc6535c6d6068b18ecf4b4c5c01c8d16" category="list-text">*Funzionalità di backup e ripristino per applicazioni con backend di storage ontap-nas-Economy con driver-backend*: Abilita le operazioni di backup e ripristino per<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> con alcuni <block ref="5c67f35967a41efab494aadfd6ca6dff" category="inline-link-macro-rx"></block>.</block>
   <block id="1f6dc20a3ec1623fb44899872279643e" category="list-text">*Supporto di Astra Control Service per i cluster Red Hat OpenShift Container Platform on-premise*</block>
-  <block id="3a1aaab6dcb181e61008309324075e63" category="paragraph"><block ref="3a1aaab6dcb181e61008309324075e63" category="inline-link-macro-rx"></block></block>
   <block id="5eadb99098f006f9c32869481704480a" category="inline-link-macro">backup di sola lettura inalterabili</block>
-  <block id="a630fe80f58480c62f875cc147ba8a94" category="list-text">*Backup immutabili*: Astra Control ora supporta <block ref="64c93f29dbc4dc78bd1b2562147eccbb" category="inline-link-macro-rx"></block> come livello di sicurezza aggiuntivo contro malware e altre minacce.</block>
   <block id="9736ef1f9882cacf5ab2e28d88d9e5a6" category="list-text">*Presentazione di Astra Control Provisioner*</block>
   <block id="6620a1148fc74ef20fba3425d00efe86" category="paragraph">Con la release 23,10, Astra Control introduce un nuovo componente software chiamato Astra Control Provisioner, che sarà disponibile per tutti gli utenti di Astra Control con licenza. Astra Control Provivisioner offre l'accesso a un superset di funzionalità avanzate di gestione e provisioning dello storage oltre a quelle offerte da Astra Trident. Queste funzionalità sono disponibili per tutti i clienti Astra Control senza costi aggiuntivi.</block>
   <block id="b8012be7d7bd1ed72622391312c910b2" category="list-text">*Inizia con Astra Control Provisioner*
@@ -2552,4 +2550,8 @@ Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associ
   <block id="03281739854e4951c0f98529e54a24f2" category="sidebar">Utilizza Astra Control Provisioner</block>
   <block id="49219ed727d5145cd828958ebce847fa" category="list-text">kubectl v1,26 o versione successiva installata</block>
   <block id="3c4db63c6115c69942c67f6b04d8e645" category="paragraph">Se elimini il backup immutabile di un'app dopo che il criterio di conservazione del bucket è scaduto, il backup viene eliminato da Astra Control ma non dal bucket. Questo problema verrà risolto in una prossima release.</block>
+  <block id="9d7917a6e561386b201cda34e605d752" category="paragraph"><block ref="9d7917a6e561386b201cda34e605d752" category="inline-link-macro-rx"></block></block>
+  <block id="3fcb22d3c98c7c79f0727de1eb084b1e" category="list-text">*Backup immutabili*: Astra Control ora supporta <block ref="fe44ae92696e57533e10ffb7636ff94a" category="inline-link-macro-rx"></block> come livello di sicurezza aggiuntivo contro malware e altre minacce.</block>
+  <block id="ac4da6c6894a7c36281036138b93deac" category="list-text">*Supporto per la gestione delle applicazioni che utilizzano lo storage NVMe/TCP*
+Astra Control è ora in grado di gestire le applicazioni supportate da volumi persistenti connessi tramite NVMe/TCP.</block>
 </blocks>

@@ -23,9 +23,9 @@ NetApp aggiorna periodicamente Astra Control Service per offrire nuove funzional
 * *Funzionalità di backup e ripristino per applicazioni con backend di storage ontap-nas-Economy con driver-backend*: Abilita le operazioni di backup e ripristino per `ontap-nas-economy` con alcuni link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["semplici passaggi"^].
 * *Supporto di Astra Control Service per i cluster Red Hat OpenShift Container Platform on-premise*
 +
-link:../use/restore-apps.html["Aggiungere un cluster"^]
+link:../get-started/add-first-cluster.html["Aggiungere un cluster"^]
 
-* *Backup immutabili*: Astra Control ora supporta link:../concepts/data-protection.html#immutable-backups["backup di sola lettura inalterabili"^] come livello di sicurezza aggiuntivo contro malware e altre minacce.
+* *Backup immutabili*: Astra Control ora supporta link:../learn/data-protection.html#immutable-backups["backup di sola lettura inalterabili"^] come livello di sicurezza aggiuntivo contro malware e altre minacce.
 * *Presentazione di Astra Control Provisioner*
 +
 Con la release 23,10, Astra Control introduce un nuovo componente software chiamato Astra Control Provisioner, che sarà disponibile per tutti gli utenti di Astra Control con licenza. Astra Control Provivisioner offre l'accesso a un superset di funzionalità avanzate di gestione e provisioning dello storage oltre a quelle offerte da Astra Trident. Queste funzionalità sono disponibili per tutti i clienti Astra Control senza costi aggiuntivi.
@@ -47,8 +47,10 @@ Le seguenti funzionalità sono disponibili con la release Astra Control Provisio
 
 * *Supporto di Astra Control Service per Red Hat OpenShift Service su cluster AWS (ROSA)*
 +
-link:../use/restore-apps.html["Aggiungere un cluster"^]
+link:../get-started/add-first-cluster.html["Aggiungere un cluster"^]
 
+* *Supporto per la gestione delle applicazioni che utilizzano lo storage NVMe/TCP*
+Astra Control è ora in grado di gestire le applicazioni supportate da volumi persistenti connessi tramite NVMe/TCP.
 * *I ganci di esecuzione sono disattivati per impostazione predefinita*: A partire da questa release, la funzionalità dei ganci di esecuzione può essere link:../use/manage-app-execution-hooks.html#enable-the-execution-hooks-feature["attivato"] o è disattivato per maggiore protezione (è disattivato per impostazione predefinita). Se non sono ancora stati creati ganci di esecuzione da utilizzare con Astra Control, è necessario link:../use/manage-app-execution-hooks.html#enable-the-execution-hooks-feature["attivare la funzione ganci di esecuzione"^] per iniziare a creare ganci. Se sono stati creati dei ganci di esecuzione prima di questa release, la funzionalità dei ganci di esecuzione rimane attivata ed è possibile utilizzare i ganci normalmente.
 
 
