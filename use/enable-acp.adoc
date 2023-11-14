@@ -12,7 +12,7 @@ summary: Consenti a Astra Control Provisioner di accedere a funzionalità avanza
 
 
 [role="lead"]
-Astra Trident le versioni 23,10 e successive includono la possibilità di utilizzare Astra Control Provivisioner, che consente agli utenti dotati di licenza Astra Control di accedere a funzionalità avanzate di provisioning dello storage. Astra Control Provisioner fornisce questa funzionalità estesa oltre alle funzionalità standard basate su CSI Astra Trident.
+Astra Trident le versioni 23,10 e successive includono la possibilità di utilizzare Astra Control Provivisioner, che consente agli utenti dotati di licenza Astra Control di accedere a funzionalità avanzate di provisioning dello storage. Astra Control Provisioner fornisce questa funzionalità estesa oltre alle funzionalità standard basate su CSI Astra Trident. È possibile utilizzare questa procedura per abilitare e installare Astra Control Provisioner.
 
 L'abbonamento a Astra Control Service include automaticamente la licenza per l'utilizzo di Astra Control Provisioner.
 
@@ -38,9 +38,6 @@ Se hai già un Astra Trident senza Astra Control Provivisioner e vuoi abilitare 
 * *Conferma che la tua versione di Astra Trident si trovi all'interno di una finestra a quattro release*: Puoi eseguire un aggiornamento diretto a Astra Trident 23,10 con Astra Control Provisioner se il tuo Astra Trident si trova all'interno di una finestra a quattro release della versione 23,10. Ad esempio, puoi eseguire l'upgrade direttamente da Astra Trident 22,10 a 23,10.
 * *Confirmi che il tuo cluster ha un'architettura di sistema AMD64*: L'immagine Astra Control Provivisioner è fornita in entrambe le architetture CPU AMD64 e ARM64, ma solo AMD64 è supportato da Astra Control.
 
-
-.Effettua l'aggiornamento a Astra Control Provisioner 23,10
-Se hai aggiornato Astra Trident alla versione 23,10, puoi usare questa procedura per attivare e installare Astra Control Provisioner.
 
 .Fasi
 . Accedere al Registro di sistema dell'immagine di controllo Astra di NetApp:
