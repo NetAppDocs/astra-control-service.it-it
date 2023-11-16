@@ -30,7 +30,7 @@ Quando si eseguono operazioni su POD Postgres, non si dovrebbe connettersi diret
 
 === La pagina Activity (attività) visualizza fino a 100,000 eventi
 
-La pagina Astra Control Activity (attività di controllo Astra) può visualizzare fino a 100,000 eventi. Per visualizzare tutti gli eventi registrati, recuperare gli eventi utilizzando link:../rest-api/api-intro.html["API REST di Astra Control"^].
+La pagina Astra Control Activity (attività di controllo Astra) può visualizzare fino a 100,000 eventi. Per visualizzare tutti gli eventi registrati, recuperare gli eventi utilizzando https://docs.netapp.com/us-en/astra-automation/["API REST di Astra Control"^].
 
 ifdef::gcp[]
 

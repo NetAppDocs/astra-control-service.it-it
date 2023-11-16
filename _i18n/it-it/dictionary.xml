@@ -1095,7 +1095,6 @@
   <block id="b9f8e20735440b893e92df9f8f191ee9" category="paragraph">Quando si eseguono operazioni su POD Postgres, non si dovrebbe connettersi direttamente all'interno del pod per utilizzare il comando psql. Astra Control Service richiede l'accesso a psql per bloccare e scongelare i database. Se è presente una connessione preesistente, lo snapshot, il backup o il clone non avranno esito positivo.</block>
   <block id="5b8f884e708de51fd4946164326e802c" category="section-title">La pagina Activity (attività) visualizza fino a 100,000 eventi</block>
   <block id="676bd50e0f10e6725dc7a68e3041cfed" category="inline-link-macro">API REST di Astra Control</block>
-  <block id="474be14e965990f35641a82fd1940bd1" category="paragraph">La pagina Astra Control Activity (attività di controllo Astra) può visualizzare fino a 100,000 eventi. Per visualizzare tutti gli eventi registrati, recuperare gli eventi utilizzando <block ref="65b0251af1492433290d52a893eea83e" category="inline-link-macro-rx"></block>.</block>
   <block id="6bfe142cec74b24abd2888a936579280" category="section-title">Limitazioni per la gestione dei cluster GKE</block>
   <block id="3265b2231bbb5d69811830c739f49e98" category="paragraph">Le seguenti limitazioni si applicano alla gestione dei cluster Kubernetes in Google Kubernetes Engine (GKE).</block>
   <block id="ec566a7ae96d8d40feeed984810bbeaa" category="section-title">Limitazioni della gestione delle applicazioni</block>
@@ -2554,4 +2553,5 @@ Astra Control è ora in grado di gestire le applicazioni supportate da volumi pe
   <block id="d5bd450a47d2497dc5f133703c0fab95" category="list-text">Cluster on-premise:</block>
   <block id="00ae925249b1dcd734cdb679b48bf8f7" category="list-text">NetApp ONTAP Select</block>
   <block id="488eba069a2619d48659ff6ffa6f538a" category="paragraph">Astra Trident le versioni 23,10 e successive includono la possibilità di utilizzare Astra Control Provivisioner, che consente agli utenti dotati di licenza Astra Control di accedere a funzionalità avanzate di provisioning dello storage. Astra Control Provisioner fornisce questa funzionalità estesa oltre alle funzionalità standard basate su CSI Astra Trident. È possibile utilizzare questa procedura per abilitare e installare Astra Control Provisioner.</block>
+  <block id="3296ea02e6ef8200a85b529d14dc6282" category="paragraph">La pagina Astra Control Activity (attività di controllo Astra) può visualizzare fino a 100,000 eventi. Per visualizzare tutti gli eventi registrati, recuperare gli eventi utilizzando<block ref="3f49e9a4af0b49133601252075c9bc37" category="inline-link-rx"></block>.</block>
 </blocks>
