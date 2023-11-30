@@ -145,7 +145,7 @@ Seguire le istruzioni per aggiungere il cluster.
 . *Altro*: Fornisci dettagli sul tuo cluster autogestito caricando un `kubeconfig.yaml` o incollando il contenuto di `kubeconfig.yaml` file dagli appunti.
 +
 
-NOTE: Se crei il tuo `kubeconfig` file, è necessario definire solo *un* elemento di contesto al suo interno. Fare riferimento a. https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Documentazione Kubernetes"^] per informazioni sulla creazione `kubeconfig` file.
+NOTE: Se crei il tuo `kubeconfig` file, è necessario definire solo *un* elemento di contesto al suo interno. Fare riferimento a. link:create-kubeconfig.html["queste istruzioni"^] per informazioni sulla creazione `kubeconfig` file.
 
 . *Nome credenziale*: Fornire un nome per la credenziale del cluster a gestione automatica che si sta caricando su Astra Control. Per impostazione predefinita, il nome della credenziale viene compilato automaticamente come nome del cluster.
 . *Private route identifier*: Immettere l'identificativo di percorso privato, che è possibile ottenere da Astra Connector. Se si esegue una query su Astra Connector tramite `kubectl get astraconnector -n astra-connector` l'identificatore di route privato viene definito `ASTRACONNECTORID`.
