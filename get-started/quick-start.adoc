@@ -81,8 +81,8 @@ link:add-first-cluster.html["Scopri di più sui requisiti del cluster a gestione
 == image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Completare la registrazione di Astra Control
 
 [role="quick-margin-list"]
-. Creare un https://cloud.netapp.com["NetApp Cloud Central"^] account.
-. Specificare l'ID e-mail di NetApp Cloud Central durante la creazione dell'account Astra Control https://cloud.netapp.com/astra["Dalla pagina del prodotto Astra"^].
+. Creare un https://cloud.netapp.com["NetApp BlueXP"^] account.
+. Specifica il tuo ID email NetApp BlueXP durante la creazione dell'account Astra Control https://cloud.netapp.com/astra["Dalla pagina del prodotto Astra Control"^].
 
 
 [role="quick-margin-para"]
