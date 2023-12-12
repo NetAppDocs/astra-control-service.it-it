@@ -2435,7 +2435,6 @@ Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associ
   <block id="057afae3fe65d4f24b79bd50d34734b1" category="paragraph"><block ref="057afae3fe65d4f24b79bd50d34734b1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7753d368684bfc31807afc2b7f3cd9c0" category="paragraph-title">Prima di attivare Astra Control Provisioner</block>
   <block id="0360a2e5fb08211931ade5b67746abd1" category="paragraph">Se hai già un Astra Trident senza Astra Control Provivisioner e vuoi abilitare Astra Control Provivisioner, esegui prima quanto segue:</block>
-  <block id="96970ad8b13f688668233173a243a6d7" category="list-text">*Conferma che la tua versione di Astra Trident si trovi all'interno di una finestra a quattro release*: Puoi eseguire un aggiornamento diretto a Astra Trident 23,10 con Astra Control Provisioner se il tuo Astra Trident si trova all'interno di una finestra a quattro release della versione 23,10. Ad esempio, puoi eseguire l'upgrade direttamente da Astra Trident 22,10 a 23,10.</block>
   <block id="513c5f0b4153f3c855edd085e129578d" category="list-text">*Confirmi che il tuo cluster ha un'architettura di sistema AMD64*: L'immagine Astra Control Provivisioner è fornita in entrambe le architetture CPU AMD64 e ARM64, ma solo AMD64 è supportato da Astra Control.</block>
   <block id="cc74ae067ae4451424c2712fd0b0a766" category="list-text">Accedere al Registro di sistema dell'immagine di controllo Astra di NetApp:</block>
   <block id="f16793904b509a3f7a260653784d0c7b" category="list-text">Effettua l'accesso all'interfaccia utente di Astra Control Service e registra l'ID account Astra Control.</block>
@@ -2459,8 +2458,6 @@ Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associ
   <block id="9f28a023f26c22c040e88a7f3791d0ed" category="inline-xref">segreti di estrazione delle immagini</block>
   <block id="84b3a17dd4da0cadee9516d2c742e8e1" category="admonition">Per i cluster che eseguono Kubernetes 1.24 o versioni precedenti, utilizzare<block ref="bd2cc8575fe69c7f775292759380c838" prefix=" " category="inline-code"></block>. Per i cluster che eseguono Kubernetes 1.25 o versioni successive, utilizzare<block ref="5a02ebff4889c2de0379a0fb10bed282" prefix=" " category="inline-code"></block>.</block>
   <block id="a770ca95121cc795b602f9af6af024fb" category="admonition">In un cluster Kubernetes dovrebbe esserci solo *un'istanza* dell'operatore. Non creare implementazioni multiple dell'operatore Trident.</block>
-  <block id="0addb2f750cfe9f186eca6774f14ac69" category="list-text"><block ref="ecb96b3444d2267901d021f818e6535e" category="inline-link-rx"></block>.</block>
-  <block id="5dcdd9d11fd62dd1ee60a5366592f2c7" category="list-text">Installa nuovamente Astra Trident con Astra Control Provivisioner abilitato <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>):</block>
   <block id="bfd6393303a90c7eebadedd13edf658b" category="paragraph">Dopo l'installazione di Astra Control provisioner, il cluster che ospita il provisioner nell'interfaccia utente Astra Control mostrerà un<block ref="47f79829be244bd727d1881108343390" prefix=" " category="inline-code"></block> piuttosto che<block ref="f1112223b41fddc71fd6a626582dfb78" prefix=" " category="inline-code"></block> campo e numero della versione installata corrente.</block>
   <block id="a368b742ba77bda413a93bc1a4d09ae3" category="inline-link">Documentazione sugli aggiornamenti di Astra Trident</block>
   <block id="38798f90f44856e877b3d5951137f166" category="list-text"><block ref="38798f90f44856e877b3d5951137f166" category="inline-link-rx"></block></block>
@@ -2547,11 +2544,6 @@ Astra Control è ora in grado di gestire le applicazioni supportate da volumi pe
   <block id="cbad356d2a2c08e20ea2766c2d78305f" category="inline-xref">sezione successiva</block>
   <block id="e7202f4359a7a5bb666f3f91a540d6ea" category="list-text">Se si dispone di un Registro di sistema personalizzato, attenersi alla procedura descritta di seguito per spostare l'immagine nel Registro di sistema personalizzato. Se non si utilizza un registro, seguire i passaggi dell'operatore Trident nel <block ref="d433543a9de56c735bd2827329689b0d" category="inline-xref-macro-rx"></block>.</block>
   <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">Esempio:</block>
-  <block id="40c27dbe238031119a79044564707195" category="list-text">[[no-registry]]se l'operatore è stato rimosso dalla distribuzione originale, creare nuovamente il CRD di Astra Trident orchestrator:</block>
-  <block id="c5ef2e8ef77f84391fa266f923ba567f" category="inline-link">Scaricare il programma di installazione ed estrarlo</block>
-  <block id="bfae990a3fa05e9fc309d9270c1b0bdf" category="list-text"><block ref="1762ff5119022dd6aa9e3a3693ff4c9a" category="inline-link-rx"></block>.</block>
-  <block id="6dfb05d57e00d495a2626742c5794d45" category="list-text">Creare nuovamente il CRD:</block>
-  <block id="74e1b3ec60a1e85ea67710e2dc1cd343" category="list-text">Creare il<block ref="47cb44be55a0dffa15dfc900a4c687be" prefix=" " category="inline-code"></block> nuovo namespace, se necessario:</block>
   <block id="f2b891f09ee711b58bdd7005fd757210" category="list-text">Aggiorna Astra Trident alla versione 23.10.0:</block>
   <block id="4cf0920f58032b65295d4d0255354879" category="list-text">Verificare che Astra Trident sia in esecuzione:</block>
   <block id="70da7fdb746f99191502821d5d3b6d53" category="list-text">[[pull-secrets]]se si dispone di un registro che utilizza segreti, creare un segreto da utilizzare per estrarre l'immagine di Astra Control Provisioner:</block>
@@ -2561,4 +2553,14 @@ Astra Control è ora in grado di gestire le applicazioni supportate da volumi pe
   <block id="f3a11fe989360f45110df3758e7f0641" category="list-text">Se stabilito <block ref="565c9dfc4921fbeccbde323bc8a44cad" category="inline-xref-macro-rx"></block> in precedenza, è possibile impostarle qui <block ref="bafdae7aa6abb1556ef1b0d17efe7509" prefix="(" category="inline-code"></block>). Usare lo stesso nome segreto che hai stabilito nei passaggi precedenti.</block>
   <block id="aa3ae8b6c1e4a29f9314a8bbc401330f" category="list-text">Salvare e uscire dal file. Il processo di distribuzione si avvia automaticamente.</block>
   <block id="4f27e6f7f8f95f32f55540801c5f6db0" category="list-text">Verificare che l'operatore, la distribuzione e i replicaset siano stati creati.</block>
+  <block id="bae6bc3f0a28e1dbcf10ba23c43f14bc" category="list-text">*Se Astra Trident è installato, conferma che la sua versione si trovi all'interno di una finestra a quattro release*: Puoi eseguire un aggiornamento diretto a Astra Trident 23,10 con Astra Control Provisioner se il tuo Astra Trident si trova all'interno di una finestra a quattro release della versione 23,10. Ad esempio, puoi eseguire l'upgrade direttamente da Astra Trident 22,10 a 23,10.</block>
+  <block id="b88c081e2a4b249f94292c6f7bf16bdc" category="inline-link">Scaricare il programma di installazione di Astra Trident ed estrarlo</block>
+  <block id="59d0cf2c91ce363cf00cd574e291796c" category="list-text">[[no-registry] (nessun registro)<block ref="c15ad8dc2f63219c53e85038d51645b0" category="inline-link-rx"></block>.</block>
+  <block id="b53ea1f6729ee2c1c5dc303c5e9bb360" category="list-text">Completa questi passaggi se non hai ancora installato Astra Trident o se hai rimosso l'operatore dall'implementazione originale di Astra Trident:</block>
+  <block id="1802fc07d2de18110ae52621540f337e" category="list-text">Creare il CRD:</block>
+  <block id="b19df824e7baecb971d0fdd39542c6d6" category="list-text">Creare lo spazio dei nomi tridente <block ref="a40796e67d7096bdb1a461d9369987ae" prefix="(" category="inline-code"></block>) o confermare che lo spazio dei nomi tridente esiste ancora <block ref="929ac53a7aaa18d0ab7bfd29e3b89c45" prefix="(" category="inline-code"></block>). Se lo spazio dei nomi è stato rimosso, crearlo di nuovo.</block>
+  <block id="6942401e8cfb1a0fc7b82ec1dcda7d32" category="list-text"><block ref="b0e92e3807bd982cc8fd58230062a04f" category="inline-link-rx"></block>.</block>
+  <block id="a65211330b142f51904ccfb3741cc124" category="inline-link">Se disponi già di un Astra Trident, disinstallarlo dal cluster che lo ospita</block>
+  <block id="00c4331aab8ed2101088511f96b6af8e" category="list-text"><block ref="f21e19b64d79b0da0ff48729d1b28669" category="inline-link-rx"></block>.</block>
+  <block id="005a56f182fe268e9f6977b39114eab8" category="list-text">Installa Astra Trident con Astra Control Provisioner abilitato <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>):</block>
 </blocks>
