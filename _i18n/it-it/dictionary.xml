@@ -2190,7 +2190,6 @@ RKE 2 (v1.24.x) con Rancher 2.7</block>
   <block id="de2197712ea8457243c4dd6357e2765e" category="list-text">Ottieni un token API da Astra Control. Fare riferimento a.<block ref="c02899be0babfb1350e3b2576a6e8c97" category="inline-link-rx"></block> per istruzioni.</block>
   <block id="9606554dacabd47ad1eea6bf025ec9f2" category="list-text">Creare lo spazio dei nomi astra-Connector:</block>
   <block id="16b505831d63f11efedc20586388506e" category="list-text">Creare il file Astra Connector CR e assegnargli un nome<block ref="180438293f7afaed3b9c6ed9bea94668" prefix=" " category="inline-code"></block>. Aggiorna i valori tra parentesi &lt;&gt; per farli corrispondere all'ambiente Astra Control e alla configurazione del cluster:</block>
-  <block id="801e0bf06c1dd33312759ce41f2322a9" category="list-text">*&lt;ASTRA_CONTROL_SERVICE_URL&gt;*: L'URL dell'interfaccia utente web del servizio di controllo Astra.</block>
   <block id="25d61d35c6fbaed671d75883c5c128b6" category="list-text">*&lt;ASTRA_CONTROL_SERVICE_API_TOKEN&gt;*: Il token dell'API di controllo Astra ottenuto nel passaggio precedente.</block>
   <block id="eb2f033e26873cd0fdf05bd8a92819df" category="list-text">*&lt;PRIVATE_AKS_CLUSTER_NAME&gt;*: (Solo cluster AKS) - il nome del cluster del cluster privato Azure Kubernetes Service. Annullare il commento e popolare questa riga solo se si aggiunge un cluster AKS privato.</block>
   <block id="3226c850ebbc28cb203319eea9e985a6" category="list-text">*&lt;ASTRA_CONTROL_ACCOUNT_ID&gt;*: Ottenuto dall'interfaccia utente web Astra Control. Selezionare l'icona a forma di figura in alto a destra nella pagina e selezionare *accesso API*.</block>
@@ -2445,7 +2444,6 @@ Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associ
   <block id="054eff009cdf03269a420a2370e7dea5" category="list-text">Annotare l'ID account.</block>
   <block id="247c4bd908bc1de2fd5a809200d877d2" category="list-text">Nella stessa pagina, selezionare *generate API token*, copiare la stringa del token API negli Appunti e salvarla nell'editor.</block>
   <block id="98720da814dca1d713a7ea34c223cc71" category="list-text">Accedere al registro Astra Control utilizzando il metodo preferito:</block>
-  <block id="504f7722d368dc922a957e7f67a889b9" category="list-text">Per spostare l'immagine nel Registro di sistema personalizzato, attenersi alla procedura indicata di seguito. Se non si utilizza un registro, seguire la procedura dell'operatore Trident per impostare un segreto.</block>
   <block id="be1ad1396eeb1a14ec670f22fa8db431" category="admonition">Per i seguenti comandi, puoi utilizzare Podman al posto di Docker. Se si utilizza un ambiente Windows, si consiglia di utilizzare PowerShell.</block>
   <block id="c5fd214cdd0d2b3b4272e73b022ba5c2" category="open-title">Docker</block>
   <block id="dfd1625b65bec1b019b2006f2a2d6f7f" category="list-text">Estrarre l'immagine di Astra Control provisioner dal Registro di sistema:</block>
@@ -2454,21 +2452,12 @@ Se si avvia un'operazione di backup o snapshot con gli hook di esecuzione associ
   <block id="1bfe2fd1955082292d7e5903ef66a782" category="list-text">Inviare l'immagine al registro personalizzato:</block>
   <block id="91c18a5dec9cf1fbb20ffffd101409cd" category="open-title">Gru</block>
   <block id="1165b577af138b2a4ee1e0d044eea398" category="list-text">Copiare il manifesto di Astra Control Provisioner nel registro personalizzato:</block>
-  <block id="6bfac0d4d60794ceed5540ed9c92b46a" category="list-text">Assicurati che questo blocco sia presente nella tua configurazione di Docker:</block>
-  <block id="07f6b362fad08add2146df68c7293231" category="list-text">[[pull-secrets]]Crea un segreto nel<block ref="47cb44be55a0dffa15dfc900a4c687be" prefix=" " category="inline-code"></block> spazio dei nomi:</block>
-  <block id="68cf8879a7fec166cec9837ca39b81d7" category="list-text">Aggiungi il segreto a TORC (Astra Trident orchestrator):</block>
   <block id="b948a23f0cbc4ea95e165a5489a3b7ce" category="inline-link">Operatore (manualmente o con Helm) o&lt;block Ref="c67fd1b99934afa248dfeb285a9a4191" prefix=" " category='inline-code'/&gt;</block>
   <block id="55b03f72140649802821ee27f611f93d" category="list-text">Determinare se il metodo di installazione originale di Astra Trident ha utilizzato un<block ref="a1a09c66ad6b9d6162d6a0a2aaef123f" category="inline-link-rx"></block>.</block>
   <block id="77786aa5158c2dd5c43d9bc74844fffd" category="admonition">Non utilizzare Helm per abilitare Astra Control Provisioner. Se hai utilizzato Helm per l'installazione originale e stai effettuando l'aggiornamento a 23,10, dovrai utilizzare l'operatore Trident o tridentctl per eseguire l'abilitazione di Astra Control Provisioner.</block>
   <block id="531dc1bead45003a393e1e227a07b0fa" category="list-text">Modificare il TridentOrchestrator CR e apportare le seguenti modifiche:</block>
-  <block id="1dc3b7297d43967b1df8cc5f4718d2b7" category="list-text">Abilita Astra Control Provisioner <block ref="b146a884950a14beaf7f7c32ccceea96" prefix="(" category="inline-code"></block>)</block>
-  <block id="0d93f0d7110c6fcd946df3239a7be503" category="list-text">Impostare la posizione del Registro di sistema per l'immagine Astra Control Provivioner <block ref="334c0a9162c18d888fae4c3071edcbf0" prefix="(" category="inline-code"></block>).</block>
   <block id="9f28a023f26c22c040e88a7f3791d0ed" category="inline-xref">segreti di estrazione delle immagini</block>
-  <block id="32c8b1c79820bf7dfd85518c9c748641" category="admonition">Se stabilito <block ref="565c9dfc4921fbeccbde323bc8a44cad" category="inline-xref-macro-rx"></block> nelle fasi precedenti di questa procedura, è possibile utilizzarle qui <block ref="ce73ad6af69d89f0704d72b9000c5650" prefix="(" category="inline-code"></block>)</block>
-  <block id="e18f4edbf8631aa163538dd1929aba1d" category="list-text">Applicare le modifiche:</block>
-  <block id="aef1a8f8ac300bc418eb75e7e1e3c426" category="list-text">Aggiorna la configurazione di Astra Trident così che il nuovo<block ref="49c9f6c98d04c8c76aee7448fd9136ed" prefix=" " category="inline-code"></block> il container viene implementato:</block>
   <block id="84b3a17dd4da0cadee9516d2c742e8e1" category="admonition">Per i cluster che eseguono Kubernetes 1.24 o versioni precedenti, utilizzare<block ref="bd2cc8575fe69c7f775292759380c838" prefix=" " category="inline-code"></block>. Per i cluster che eseguono Kubernetes 1.25 o versioni successive, utilizzare<block ref="5a02ebff4889c2de0379a0fb10bed282" prefix=" " category="inline-code"></block>.</block>
-  <block id="806742cccf8380250ffb871d582a0a03" category="list-text">Verificare che l'operatore, l'implementazione e i replicaset siano stati creati.</block>
   <block id="a770ca95121cc795b602f9af6af024fb" category="admonition">In un cluster Kubernetes dovrebbe esserci solo *un'istanza* dell'operatore. Non creare implementazioni multiple dell'operatore Trident.</block>
   <block id="0addb2f750cfe9f186eca6774f14ac69" category="list-text"><block ref="ecb96b3444d2267901d021f818e6535e" category="inline-link-rx"></block>.</block>
   <block id="5dcdd9d11fd62dd1ee60a5366592f2c7" category="list-text">Installa nuovamente Astra Trident con Astra Control Provivisioner abilitato <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>):</block>
@@ -2554,4 +2543,22 @@ Astra Control è ora in grado di gestire le applicazioni supportate da volumi pe
   <block id="4ee685f387c020093b35c3bc40e77527" category="list-text"><block ref="4b68967e8d8add3859dd17e793d800ef" category="inline-link-macro-rx"></block>.</block>
   <block id="13c43592d5afd1d9beed842ae9996863" category="list-text">Accedi usando le tue credenziali NetApp BlueXP.</block>
   <block id="0988971b31c78f18d65b944937534087" category="sidebar">Kubernetes Hub su BlueXP</block>
+  <block id="b4b56d524fd9fb3baa93c3fd4037527d" category="list-text">*&lt;ASTRA_CONTROL_SERVICE_URL&gt;*: L'URL dell'interfaccia utente web del servizio di controllo Astra. Ad esempio:</block>
+  <block id="cbad356d2a2c08e20ea2766c2d78305f" category="inline-xref">sezione successiva</block>
+  <block id="e7202f4359a7a5bb666f3f91a540d6ea" category="list-text">Se si dispone di un Registro di sistema personalizzato, attenersi alla procedura descritta di seguito per spostare l'immagine nel Registro di sistema personalizzato. Se non si utilizza un registro, seguire i passaggi dell'operatore Trident nel <block ref="d433543a9de56c735bd2827329689b0d" category="inline-xref-macro-rx"></block>.</block>
+  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">Esempio:</block>
+  <block id="40c27dbe238031119a79044564707195" category="list-text">[[no-registry]]se l'operatore è stato rimosso dalla distribuzione originale, creare nuovamente il CRD di Astra Trident orchestrator:</block>
+  <block id="c5ef2e8ef77f84391fa266f923ba567f" category="inline-link">Scaricare il programma di installazione ed estrarlo</block>
+  <block id="bfae990a3fa05e9fc309d9270c1b0bdf" category="list-text"><block ref="1762ff5119022dd6aa9e3a3693ff4c9a" category="inline-link-rx"></block>.</block>
+  <block id="6dfb05d57e00d495a2626742c5794d45" category="list-text">Creare nuovamente il CRD:</block>
+  <block id="74e1b3ec60a1e85ea67710e2dc1cd343" category="list-text">Creare il<block ref="47cb44be55a0dffa15dfc900a4c687be" prefix=" " category="inline-code"></block> nuovo namespace, se necessario:</block>
+  <block id="f2b891f09ee711b58bdd7005fd757210" category="list-text">Aggiorna Astra Trident alla versione 23.10.0:</block>
+  <block id="4cf0920f58032b65295d4d0255354879" category="list-text">Verificare che Astra Trident sia in esecuzione:</block>
+  <block id="70da7fdb746f99191502821d5d3b6d53" category="list-text">[[pull-secrets]]se si dispone di un registro che utilizza segreti, creare un segreto da utilizzare per estrarre l'immagine di Astra Control Provisioner:</block>
+  <block id="611316b2831d2091db014867dff4dbb5" category="list-text">Impostare una posizione del Registro di sistema personalizzata per l'immagine Astra Trident o estrarla dal Registro di sistema Astra Control <block ref="c38ea817861c4f6d81ef59a478e24f43" prefix="(" category="inline-code"></block> oppure<block ref="178c284f8a84efb70436e676da8ba21e" prefix=" " category="inline-code"></block>).</block>
+  <block id="8b1959e0a8b41248dad790a861dbfdd9" category="list-text">Abilita Astra Control Provisioner <block ref="b146a884950a14beaf7f7c32ccceea96" prefix="(" category="inline-code"></block>).</block>
+  <block id="1a7a4d068f08c144a6e5d715290a1623" category="list-text">Impostare la posizione del Registro di sistema personalizzata per l'immagine Astra Control Provivioner o estrarla dal Registro di sistema Astra Control <block ref="20edfaac0850c3e3743b65fa227b6f0b" prefix="(" category="inline-code"></block> oppure<block ref="d1885d745ce46027d5b7a7684a69fd31" prefix=" " category="inline-code"></block>).</block>
+  <block id="f3a11fe989360f45110df3758e7f0641" category="list-text">Se stabilito <block ref="565c9dfc4921fbeccbde323bc8a44cad" category="inline-xref-macro-rx"></block> in precedenza, è possibile impostarle qui <block ref="bafdae7aa6abb1556ef1b0d17efe7509" prefix="(" category="inline-code"></block>). Usare lo stesso nome segreto che hai stabilito nei passaggi precedenti.</block>
+  <block id="aa3ae8b6c1e4a29f9314a8bbc401330f" category="list-text">Salvare e uscire dal file. Il processo di distribuzione si avvia automaticamente.</block>
+  <block id="4f27e6f7f8f95f32f55540801c5f6db0" category="list-text">Verificare che l'operatore, la distribuzione e i replicaset siano stati creati.</block>
 </blocks>
