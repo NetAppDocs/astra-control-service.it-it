@@ -26,12 +26,6 @@ Un cluster a gestione automatica è un cluster che viene direttamente provisioni
 | Distribuzione Kubernetes | Versioni supportate 
 
 
-| Azure Kubernetes Service su Azure Stack HCI | Azure Stack HCI 21H2 e 22H2 con AKS 1.23 e 1.24 
-
-
-| Google anthos | da 1.12 a 1.14 
-
-
 | Kubernetes (upstream) | Da 1.24 a 1.26 (Astra Trident 22.10 o versione successiva è richiesto per Kubernetes 1.25 o versione successiva) 
 
 
@@ -42,12 +36,6 @@ RKE 2 (v1.24.x) con Rancher 2.7
 
 
 | Red Hat OpenShift Container Platform | da 4.10 a 4.12 
-
-
-| Griglia VMware Tanzu Kubernetes | 1.6 
-
-
-| VMware Tanzu Kubernetes Grid Integrated Edition | 1.14 e 1.15 
 |===
 Queste istruzioni presuppongono che sia già stato creato un cluster a gestione automatica.
 

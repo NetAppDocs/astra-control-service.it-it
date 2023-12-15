@@ -26,12 +26,6 @@ Un cluster a gestione automatica è un cluster che viene direttamente provisioni
 | Distribuzione Kubernetes | Versioni supportate 
 
 
-| Azure Kubernetes Service su Azure Stack HCI | Azure Stack HCI 21H2 e 22H2 con AKS 1.24.x e 1.25.x. 
-
-
-| Google anthos | da 1,15 a 1,16 
-
-
 | Kubernetes (upstream) | da 1,26 a 1,28 
 
 
@@ -42,9 +36,6 @@ RKE 2 (v1,26.x) con Rancher 2,7
 
 
 | Red Hat OpenShift Container Platform | da 4.11 a 4.13 
-
-
-| VMware Tanzu Kubernetes Grid Integrated Edition | 1,16.x 
 |===
 Queste istruzioni presuppongono che sia già stato creato un cluster privato e che sia stato preparato un metodo sicuro per accedervi in remoto.
 
