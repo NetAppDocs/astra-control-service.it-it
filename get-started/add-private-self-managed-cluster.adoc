@@ -35,7 +35,7 @@ RKE 2 (v1.24.x) con Rancher 2.6
 RKE 2 (v1,26.x) con Rancher 2,7 
 
 
-| Red Hat OpenShift Container Platform | da 4.11 a 4.13 
+| Red Hat OpenShift Container Platform | da 4,11 a 4,14 
 |===
 Queste istruzioni presuppongono che sia già stato creato un cluster privato e che sia stato preparato un metodo sicuro per accedervi in remoto.
 

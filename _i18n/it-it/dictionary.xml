@@ -2001,10 +2001,6 @@
   <block id="2217ba8a52de4d6a9862994a9287aa48" category="paragraph">È possibile utilizzare Astra Control Service per gestire i seguenti tipi di cluster pubblici e autogestati:</block>
   <block id="c52ee6d695c3236a2b8bf5b454bac3cb" category="cell">Distribuzione Kubernetes</block>
   <block id="2e5d14f7919ff3c6138e7845aec4f915" category="cell">Versioni supportate</block>
-  <block id="22ec69733e61456fac578b2f6fcc2856" category="cell">Azure Kubernetes Service su Azure Stack HCI</block>
-  <block id="cd96805b6007cc4c2282c90a414e97f3" category="cell">Azure Stack HCI 21H2 e 22H2 con AKS 1.23 e 1.24</block>
-  <block id="1c4dff0a00340691e103ef63154df371" category="cell">Google anthos</block>
-  <block id="ef3097a00ac9ce5987c57fb2eedf104c" category="cell">da 1.12 a 1.14</block>
   <block id="0770a54f3635e09a4e4ff53a035b9979" category="cell">Kubernetes (upstream)</block>
   <block id="4863c0e3b29248649240a69b9df08e1e" category="cell">Da 1.24 a 1.26 (Astra Trident 22.10 o versione successiva è richiesto per Kubernetes 1.25 o versione successiva)</block>
   <block id="8c95b632875261344eb6365459feffd0" category="cell">Rancher Kubernetes Engine (RKE)</block>
@@ -2013,10 +2009,6 @@ RKE 1.4 con Rancher 2.7
 RKE 2 (v1.23.x) con Rancher 2.6
 RKE 2 (v1.24.x) con Rancher 2.7</block>
   <block id="2fc3e0590f5be49e12616e7785d1d1d8" category="cell">da 4.10 a 4.12</block>
-  <block id="a56837df79ae6671b6b511c330431135" category="cell">Griglia VMware Tanzu Kubernetes</block>
-  <block id="4341447b6ad78bf4d7eb59ebb5a53d63" category="cell">1.6</block>
-  <block id="a1c1bb4994628000cfe61563bf4ff4f5" category="cell">VMware Tanzu Kubernetes Grid Integrated Edition</block>
-  <block id="4700f2869a38df0fa4d3a207c4048f3d" category="cell">1.14 e 1.15</block>
   <block id="bd0c68687ae6337e2436da35c9876b3a" category="paragraph">Queste istruzioni presuppongono che sia già stato creato un cluster a gestione automatica.</block>
   <block id="f1e065a4705616b4a33e38f8a6c9d9b0" category="list-text"><block ref="a250d079edf413d7ab6b80bd41f1a440" category="inline-xref-macro-rx"></block></block>
   <block id="16b1f7f08468f13997b2fdd4f721c9a4" category="section-title">Aggiungere il cluster ad Astra Control Service</block>
@@ -2211,15 +2203,11 @@ RKE 2 (v1.24.x) con Rancher 2.7</block>
   <block id="a46411d662ebd15db7079553439dbcdc" category="paragraph">Gli indici di ciascun elemento in<block ref="7de38f3c3d3baa7ca58a366f09577586" prefix=" " category="inline-code"></block> l'array inizia con 0. Nell'esempio precedente, l'indice per<block ref="5bb15412e9504feb0711be74d8c6ed33" prefix=" " category="inline-code"></block> sarebbe 0 e l'indice per<block ref="ce8dd462bb623b9902ba4f0151eb2f1b" prefix=" " category="inline-code"></block> sarebbe 1. Nell'output, annotare il numero dell'indice per il segreto dell'account del servizio. Questo numero di indice sarà necessario nella fase successiva.</block>
   <block id="ca492be8d9c67f790505b17ed0272fa9" category="list-text"><block ref="43d42a1bad9233e3772b4daeb39d1495" category="inline-xref-macro-rx"></block></block>
   <block id="8ab37db051796602226f25a5530aeaca" category="paragraph">Prima di aggiungere un cluster privato, devi installare Astra Connector sul cluster in modo che Astra Control possa comunicare con esso. Fare riferimento a. <block ref="5c81995f6b8f1946f7d874c3b5f608ab" category="inline-link-macro-rx"></block> per istruzioni.</block>
-  <block id="61790943e1aa3906439ccf28814ccf38" category="cell">Azure Stack HCI 21H2 e 22H2 con AKS 1.24.x e 1.25.x.</block>
-  <block id="b0f76ba96d59d2ec008421d62cbd51d1" category="cell">da 1,15 a 1,16</block>
   <block id="81648ba2efc6c3bc5c076713f631b3d6" category="cell">da 1,26 a 1,28</block>
   <block id="e55f71014c1486e673587737ba45e41e" category="cell">RKE 1.3 con Rancher Manager 2.6
 RKE 1.4 con Rancher Manager 2.7
 RKE 2 (v1.24.x) con Rancher 2.6
 RKE 2 (v1,26.x) con Rancher 2,7</block>
-  <block id="7a1e78fd1adb53e6f4397fb295df4f23" category="cell">da 4.11 a 4.13</block>
-  <block id="6a11c0289f3527c7d689f620d79b2d2c" category="cell">1,16.x</block>
   <block id="8bc31dadfb63e8fd7f63080c53baf314" category="list-text">*Astra Trident storage backend configurato*: Almeno un backend di storage Astra Trident deve essere<block ref="fb143b34c64ee02a36db37ee7717ee44" category="inline-link-rx"></block> sul cluster.</block>
   <block id="c421985a7d31a3a4aea2acb15d610b59" category="inline-link-macro">Funzionalità Astra Control Provisioner</block>
   <block id="243cb370b04d1b3f44b5bfb5881e4c02" category="list-text">*Astra Control provisioner*: Per utilizzare funzionalità avanzate di gestione e provisioning dello storage di Astra Control Provivisioner accessibili solo agli utenti di Astra Control, devi installare Astra Trident 23,10 o versioni successive e abilitarlo <block ref="c34557907158b24c5eddb9109f719b54" category="inline-link-macro-rx"></block>.</block>
@@ -2563,4 +2551,5 @@ Astra Control è ora in grado di gestire le applicazioni supportate da volumi pe
   <block id="a65211330b142f51904ccfb3741cc124" category="inline-link">Se disponi già di un Astra Trident, disinstallarlo dal cluster che lo ospita</block>
   <block id="00c4331aab8ed2101088511f96b6af8e" category="list-text"><block ref="f21e19b64d79b0da0ff48729d1b28669" category="inline-link-rx"></block>.</block>
   <block id="005a56f182fe268e9f6977b39114eab8" category="list-text">Installa Astra Trident con Astra Control Provisioner abilitato <block ref="87d6b9737ff6f9e44e3dd25c182cf495" prefix="(" category="inline-code"></block>):</block>
+  <block id="89de75d28b7402eb7cc9790aa9e4f669" category="cell">da 4,11 a 4,14</block>
 </blocks>
