@@ -41,6 +41,7 @@ NOTE: Se si esegue uno snapshot o un backup, ma l'operazione non riesce e viene 
 
 === Backup immutabili
 
+Un backup immutabile è un backup che non può essere modificato o eliminato durante un periodo specificato. Quando crei un backup immutabile, Astra Control controlla che il bucket che stai utilizzando sia un bucket WORM (Write Once Read Many) e, in caso affermativo, garantisce che il backup sia immutabile dall'interno di Astra Control.
 Astra Control Service supporta la creazione di backup immutabili con le seguenti piattaforme e tipi di bucket:
 
 * Amazon Web Services che utilizza un bucket Amazon S3 con blocco oggetti S3 configurato
@@ -51,7 +52,7 @@ Astra Control Service supporta la creazione di backup immutabili con le seguenti
 
 Tenere presente quanto segue quando si utilizzano i backup immutabili:
 
-* Se si esegue il backup in un bucket WORM (Write Once Read Many) in una piattaforma non supportata o in un tipo di bucket non supportato, si potrebbero ottenere risultati imprevedibili, come il mancato completamento dell'eliminazione del backup anche se è trascorso il tempo di conservazione.
+* Se si esegue il backup in un bucket WORM in una piattaforma non supportata o in un tipo di bucket non supportato, si potrebbero ottenere risultati imprevedibili, come il mancato completamento dell'eliminazione del backup anche se è trascorso il tempo di conservazione.
 * Astra Control non supporta le policy di data Lifecycle management o l'eliminazione manuale di oggetti nei bucket utilizzati con backup immutabili. Verifica che il back-end dello storage non sia configurato per gestire il ciclo di vita delle snapshot di Astra Control o dei dati di cui è stato eseguito il backup.
 
 
