@@ -70,6 +70,14 @@ Astra Control implementa la policy di protezione dei dati creando e conservando 
 
 Puoi creare uno snapshot on-demand in qualsiasi momento.
 
+.A proposito di questa attività
+Astra Control supporta la creazione di snapshot utilizzando classi di storage supportate dai seguenti driver:
+
+* `ontap-nas`
+* `ontap-san`
+* `ontap-san-economy`
+
+
 
 IMPORTANT: Se l'applicazione utilizza una classe di storage supportata da `ontap-nas-economy` driver, impossibile creare snapshot. Utilizzare una classe di storage alternativa per gli snapshot.
 
@@ -98,6 +106,17 @@ Tenere presente come viene gestito lo spazio di storage quando si esegue il back
 ====
 endif::azure[]
 
+[NOTE]
+====
+Astra Control supporta la creazione di backup utilizzando classi di storage supportate dai seguenti driver:
+
+* `ontap-nas`
+* `ontap-nas-economy`
+* `ontap-san`
+* `ontap-san-economy`
+
+
+====
 .A proposito di questa attività
 I bucket in Astra Control non riportano la capacità disponibile. Prima di eseguire il backup o il cloning delle applicazioni gestite da Astra Control, controllare le informazioni del bucket nel sistema di gestione dello storage appropriato.
 

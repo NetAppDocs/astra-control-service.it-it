@@ -2553,4 +2553,11 @@ Astra Control è ora in grado di gestire le applicazioni supportate da volumi pe
   <block id="ab25e566dd860edad27ef68f7ef5b9e7" category="paragraph">Un backup immutabile è un backup che non può essere modificato o eliminato durante un periodo specificato. Quando crei un backup immutabile, Astra Control controlla che il bucket che stai utilizzando sia un bucket WORM (Write Once Read Many) e, in caso affermativo, garantisce che il backup sia immutabile dall'interno di Astra Control.
 Astra Control Service supporta la creazione di backup immutabili con le seguenti piattaforme e tipi di bucket:</block>
   <block id="2d0336a0c7896d90ad095dbc30578198" category="list-text">Se si esegue il backup in un bucket WORM in una piattaforma non supportata o in un tipo di bucket non supportato, si potrebbero ottenere risultati imprevedibili, come il mancato completamento dell'eliminazione del backup anche se è trascorso il tempo di conservazione.</block>
+  <block id="2b298e0fe3f26bd15bd0a6fde1cc37ca" category="paragraph">Astra Control supporta la creazione di snapshot utilizzando classi di storage supportate dai seguenti driver:</block>
+  <block id="00055dac2ba112b87a95a368075b9561" category="list-text"><block ref="8321592ce24c8a122ecf26a63cfca407" prefix="" category="inline-code"></block></block>
+  <block id="cd17e7ed84c40a0ff5ecb8b625b1f186" category="list-text"><block ref="73a3350a1b91aeb6e2836fdf5975672c" prefix="" category="inline-code"></block></block>
+  <block id="73b781a615cea2647a87ff2035e296b1" category="list-text"><block ref="3016c12c1db45f14c80c9c1731b9c26a" prefix="" category="inline-code"></block></block>
+  <block id="7699a29541e69341e6490b2f436f651b" category="paragraph">Astra Control supporta la creazione di backup utilizzando classi di storage supportate dai seguenti driver:</block>
+  <block id="cecdaed309330a9e7dea16b2076957ee" category="list-text"><block ref="caafdf62a2c609bfa5316118231a1007" prefix="" category="inline-code"></block></block>
+  <block id="d5011d1ec3e5cf71761411134c41a9cd" category="list-text">*Driver di classe di archiviazione supportati*: Astra Control supporta il ripristino dei backup utilizzando classi di archiviazione supportate dai seguenti driver:</block>
 </blocks>

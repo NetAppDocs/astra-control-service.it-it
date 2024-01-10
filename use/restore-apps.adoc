@@ -21,6 +21,14 @@ NOTE: Se si aggiunge un filtro dello spazio dei nomi a un gancio di esecuzione c
 * *Proteggi prima le tue applicazioni*: Ti consigliamo vivamente di creare un'istantanea o un backup dell'applicazione prima di ripristinarla. Ciò consente di clonare dallo snapshot o dal backup se il ripristino non ha avuto esito positivo.
 * *Check destination Volumes* (Controlla volumi di destinazione): Se si esegue il ripristino in una classe di storage diversa, assicurarsi che la classe di storage utilizzi la stessa modalità di accesso al volume persistente (ad esempio ReadWriteMany). L'operazione di ripristino non riesce se la modalità di accesso al volume persistente di destinazione è diversa. Ad esempio, se il volume persistente di origine utilizza la modalità di accesso RWX, selezionare una classe di storage di destinazione che non è in grado di fornire RWX, come Azure Managed Disks, AWS EBS, Google Persistent Disk o. `ontap-san`, causa l'errore dell'operazione di ripristino. Per ulteriori informazioni sulle modalità di accesso al volume persistente, fare riferimento a. https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes["Kubernetes"^] documentazione.
 * *Pianificare le esigenze di spazio*: Quando si esegue un ripristino in-place di un'applicazione che utilizza lo storage NetApp ONTAP, lo spazio utilizzato dall'applicazione ripristinata può raddoppiare. Dopo aver eseguito un ripristino in-place, rimuovere eventuali snapshot indesiderati dall'applicazione ripristinata per liberare spazio di storage.
+* *Driver di classe di archiviazione supportati*: Astra Control supporta il ripristino dei backup utilizzando classi di archiviazione supportate dai seguenti driver:
++
+** `ontap-nas`
+** `ontap-nas-economy`
+** `ontap-san`
+** `ontap-san-economy`
+
+
 * * (Solo driver ontap-nas-Economy) esegue backup e ripristini*: Prima di eseguire il backup o il ripristino di un'app che utilizza una classe di storage supportata da `ontap-nas-economy` driver, verificare che link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["La directory snapshot sul backend dello storage ONTAP è nascosta"]. La mancata visualizzazione di questa directory potrebbe causare la perdita di accesso all'applicazione, in particolare se si utilizza NFSv3.
 
 
