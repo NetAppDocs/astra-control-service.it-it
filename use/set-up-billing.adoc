@@ -30,12 +30,7 @@ Astra Control Service offre tre piani:
 
 Piano gratuito:: Gestisci fino a 10 spazi dei nomi gratuitamente.
 Premium PayGo:: Gestisci una quantità illimitata di spazi dei nomi a una velocità specifica, per spazio dei nomi.
-Abbonamento Premium:: Paga in anticipo a una tariffa scontata con un abbonamento annuale che ti consente di gestire fino a 10 namespace per _namespace pack_. Contatta il reparto vendite NetApp per acquistare tutti i pacchetti necessari per la tua organizzazione. Ad esempio, puoi acquistare 3 pacchetti per gestire 30 spazi dei nomi da Astra Control Service. Se gestisci più spazi dei nomi di quelli consentiti dal tuo abbonamento annuale, ti verrà addebitato il costo del tasso di overage dipendente dall'abbonamento per spazio dei nomi aggiuntivo.
-+
---
-Se non disponi ancora di un account Astra Control, l'acquisto dell'abbonamento Premium crea automaticamente un account Astra Control. Se disponi di un piano gratuito, sarai automaticamente convertito in un abbonamento Premium.
-
---
+Abbonamento Premium:: Paga in anticipo a una tariffa scontata con un abbonamento annuale che ti consente di gestire fino a 20 spazi dei nomi per _namespace pack_. Contatta il reparto vendite NetApp per acquistare tutti i pacchetti necessari per la tua organizzazione. Ad esempio, acquistare 3 pacchetti per gestire 60 namespace da Astra Control Service. Se gestisci più spazi dei nomi di quelli consentiti dal tuo abbonamento annuale, ti verrà addebitato il costo del tasso di overage dipendente dall'abbonamento per spazio dei nomi aggiuntivo. Se non disponi ancora di un account Astra Control, l'acquisto dell'abbonamento Premium crea automaticamente un account Astra Control. Se disponi di un piano gratuito, sarai automaticamente convertito in un abbonamento Premium.
 
 
 Quando crei un account Astra Control, sei automaticamente iscritto al Free Plan. La dashboard di Astra Control mostra quanti spazi dei nomi stai attualmente gestendo dai 10 spazi dei nomi liberi consentiti. La fatturazione inizia per uno spazio dei nomi quando viene gestita la prima applicazione contenente lo spazio dei nomi e si interrompe per tale spazio dei nomi quando l'ultima applicazione contenente lo spazio dei nomi non viene gestita.
