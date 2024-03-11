@@ -22,6 +22,7 @@ Un cluster a gestione automatica è un cluster che viene direttamente provisioni
 
 È possibile utilizzare Astra Control Service per gestire i seguenti tipi di cluster privati a gestione automatica:
 
+[cols="2*"]
 |===
 | Distribuzione Kubernetes | Versioni supportate 
 

@@ -2000,13 +2000,11 @@
   <block id="c52ee6d695c3236a2b8bf5b454bac3cb" category="cell">Distribuzione Kubernetes</block>
   <block id="2e5d14f7919ff3c6138e7845aec4f915" category="cell">Versioni supportate</block>
   <block id="0770a54f3635e09a4e4ff53a035b9979" category="cell">Kubernetes (upstream)</block>
-  <block id="4863c0e3b29248649240a69b9df08e1e" category="cell">Da 1.24 a 1.26 (Astra Trident 22.10 o versione successiva è richiesto per Kubernetes 1.25 o versione successiva)</block>
   <block id="8c95b632875261344eb6365459feffd0" category="cell">Rancher Kubernetes Engine (RKE)</block>
   <block id="86742721bf4e412fd236371e22eea76b" category="cell">RKE 1.3 con Rancher 2.6
 RKE 1.4 con Rancher 2.7
 RKE 2 (v1.23.x) con Rancher 2.6
 RKE 2 (v1.24.x) con Rancher 2.7</block>
-  <block id="2fc3e0590f5be49e12616e7785d1d1d8" category="cell">da 4.10 a 4.12</block>
   <block id="bd0c68687ae6337e2436da35c9876b3a" category="paragraph">Queste istruzioni presuppongono che sia già stato creato un cluster a gestione automatica.</block>
   <block id="f1e065a4705616b4a33e38f8a6c9d9b0" category="list-text"><block ref="a250d079edf413d7ab6b80bd41f1a440" category="inline-xref-macro-rx"></block></block>
   <block id="16b1f7f08468f13997b2fdd4f721c9a4" category="section-title">Aggiungere il cluster ad Astra Control Service</block>
@@ -2559,4 +2557,5 @@ Astra Control Service supporta la creazione di backup immutabili con le seguenti
   <block id="cecdaed309330a9e7dea16b2076957ee" category="list-text"><block ref="caafdf62a2c609bfa5316118231a1007" prefix="" category="inline-code"></block></block>
   <block id="d5011d1ec3e5cf71761411134c41a9cd" category="list-text">*Driver di classe di archiviazione supportati*: Astra Control supporta il ripristino dei backup utilizzando classi di archiviazione supportate dai seguenti driver:</block>
   <block id="55a8ef29f75e55b9790167d340f9b10a" category="list-text">Paga in anticipo a una tariffa scontata con un abbonamento annuale che ti consente di gestire fino a 20 spazi dei nomi per _namespace pack_. Contatta il reparto vendite NetApp per acquistare tutti i pacchetti necessari per la tua organizzazione. Ad esempio, acquistare 3 pacchetti per gestire 60 namespace da Astra Control Service. Se gestisci più spazi dei nomi di quelli consentiti dal tuo abbonamento annuale, ti verrà addebitato il costo del tasso di overage dipendente dall'abbonamento per spazio dei nomi aggiuntivo. Se non disponi ancora di un account Astra Control, l'acquisto dell'abbonamento Premium crea automaticamente un account Astra Control. Se disponi di un piano gratuito, sarai automaticamente convertito in un abbonamento Premium.</block>
+  <block id="b55edf29fb10e1f082aaf76e7d14a0e5" category="cell">Da 1,26 a 1,28 (con Astra Trident 23,04 o successivo)</block>
 </blocks>

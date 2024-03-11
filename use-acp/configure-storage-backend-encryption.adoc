@@ -59,6 +59,7 @@ Configura la policy di esportazione con i protocolli di accesso NFS, NFSv3 e NFS
 
 Configurare la regola dei criteri di esportazione ONTAP con le autorizzazioni di accesso appropriate. Ad esempio, se i cluster montano i volumi NFS con una combinazione di crittografia Kerberos 5i e Kerberos 5p, utilizza le seguenti impostazioni di accesso:
 
+[cols="4*"]
 |===
 | Tipo | Accesso in sola lettura | Accesso in lettura/scrittura | Accesso superutente 
 

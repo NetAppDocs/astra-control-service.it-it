@@ -112,6 +112,7 @@ Se si avvia e poi si annulla un backup che include uno snapshot e sono associati
 
 
 ====
+[cols="9*"]
 |===
 | Scenario | Operazione | Snapshot esistente | Backup esistente | Namespace | Cluster | Esecuzione di Snapshot Hooks | Esecuzione dei ganci di backup | Esecuzione degli hook di ripristino 
 
