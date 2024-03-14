@@ -77,18 +77,18 @@ Salvare le credenziali per l'utente IAM in modo da poter importare le credenzial
 
 Un cluster Kubernetes deve soddisfare i seguenti requisiti per consentirne il rilevamento e la gestione da Astra Control Service.
 
-Versione di Kubernetes:: Un cluster deve eseguire una versione di Kubernetes compresa tra 1.23 e 1.25.
+Versione di Kubernetes:: Un cluster deve eseguire una versione di Kubernetes compresa tra 1,25 e 1,28.
 Tipo di immagine:: Il tipo di immagine per ciascun nodo di lavoro deve essere Linux.
 Stato del cluster:: I cluster devono essere in esecuzione in uno stato integro e avere almeno un nodo di lavoro online senza nodi di lavoro in uno stato di errore.
 
 
-Astra Trident:: Astra Trident e un controller di snapshot esterno sono necessari per le operazioni con backend di storage. Per installarli, procedere come segue:
+Astra Control provisioner:: Astra Control Provivisioner e un controller delle snapshot esterno sono necessari per le operazioni con backend di storage. Per attivare queste operazioni, procedere come segue:
 
 
 [%collapsible%open]
 ====
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installare gli snapshot CRD e lo snapshot controller"^].
-. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installare la versione più recente di Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploy-a-volume-snapshot-controller["Installare gli snapshot CRD e lo snapshot controller"^].
+. link:../use/enable-acp.html["Abilita Astra Control Provisioner"].
 . https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Creare una classe VolumeSnapshotClass"^].
 
 
@@ -101,7 +101,7 @@ Per istruzioni sull'installazione del driver CSI, fare riferimento alla procedur
 [%collapsible%open]
 ====
 .Installare uno snap-shot esterno
-Se non l'hai già fatto, https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installare gli snapshot CRD e lo snapshot controller"^].
+Se non l'hai già fatto, https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploy-a-volume-snapshot-controller["Installare gli snapshot CRD e lo snapshot controller"^].
 
 .Installare il driver CSI come add-on Amazon EKS
 . Creare il ruolo IAM del driver CSI Amazon EBS per gli account del servizio. Seguire le istruzioni https://docs.aws.amazon.com/eks/latest/userguide/csi-iam-role.html["Nella documentazione Amazon"^], Utilizzando i comandi CLI di AWS nelle istruzioni.

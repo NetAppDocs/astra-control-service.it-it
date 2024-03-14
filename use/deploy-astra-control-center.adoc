@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: use/deploy-astra-control-center.html 
+keywords: get started, manage apps, manage account 
+summary: 'Implementa un"istanza standalone e autogestita di Astra Control.' 
+---
+= Implementa un'istanza autogestita di Astra Control
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Se desideri un'istanza autogestita di Astra Control all'interno della rete, puoi implementare Astra Control Center direttamente da Astra Control Service.
+
+.Fasi
+. Nell'area Getting Started del Dashboard, selezionare *distribuire un'istanza autogestita di Astra Control*.
+. Effettuare una delle seguenti operazioni:
++
+** Generare un nuovo token API selezionando *generate*.
+** Incolla in un token dell'API REST Astra Control esistente. Fare riferimento a. https://docs.netapp.com/us-en/astra-automation/get-started/get_api_token.html["Documentazione di Astra Automation"^] Per istruzioni sulla generazione di un token API.
+
+
+. Seguire le istruzioni nella finestra *Deploy Astra Control Center*.
+

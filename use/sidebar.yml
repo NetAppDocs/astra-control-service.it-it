@@ -50,3 +50,5 @@ entries:
   url: "/use/enable-acp.html"
 - title: Annulla la gestione di app e cluster
   url: "/use/unmanage.html"
+- title: Implementa un'istanza autogestita di Astra Control
+  url: "/use/deploy-astra-control-center.html"

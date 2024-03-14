@@ -16,6 +16,13 @@ NetApp aggiorna periodicamente Astra Control Service per offrire nuove funzional
 
 
 
+== 14 marzo 2024
+
+.Nuove funzionalità e supporto
+Si tratta di una versione di correzione dei bug di minore entità.
+
+
+
 == 7 novembre 2023
 
 [[nas-eco-backup-restore]]

@@ -61,7 +61,7 @@ Per impostazione predefinita, i bucket Astra Control Service utilizzati per memo
 
 Un cluster Kubernetes deve soddisfare i seguenti requisiti per consentirne il rilevamento e la gestione da Astra Control Service.
 
-Versione di Kubernetes:: I cluster devono eseguire Kubernetes dalla versione 1.24 alla 1.26.
+Versione di Kubernetes:: I cluster devono eseguire Kubernetes versione 1,26 - 1,28.
 Tipo di immagine:: Il tipo di immagine per tutti i pool di nodi deve essere Linux.
 Stato del cluster:: I cluster devono essere in esecuzione in uno stato integro e avere almeno un nodo di lavoro online senza nodi di lavoro in uno stato di errore.
 Regione di Azure:: Come Best practice, è necessario scegliere una regione che supporti Azure NetApp Files, anche se non viene utilizzata come back-end di storage. In questo modo sarà più semplice utilizzare Azure NetApp Files come back-end di storage in futuro se i requisiti di performance cambiano. https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp["Visualizza i prodotti Azure per regione"^].

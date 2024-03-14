@@ -16,7 +16,7 @@ Astra Trident le versioni 23,10 e successive includono la possibilità di utiliz
 
 L'abbonamento a Astra Control Service include automaticamente la licenza per l'utilizzo di Astra Control Provisioner.
 
-In arrivo gli update di Astra Control, Astra Control Provivisioner sostituirà Astra Trident come provisioner di storage e orchestrator nell'architettura Astra Control. Per questo motivo, si consiglia vivamente agli utenti di Astra Control di attivare Astra Control Provisioner. Astra Trident continuerà a rimanere open source e ad essere rilasciato, mantenuto, supportato e aggiornato con le nuove CSI e altre funzionalità di NetApp.
+In arrivo gli update di Astra Control, Astra Control Provivisioner sostituirà Astra Trident come provisioner di storage e orchestrator e sarà obbligatorio per l'utilizzo di Astra Control. Per questo motivo, si consiglia vivamente agli utenti di Astra Control di attivare Astra Control Provisioner. Astra Trident continuerà a rimanere open source e ad essere rilasciato, mantenuto, supportato e aggiornato con le nuove CSI e altre funzionalità di NetApp.
 
 .Come faccio a sapere se devo abilitare Astra Control Provivisioner?
 Se Aggiungi un cluster a Astra Control Service che non ha Astra Trident precedentemente installato, il cluster verrà contrassegnato come `Eligible`. Dopo di lei link:../get-started/add-first-cluster.html["Aggiungi il cluster a Astra Control"], Astra Control provisioner verrà abilitato automaticamente.
@@ -35,16 +35,13 @@ image:ac-acp-eligibility.png["Uno screenshot che illustra l'idoneità del cluste
 .Prima di attivare Astra Control Provisioner
 Se hai già un Astra Trident senza Astra Control Provivisioner e vuoi abilitare Astra Control Provivisioner, esegui prima quanto segue:
 
-* *Se Astra Trident è installato, conferma che la sua versione si trovi all'interno di una finestra a quattro release*: Puoi eseguire un aggiornamento diretto a Astra Trident 23,10 con Astra Control Provisioner se il tuo Astra Trident si trova all'interno di una finestra a quattro release della versione 23,10. Ad esempio, puoi eseguire l'upgrade direttamente da Astra Trident 22,10 a 23,10.
+* *Se Astra Trident è installato, conferma che la sua versione si trovi all'interno di una finestra a quattro release*: Puoi eseguire un aggiornamento diretto a Astra Trident 24,02 con Astra Control Provisioner se il tuo Astra Trident si trova all'interno di una finestra a quattro release della versione 24,02. Ad esempio, puoi eseguire l'upgrade direttamente da Astra Trident 23,04 a 24,02.
 * *Confirmi che il tuo cluster ha un'architettura di sistema AMD64*: L'immagine Astra Control Provivisioner è fornita in entrambe le architetture CPU AMD64 e ARM64, ma solo AMD64 è supportato da Astra Control.
 
 
 .Fasi
 . Accedere al Registro di sistema dell'immagine di controllo Astra di NetApp:
 +
-.Espandere per i passaggi
-[%collapsible]
-====
 .. Effettua l'accesso all'interfaccia utente di Astra Control Service e registra l'ID account Astra Control.
 +
 ... Selezionare l'icona della figura in alto a destra nella pagina.
@@ -66,8 +63,7 @@ crane auth login cr.astra.netapp.io -u <account-id> -p <api-token>
 ----
 
 
-====
-. Se si dispone di un Registro di sistema personalizzato, attenersi alla procedura descritta di seguito per spostare l'immagine nel Registro di sistema personalizzato. Se non si utilizza un registro, seguire i passaggi dell'operatore Trident nel <<no-registry,sezione successiva>>.
+. (Solo registri personalizzati) attenersi alla seguente procedura per spostare l'immagine nel registro personalizzato. Se non si utilizza un registro, seguire i passaggi dell'operatore Trident nel <<no-registry,sezione successiva>>.
 +
 
 NOTE: Per i seguenti comandi, puoi utilizzare Podman al posto di Docker. Se si utilizza un ambiente Windows, si consiglia di utilizzare PowerShell.
@@ -85,7 +81,7 @@ NOTE: L'immagine estratta non supporta più piattaforme e supporta solo la stess
 +
 [source, console]
 ----
-docker pull cr.astra.netapp.io/astra/trident-acp:23.10.0 --platform <cluster platform>
+docker pull cr.astra.netapp.io/trident-acp:24.02.0 --platform <cluster platform>
 ----
 +
 Esempio:
@@ -93,19 +89,19 @@ Esempio:
 +
 [listing]
 ----
-docker pull cr.astra.netapp.io/astra/trident-acp:23.10.0 --platform linux/amd64
+docker pull cr.astra.netapp.io/trident-acp:24.02.0 --platform linux/amd64
 ----
 .. Contrassegnare l'immagine:
 +
 [source, console]
 ----
-docker tag cr.astra.netapp.io/astra/trident-acp:23.10.0 <my_custom_registry>/trident-acp:23.10.0
+docker tag cr.astra.netapp.io/trident-acp:24.02.0 <my_custom_registry>/trident-acp:24.02.0
 ----
 .. Inviare l'immagine al registro personalizzato:
 +
 [source, console]
 ----
-docker push <my_custom_registry>/trident-acp:23.10.0
+docker push <my_custom_registry>/trident-acp:24.02.0
 ----
 
 
@@ -116,161 +112,22 @@ docker push <my_custom_registry>/trident-acp:23.10.0
 +
 [source, crane]
 ----
-crane copy cr.astra.netapp.io/astra/trident-acp:23.10.0 <my_custom_registry>/trident-acp:23.10.0
+crane copy cr.astra.netapp.io/trident-acp:24.02.0 <my_custom_registry>/trident-acp:24.02.0
 ----
 
 
 --
 ====
 . Determinare se il metodo di installazione originale di Astra Trident ha utilizzato un.
+. Abilita Astra Control Provisioner in Astra Trident utilizzando il metodo di installazione utilizzato originariamente:
 +
+Direttiva irrisolta in <stdin> - include::https://raw.githubusercontent.com/NetAppDocs/astra-control-center/main/_include/enable-acp-options-tabbed-block.adoc[]
 
-WARNING: Non utilizzare Helm per abilitare Astra Control Provisioner. Se hai utilizzato Helm per l'installazione originale e stai effettuando l'aggiornamento a 23,10, dovrai utilizzare l'operatore Trident o tridentctl per eseguire l'abilitazione di Astra Control Provisioner.
-
-+
-[role="tabbed-block"]
-====
-.Operatore Astra Trident
---
-.. [[no-registry] (nessun registro)]https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html#step-1-download-the-trident-installer-package["Scaricare il programma di installazione di Astra Trident ed estrarlo"^].
-.. Completa questi passaggi se non hai ancora installato Astra Trident o se hai rimosso l'operatore dall'implementazione originale di Astra Trident:
-+
-... Creare il CRD:
-+
-[source, console]
-----
-kubectl create -f deploy/crds/trident.netapp.io_tridentorchestrators_crd_post1.16.yaml
-----
-... Creare lo spazio dei nomi tridente (`kubectl create namespace trident`) o confermare che lo spazio dei nomi tridente esiste ancora (`kubectl get all -n trident`). Se lo spazio dei nomi è stato rimosso, crearlo di nuovo.
-
-
-.. Aggiorna Astra Trident alla versione 23.10.0:
-+
-
-NOTE: Per i cluster che eseguono Kubernetes 1.24 o versioni precedenti, utilizzare `bundle_pre_1_25.yaml`. Per i cluster che eseguono Kubernetes 1.25 o versioni successive, utilizzare `bundle_post_1_25.yaml`.
-
-+
-[source, console]
-----
-kubectl -n trident apply -f trident-installer-23.10.0/deploy/<bundle-name.yaml>
-----
-.. Verificare che Astra Trident sia in esecuzione:
-+
-[source, console]
-----
-kubectl get torc -n trident
-----
-+
-Risposta:
-
-+
-[listing]
-----
-NAME      AGE
-trident   21m
-----
-.. [[pull-secrets]]se si dispone di un registro che utilizza segreti, creare un segreto da utilizzare per estrarre l'immagine di Astra Control Provisioner:
-+
-[source, console]
-----
-kubectl create secret docker-registry <secret_name> -n trident --docker-server=<my_custom_registry> --docker-username=<username> --docker-password=<token>
-----
-.. Modificare il TridentOrchestrator CR e apportare le seguenti modifiche:
-+
-[source, console]
-----
-kubectl edit torc trident
-----
-+
-... Impostare una posizione del Registro di sistema personalizzata per l'immagine Astra Trident o estrarla dal Registro di sistema Astra Control (`tridentImage: <my_custom_registry>/trident:23.10.0` oppure `tridentImage: netapp/trident:23.10.0`).
-... Abilita Astra Control Provisioner (`enableACP: true`).
-... Impostare la posizione del Registro di sistema personalizzata per l'immagine Astra Control Provivioner o estrarla dal Registro di sistema Astra Control (`acpImage: <my_custom_registry>/trident-acp:23.10.0` oppure `acpImage: cr.astra.netapp.io/astra/trident-acp:23.10.0`).
-... Se stabilito <<pull-secrets,segreti di estrazione delle immagini>> in precedenza, è possibile impostarle qui (`imagePullSecrets: - <secret_name>`). Usare lo stesso nome segreto che hai stabilito nei passaggi precedenti.
-
-
-+
-[listing, subs="+quotes"]
-----
-apiVersion: trident.netapp.io/v1
-kind: TridentOrchestrator
-metadata:
-  name: trident
-spec:
-  debug: true
-  namespace: trident
-  *tridentImage: <registry>/trident:23.10.0*
-  *enableACP: true*
-  *acpImage: <registry>/trident-acp:23.10.0*
-  *imagePullSecrets:
-  - <secret_name>*
-----
-.. Salvare e uscire dal file. Il processo di distribuzione si avvia automaticamente.
-.. Verificare che l'operatore, la distribuzione e i replicaset siano stati creati.
-+
-[source, console]
-----
-kubectl get all -n trident
-----
-+
-
-IMPORTANT: In un cluster Kubernetes dovrebbe esserci solo *un'istanza* dell'operatore. Non creare implementazioni multiple dell'operatore Trident.
-
-.. Verificare `trident-acp` il container è in esecuzione e così `acpVersion` è `23.10.0` con stato di `Installed`:
-+
-[source, console]
-----
-kubectl get torc -o yaml
-----
-+
-Risposta:
-
-+
-[listing]
-----
-status:
-  acpVersion: 23.10.0
-  currentInstallationParams:
-    ...
-    acpImage: <registry>/trident-acp:v23.10.0
-    enableACP: "true"
-    ...
-  ...
-  status: Installed
-----
-
-
---
-.tridentctl
---
-.. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html#step-1-download-the-trident-installer-package["Scaricare il programma di installazione di Astra Trident ed estrarlo"^].
-.. https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-tridentctl.html["Se disponi già di un Astra Trident, disinstallarlo dal cluster che lo ospita"^].
-.. Installa Astra Trident con Astra Control Provisioner abilitato (`--enable-acp=true`):
-+
-[source, console]
-----
-./tridentctl -n trident install --enable-acp=true --acp-image=mycustomregistry/trident-acp:v23.10
-----
-.. Confermare che Astra Control Provisioner è stato abilitato:
-+
-[source, console]
-----
-./tridentctl -n trident version
-----
-+
-Risposta:
-
-+
-[listing]
-----
-+----------------+----------------+-------------+ | SERVER VERSION | CLIENT VERSION | ACP VERSION | +----------------+----------------+-------------+ | 23.10.0 | 23.10.0 | 23.10.0. | +----------------+----------------+-------------+
-----
-
-
---
-====
 
 
 .Risultato
+La funzionalità Astra Control Provisioner è abilitata ed è possibile utilizzare qualsiasi funzionalità disponibile per la versione in esecuzione.
+
 Dopo l'installazione di Astra Control provisioner, il cluster che ospita il provisioner nell'interfaccia utente Astra Control mostrerà un `ACP version` piuttosto che `Trident version` campo e numero della versione installata corrente.
 
 image:ac-acp-version.png["Una schermata che mostra la posizione della versione ACP nell'interfaccia utente"]

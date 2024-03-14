@@ -32,7 +32,7 @@ Puoi creare, eliminare, ridimensionare, creare snapshot, clonare clone di sola l
 NOTE: La crittografia Kerberos per il traffico NFS con backend di storage ONTAP in sede è supportata solo utilizzando `ontap-nas` driver di storage.
 
 .Prima di iniziare
-* Assicurati di aver abilitato Astra Control Provisioner nel cluster gestito. Fare riferimento a. link:../use/enable-acp.html["Abilita Astra Control Provisioner"^] per istruzioni.
+* Assicurarsi di avere link:../use/enable-acp.html["Abilitato Astra Control Provisioner"^] nel cluster gestito.
 * Assicurarsi di avere accesso a. `tridentctl` utility.
 * Assicurarsi di disporre dell'accesso come amministratore al back-end dello storage ONTAP.
 * Conoscere il nome del volume o dei volumi che si desidera condividere dal back-end dello storage ONTAP.
@@ -196,7 +196,7 @@ L'output dovrebbe essere simile a quanto segue:
 +
 [listing]
 ----
-NAME         PROVISIONER             AGE
+NAME            PROVISIONER             AGE
 ontap-nas-sc    csi.trident.netapp.io   15h
 ----
 
@@ -205,7 +205,7 @@ ontap-nas-sc    csi.trident.netapp.io   15h
 
 === Provisioning dei volumi
 
-Dopo aver creato un backend di storage e una classe di storage, è ora possibile eseguire il provisioning di un volume. Per istruzioni, fare riferimento a. https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Provisioning di un volume"^].
+Dopo aver creato un backend di storage e una classe di storage, è ora possibile eseguire il provisioning di un volume. Fare riferimento a queste istruzioni per https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["provisioning di un volume"^].
 
 
 
@@ -390,4 +390,4 @@ anf-sc-nfs    csi.trident.netapp.io   15h
 
 === Provisioning dei volumi
 
-Dopo aver creato un backend di storage e una classe di storage, è ora possibile eseguire il provisioning di un volume. Per istruzioni, fare riferimento a. https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Provisioning di un volume"^].
+Dopo aver creato un backend di storage e una classe di storage, è ora possibile eseguire il provisioning di un volume. Fare riferimento a queste istruzioni per https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["provisioning di un volume"^].

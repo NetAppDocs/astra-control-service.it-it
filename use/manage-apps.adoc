@@ -97,7 +97,7 @@ Astra Control potrebbe non essere in grado di clonare un operatore progettato co
 
 Dopo di che link:../get-started/add-first-cluster.html["aggiunto il cluster"] In Astra Control, puoi installare le app o gestire quelle esistenti sul cluster. È possibile gestire qualsiasi applicazione con un ambito per uno o più spazi dei nomi.
 
-Astra Control gestirà le applicazioni stateful solo se lo storage si trova su una classe di storage supportata da Astra Control. Astra Control Service supporta qualsiasi classe di storage supportata da Astra Trident o da un driver CSI generico.
+Astra Control gestirà le applicazioni stateful solo se lo storage si trova su una classe di storage supportata da Astra Control. Astra Control Service supporta qualsiasi classe di storage supportata da Astra Control Provivioner o da un driver CSI generico.
 
 ifdef::gcp[]
 

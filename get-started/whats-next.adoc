@@ -21,4 +21,5 @@ Ora che hai effettuato l'accesso e aggiunto un cluster ad Astra Control, sei pro
 * link:../use/manage-users.html["Invitare e gestire gli utenti"]
 * link:../use/manage-credentials.html["Gestire le credenziali del cloud provider"]
 * link:../use/manage-notifications.html["Gestire le notifiche"]
+* link:../use/deploy-astra-control-center.html["Implementa un'istanza autogestita di Astra Control"]
 
