@@ -6,3 +6,5 @@ entries:
   url: "/use-acp/configure-storage-backend-encryption.html"
 - title: Ripristina i dati dei volumi utilizzando uno snapshot
   url: "/use-acp/acp-snap-restore.html"
+- title: Replica dei volumi con SnapMirror
+  url: "/use-acp/acp-volume-replicate.html"
