@@ -15,5 +15,3 @@ summary: 'Molte delle pagine di questo sito di documentazione includono video ch
 Scopri NetApp TV per i contenuti video più recenti con Astra Control Service. NetApp TV include video che mostrano alcune funzionalità di Astra Control Service o mostrano come completare determinate attività comuni.
 
 https://www.netapp.tv/search/astra%20control%20service["Video di Astra Control Service"^]
-
-endif::gcp[]
