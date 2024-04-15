@@ -21,7 +21,7 @@ Astra Connector supporta i seguenti tipi di cluster privati:
 * Google Kubernetes Engine (GKE)
 * Red Hat OpenShift Service su AWS (ROSA)
 * ROSA con AWS PrivateLink
-* Piattaforma Red Hat OpenShift Container all'interno dell'hotel
+* Red Hat OpenShift Container Platform all'interno dell'hotel
 
 
 

@@ -89,7 +89,7 @@ Gli aggiornamenti vengono gestiti
 
 * *Cluster on-premise*
 +
-** Piattaforma Red Hat OpenShift Container all'interno dell'hotel
+** Red Hat OpenShift Container Platform all'interno dell'hotel
 
 
 

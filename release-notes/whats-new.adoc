@@ -45,7 +45,7 @@ Con la release 23,10, Astra Control introduce un nuovo componente software chiam
 Le seguenti funzionalità sono disponibili con la release Astra Control Provisioner 23,10:
 
 +
-*** *Protezione backend dello storage avanzata con crittografia Kerberos 5*: È possibile migliorare la protezione dello storage link:../use-acp/configure-storage-backend-encryption.html["attivazione della crittografia"^] per il traffico tra il cluster gestito e il back-end dello storage. Astra Control Provisioner supporta la crittografia Kerberos 5 su connessioni NFSv4,1 da cluster Red Hat OpenShift a volumi Azure NetApp Files e ONTAP on-premise.
+*** *Protezione backend dello storage avanzata con crittografia Kerberos 5*: È possibile migliorare la protezione dello storage link:../use-acp/configure-storage-backend-encryption.html["attivazione della crittografia"^] per il traffico tra il cluster gestito e il back-end dello storage. Astra Control Provisioner supporta la crittografia Kerberos 5 su connessioni NFSv4,1 da cluster Red Hat OpenShift a Azure NetApp Files e volumi ONTAP on-premise.
 *** *Recupera i dati utilizzando uno snapshot*: Astra Control Provivisioner fornisce un rapido ripristino dei volumi in-place da uno snapshot utilizzando `TridentActionSnapshotRestore` (TASR) CR.
 *** *Funzionalità di backup e ripristino per le applicazioni con `ontap-nas-economy` Backend di archiviazione con driver*: Come descritto <<nas-eco-backup-restore,sopra>>.
 
@@ -329,7 +329,8 @@ endif::azure[]
 
 Questa versione include le seguenti nuove funzioni e miglioramenti.
 
-* Astra Control Center Astra Control è ora disponibile in un nuovo modello di implementazione. _Astra Control Center_ è un software autogestito che viene installato e utilizzato nel data center per gestire la gestione del ciclo di vita delle applicazioni Kubernetes per i cluster Kubernetes on-premise.
+* Centro di controllo Astra
+Astra Control è ora disponibile in un nuovo modello di implementazione. _Astra Control Center_ è un software a gestione autonoma che puoi installare e utilizzare nel tuo data center, in modo da poter gestire il Lifecycle management delle applicazioni Kubernetes per i cluster Kubernetes on-premise.
 +
 Per saperne di più, https://docs.netapp.com/us-en/astra-control-center["Consultare la documentazione di Astra Control Center"^].
 

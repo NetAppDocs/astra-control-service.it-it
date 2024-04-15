@@ -16,7 +16,7 @@ Con Astra Control Provivisioner, puoi migliorare la sicurezza dell'accesso ai da
 
 Astra Control Provivisioner supporta la crittografia Kerberos per due tipi di backend di storage:
 
-* *On-Premise ONTAP* - Astra Control Protivisioner supporta la crittografia Kerberos su connessioni NFSv3 e NFSv4 da Red Hat OpenShift e dai cluster Kubernetes upstream ai volumi ONTAP on-premise.
+* *On-premise ONTAP* - Astra Control Provisioner supporta la crittografia Kerberos su connessioni NFSv3 e NFSv4 da Red Hat OpenShift e dai cluster Kubernetes upstream ai volumi ONTAP on-premise.
 * *Azure NetApp Files* - Astra Control Provisioner supporta la crittografia Kerberos su connessioni NFSv4,1 da cluster Kubernetes upstream a volumi Azure NetApp Files.
 
 
@@ -24,12 +24,12 @@ Puoi creare, eliminare, ridimensionare, creare snapshot, clonare clone di sola l
 
 
 
-== Configura la crittografia Kerberos in-flight con i volumi ONTAP in sede
+== Configura la crittografia Kerberos in-flight con i volumi ONTAP on-premise
 
-È possibile abilitare la crittografia Kerberos sul traffico di storage tra il cluster gestito e un backend di storage ONTAP on-premise.
+Puoi attivare la crittografia Kerberos sul traffico storage tra il cluster gestito e un backend dello storage ONTAP on-premise.
 
 
-NOTE: La crittografia Kerberos per il traffico NFS con backend di storage ONTAP in sede è supportata solo utilizzando `ontap-nas` driver di storage.
+NOTE: La crittografia Kerberos per il traffico NFS con backend di storage ONTAP on-premise è supportata solo utilizzando `ontap-nas` driver di storage.
 
 .Prima di iniziare
 * Assicurarsi di avere link:../use/enable-acp.html["Abilitato Astra Control Provisioner"^] nel cluster gestito.
