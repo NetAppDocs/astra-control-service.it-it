@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: use/back-up-full-cluster.html 
+keywords: backup, back up, backup apps, back up apps, take a backup, schedule backups, full, full backup, cluster backup, cluster, namespace, label, labels, namespaces 
+summary: Proteggi le tue applicazioni pianificando un backup completo del cluster in modo che tutti i namespace sul cluster siano protetti. 
+---
+= [Anteprima tecnica] proteggi un intero cluster
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+È possibile creare un backup pianificato e automatico di uno o di tutti gli spazi dei nomi non gestiti su un cluster. Questi workflow sono forniti da NetApp as a Kubernetes Service account, binding di ruolo e un job cron, orchestrato con uno script Python.
+
+
+
+== Come funziona
+
+Quando si configura e installa il flusso di lavoro del backup completo del cluster, un processo cron viene eseguito periodicamente e protegge qualsiasi namespace non ancora gestito, creando automaticamente criteri di protezione in base alle pianificazioni scelte durante l'installazione.
+
+Se non si desidera proteggere ogni spazio dei nomi non gestito sul cluster con l'intero flusso di lavoro di backup del cluster, è possibile utilizzare invece il flusso di lavoro di backup basato su etichette. Il flusso di lavoro di backup basato su etichetta utilizza anche un task cron, ma invece di proteggere tutti i namespace non gestiti, identifica i namespace in base alle etichette fornite per proteggere facoltativamente i namespace in base a policy di backup Bronze, Silver o Gold.
+
+Quando viene creato un nuovo namespace che rientra nell'ambito del flusso di lavoro scelto, viene automaticamente protetto, senza alcun intervento dell'amministratore. Questi flussi di lavoro vengono implementati per ogni cluster in modo che cluster diversi possano utilizzare entrambi i flussi di lavoro con livelli di protezione unici, a seconda dell'importanza del cluster.
+
+.Esempio: Protezione completa del cluster
+Ad esempio, quando configuri e installi l'intero workflow di backup del cluster, tutte le applicazioni in qualsiasi namespace vengono periodicamente gestite e protette senza ulteriori interventi da parte dell'amministratore. Lo spazio dei nomi non deve esistere al momento dell'installazione del flusso di lavoro; se in futuro viene aggiunto uno spazio dei nomi, verrà protetto.
+
+.Esempio: Protezione basata sull'etichetta
+Per una maggiore granularità, è possibile utilizzare il flusso di lavoro basato su etichette. Ad esempio, è possibile installare questo flusso di lavoro e dire agli utenti di applicare una delle diverse etichette a qualsiasi namespace che desiderano proteggere, a seconda del livello di protezione necessario. In questo modo, gli utenti possono creare lo spazio dei nomi con una di queste etichette e non devono inviare notifiche a un amministratore. Il nuovo namespace e tutte le applicazioni all'interno dell'IT sono protetti automaticamente.
+
+
+
+== Creare un backup pianificato di tutti gli spazi dei nomi
+
+È possibile creare un backup pianificato di tutti i namespace in un cluster utilizzando il flusso di lavoro di backup completo del cluster.
+
+.Fasi
+. Scaricare i seguenti file su un computer con accesso di rete al cluster:
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/components.yaml["File CRD Components.yaml"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/protectCluster.py["protectCluster.py script Python"]
+
+
+. Per configurare e installare il toolkit, https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/fullcluster-backup/README.md["seguire le istruzioni incluse"^].
+
+
+
+
+== Creare un backup pianificato di spazi dei nomi specifici
+
+È possibile creare un backup pianificato di spazi dei nomi specifici mediante le relative etichette utilizzando il flusso di lavoro di backup basato su etichette.
+
+.Fasi
+. Scaricare i seguenti file su un computer con accesso di rete al cluster:
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/components.yaml["File CRD Components.yaml"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/protectCluster.py["protectCluster.py script Python"]
+
+
+. Per configurare e installare il toolkit, https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/labelbased-backup/README.md["seguire le istruzioni incluse"^].
+
