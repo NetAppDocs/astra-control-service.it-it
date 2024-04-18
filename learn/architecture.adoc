@@ -24,9 +24,6 @@ image:astra-architecture-diagram-v7.png["Diagramma e componenti dell'architettur
 * *Astra Control provisioner*: In qualità di provisioner e orchestrator di storage completamente supportati, gestito da NetApp, che contiene la funzionalità Astra Trident CSI e le capacità di gestione dello storage estese, Astra Control Provivioner ti permette di creare volumi di storage per le applicazioni in container gestite da Docker e Kubernetes. Quando viene implementato con Astra Control, Astra Control Provivisioner include un backend di storage ONTAP configurato.
 
 
-* *Cloud Insights*: Uno strumento di monitoraggio dell'infrastruttura cloud NetApp, Cloud Insights consente di monitorare le performance e l'utilizzo dei cluster Kubernetes gestiti dal centro di controllo Astra. Cloud Insights mette in relazione l'utilizzo dello storage con i carichi di lavoro. Quando si attiva la connessione Cloud Insights in Astra Control Center, le informazioni di telemetria vengono visualizzate nelle pagine dell'interfaccia utente di Astra Control Center.
-
-
 
 
 == Interfacce di controllo Astra
@@ -46,6 +43,5 @@ Astra Control Center consente inoltre di gestire, migrare e proteggere i cluster
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Documentazione di Astra Control Center"^]
 * https://docs.netapp.com/us-en/astra-automation/index.html["Documentazione sull'API Astra Control"^]
 * https://docs.netapp.com/us-en/trident/index.html["Documentazione di Astra Trident"^]
-* https://docs.netapp.com/us-en/cloudinsights/["Documentazione Cloud Insights"^]
 * https://docs.netapp.com/us-en/ontap/index.html["Documentazione ONTAP"^]
 
