@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: get-started/astra-connector-overview.html 
+keywords: connector, install, astra connector, manage cluster, add cluster, cluster, add, manage 
+summary: Devi installare Astra Connector per gestire i cluster con Astra Control. 
+---
+= Installa Astra Connector per gestire i cluster
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Astra Connector è un software che risiede nei cluster gestiti e facilita la comunicazione tra il cluster gestito e Astra Control. Per i cluster gestiti mediante Astra Control Service, sono disponibili due versioni di Astra Connector:
+
+* *Versione precedente del connettore Astra*: link:install-astra-connector-previous.html["Installare la versione precedente del connettore Astra"] Sul tuo cluster, se intendi gestire il cluster con flussi di lavoro non nativi di Kubernetes.
+* [Tech preview] * connettore dichiarativo di Kubernetes Astra*: link:install-astra-connector-declarative.html["Installa Astra Connector per i cluster gestiti con flussi di lavoro Kubernetes dichiarativi"] Sul cluster, se si intende gestire il cluster utilizzando flussi di lavoro Kubernetes dichiarativi. Dopo aver installato Astra Connector sul cluster, il cluster viene aggiunto automaticamente ad Astra Control.
+
+
+
+NOTE: Il connettore dichiarativo Kubernetes Astra è disponibile solo come parte del programma Astra Control Early Adopter Program (EAP). Per informazioni sulla partecipazione al programma EAP, contattare il rappresentante commerciale NetApp di zona.

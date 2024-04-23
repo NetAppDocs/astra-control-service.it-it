@@ -50,7 +50,7 @@ Per aggiungere il cluster privato ad Astra Control Service, è necessario esegui
 
 == Installare il connettore Astra
 
-Prima di aggiungere un cluster privato, devi installare Astra Connector sul cluster in modo che Astra Control possa comunicare con esso. Fare riferimento a. link:install-astra-connector.html["Installa Astra Connector per cluster privati"] per istruzioni.
+Prima di aggiungere un cluster privato, devi installare Astra Connector sul cluster in modo che Astra Control possa comunicare con esso. Fare riferimento a. link:install-astra-connector-previous.html["Installa la versione precedente di Astra Connector per cluster privati gestiti con flussi di lavoro non nativi di Kubernetes"] per istruzioni.
 
 
 

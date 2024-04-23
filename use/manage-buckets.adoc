@@ -174,6 +174,94 @@ NOTE: Astra Control garantisce innanzitutto che non vi siano policy di pianifica
 
 
 
+== [Anteprima tecnica] Gestione di un bucket utilizzando una risorsa personalizzata
+
+È possibile aggiungere un bucket utilizzando una risorsa personalizzata (CR) Astra Control sul cluster di applicazioni. L'aggiunta di provider di bucket di archivi di oggetti è essenziale se si desidera eseguire il backup delle applicazioni e dello storage persistente o se si desidera clonare le applicazioni tra cluster. Astra Control memorizza i backup o i cloni nei bucket dell'archivio di oggetti definiti dall'utente. Se si utilizza il metodo di risorsa personalizzato, la funzionalità snapshot applicazione richiede un bucket.
+
+Non è necessario un bucket in Astra Control se si esegue il cloning della configurazione dell'applicazione e dello storage persistente sullo stesso cluster.
+
+La risorsa personalizzata bucket per Astra Control è nota come AppVault. Questo CR contiene le configurazioni necessarie per l'uso di una benna nelle operazioni di protezione.
+
+.Prima di iniziare
+* Assicurati di avere un bucket raggiungibile dai cluster gestiti da Astra Control Center.
+* Assicurarsi di disporre delle credenziali per il bucket.
+* Assicurarsi che la benna sia di uno dei seguenti tipi:
++
+** NetApp ONTAP S3
+** NetApp StorageGRID S3
+** Microsoft Azure
+** Generico S3
+
+
+
+
+
+NOTE: Amazon Web Services (AWS) e Google Cloud Platform (GCP) utilizzano il tipo di bucket S3 generico.
+
+
+NOTE: Sebbene Astra Control Center supporti Amazon S3 come provider di bucket S3 generico, Astra Control Center potrebbe non supportare tutti i vendor di archivi di oggetti che rivendicano il supporto S3 di Amazon.
+
+.Fasi
+. Creare il file di risorse personalizzate (CR) e assegnargli un nome (ad esempio, `astra-appvault.yaml`).
+. Configurare i seguenti attributi:
++
+** *metadata.name*: _(obbligatorio)_ il nome della risorsa personalizzata AppVault.
+** *Spec.prefix*: _(Optional)_ percorso preceduto dai nomi di tutte le entità memorizzate in AppVault.
+** *spec.providerConfig*: _(obbligatorio)_ Memorizza la configurazione necessaria per accedere ad AppVault utilizzando il provider specificato.
+** *spec.providerCredentials*: _(obbligatorio)_ archivia i riferimenti a qualsiasi credenziale richiesta per accedere ad AppVault utilizzando il provider specificato.
++
+*** *spec.providerCredentials.valueFromSecret*: _(opzionale)_ indica che il valore della credenziale deve provenire da un segreto.
++
+**** *Key*: _(obbligatorio se viene utilizzato il valore FromSecret)_ la chiave valida del segreto da selezionare.
+**** *Nome*: _(obbligatorio se viene utilizzato il valore FromSecret)_ Nome del segreto che contiene il valore per questo campo. Deve trovarsi nello stesso spazio dei nomi.
+
+
+
+
+** *spec.providerType*: _(obbligatorio)_ determina cosa fornisce il backup; ad esempio, NetApp ONTAP S3 o Microsoft Azure.
++
+Esempio YAML:
+
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: AppVault
+metadata:
+  name: astra-appvault
+spec:
+  providerType: generic-s3
+  providerConfig:
+    path: testpath
+    endpoint: 192.168.1.100:80
+    bucketName: bucket1
+    secure: "false"
+  providerCredentials:
+    accessKeyID:
+      valueFromSecret:
+        name: s3-creds
+        key: accessKeyID
+    secretAccessKey:
+      valueFromSecret:
+        name: s3-creds
+        key: secretAccessKey
+----
+
+
+. Dopo aver popolato il `astra-appvault.yaml` File con i valori corretti, applicare il CR:
++
+[source, console]
+----
+kubectl apply -f astra-appvault.yaml -n astra-connector
+----
++
+
+NOTE: Quando si aggiunge un bucket, Astra Control contrassegna un bucket con l'indicatore bucket predefinito. Il primo bucket creato diventa quello predefinito. Con l'aggiunta di bucket, è possibile decidere in un secondo momento link:../use/manage-buckets.html#set-the-default-bucket["impostare un altro bucket predefinito"^].
+
+
+
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/astra-automation/index.html["Utilizzare l'API di controllo Astra"^]
