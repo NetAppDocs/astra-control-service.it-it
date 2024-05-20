@@ -23,7 +23,6 @@ I seguenti problemi noti riguardano la versione corrente:
 .Backup, ripristino e clonazione
 * <<I cloni delle applicazioni non riescono a utilizzare una versione specifica di PostgreSQL>>
 * <<I backup e le snapshot delle applicazioni non vengono eseguiti se la classe volumesnapshotclass viene aggiunta dopo la gestione di un cluster>>
-* <<Le operazioni di ripristino in-place alle classi di storage economiche ontap-nas falliscono>>
 * <<Il ripristino da un backup quando si utilizza la crittografia in-flight Kerberos può non riuscire>>
 * <<I dati di backup rimangono nel bucket dopo l'eliminazione per bucket con criteri di conservazione scaduti>>
 
@@ -49,12 +48,6 @@ I cloni delle applicazioni all'interno dello stesso cluster si guastano costante
 == I backup e le snapshot delle applicazioni non vengono eseguiti se la classe volumesnapshotclass viene aggiunta dopo la gestione di un cluster
 
 In questo scenario, i backup e le snapshot non vengono eseguiti correttamente e viene visualizzato un errore UI 500. Come soluzione, aggiornare l'elenco delle applicazioni.
-
-
-
-== Le operazioni di ripristino in-place alle classi di storage economiche ontap-nas falliscono
-
-Se si esegue un ripristino sul posto di un'applicazione (ripristinando l'applicazione nello spazio dei nomi originale) e la classe di archiviazione dell'applicazione utilizza `ontap-nas-economy` driver, l'operazione di ripristino può non riuscire se la directory dello snapshot non è nascosta. Prima di eseguire il ripristino sul posto, seguire le istruzioni riportate in link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Abilita backup e ripristino per le operazioni economiche a ontap-nas"^] per nascondere la directory dell'istantanea.
 
 
 

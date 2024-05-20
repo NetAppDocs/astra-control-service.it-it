@@ -50,6 +50,12 @@ Le seguenti limitazioni influiscono sulla gestione delle applicazioni da parte d
 
 
 
+=== Le operazioni di ripristino in-place alle classi di storage economiche ontap-nas falliscono
+
+Se si esegue un ripristino sul posto di un'applicazione (ripristinando l'applicazione nello spazio dei nomi originale) e la classe di archiviazione dell'applicazione utilizza `ontap-nas-economy` driver, l'operazione di ripristino può non riuscire se la directory dello snapshot non è nascosta. Prima di eseguire il ripristino sul posto, seguire le istruzioni riportate in link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Abilita backup e ripristino per le operazioni economiche a ontap-nas"^] per nascondere la directory dell'istantanea.
+
+
+
 === Non è possibile ripristinare collettivamente più applicazioni che utilizzano lo stesso namespace in un namespace diverso
 
 Se si gestiscono più applicazioni che utilizzano lo stesso namespace (creando più definizioni di applicazioni in Astra Control), non è possibile ripristinare tutte le applicazioni in un singolo namespace diverso. È necessario ripristinare ogni applicazione nel proprio spazio dei nomi separato.
