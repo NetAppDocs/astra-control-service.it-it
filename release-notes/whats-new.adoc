@@ -19,7 +19,7 @@ NetApp aggiorna periodicamente Astra Control Service per offrire nuove funzional
 == 14 marzo 2024
 
 .(Anteprima tecnica) flussi di lavoro Kubernetes dichiarativi
-Questa release di Astra Control Center contiene una funzionalità dichiarativa di Kubernetes che consente di eseguire la gestione dei dati da una risorsa personalizzata (CR) di Kubernetes nativa.
+Questa release di Astra Control Service contiene una funzionalità dichiarativa di Kubernetes che consente di eseguire la gestione dei dati da una risorsa personalizzata (CR) di Kubernetes nativa.
 
 Questa funzionalità è disponibile solo nell'istanza del programma EAP (Early Adopter Program) del servizio Astra Control. Per informazioni sulla partecipazione al programma EAP, contattare il rappresentante commerciale NetApp di zona.
 
