@@ -638,7 +638,6 @@
   <block id="620e99caf2b3d803b4dd22b70d895fde" category="summary">Molte delle pagine di questo sito di documentazione includono video che mostrano come completare un'attività utilizzando Astra Control Service. Se ti interessa solo i video, abbiamo semplificato la raccolta di tutti i video su questa singola pagina (come una playlist).</block>
   <block id="cec4f0bbb3f7119930f9ff4d721ad21a" category="doc">Video di Astra Control Service</block>
   <block id="b9e1d0bf223b6f7300505413ba804bf8" category="paragraph">Scopri NetApp TV per i contenuti video più recenti con Astra Control Service. NetApp TV include video che mostrano alcune funzionalità di Astra Control Service o mostrano come completare determinate attività comuni.</block>
-  <block id="7e55cbece21210bf38e3d4b07e57e7d1" category="paragraph"><block ref="7e55cbece21210bf38e3d4b07e57e7d1" category="inline-link-rx"></block></block>
   <block id="1c90591655cdfe7d885b02ed72ae2509" category="summary">NetApp fornisce supporto per Astra Control in diversi modi. Sono disponibili numerose opzioni di supporto self-service gratuite 24 ore su 24, 7 giorni su 7, come articoli della knowledge base (KB) e un canale di discording. Il tuo account Astra Control include il supporto tecnico remoto via web ticketing.</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">Richiedi assistenza</block>
   <block id="9f1a9252fa8e7cccfce329f81193d946" category="inline-link-macro">Attivare il supporto per il numero di serie NetApp</block>
@@ -1127,7 +1126,6 @@
   <block id="7cf981924f9f32f25a7be7da04e4f309" category="section-title">Iscriviti a Astra Control Service in Azure Marketplace</block>
   <block id="90f1f0f612cdbd4b2caffe6bf1488efe" category="paragraph">Puoi iscriverti ad Astra Control Service utilizzando Azure Marketplace. Il tuo account e i dati di fatturazione vengono gestiti tramite Marketplace.</block>
   <block id="ceeca391c3348d53722ec9783ba88430" category="inline-link">TV NetApp</block>
-  <block id="b504b02d5498a8b09080b1e621f4d1aa" category="admonition">Per visualizzare una panoramica video della procedura di abbonamento a Azure Marketplace, visitare il sito Web all'indirizzo<block ref="bfd2f59ca3f14f5fb5037b1bda5b7515" category="inline-link-rx"></block>.</block>
   <block id="21e74b3c28d006317f38a2bc8eb1da3b" category="inline-link">Azure Marketplace</block>
   <block id="e3dd359be46779e5f048b0e4b88d59e4" category="list-text">Accedere alla<block ref="5be4aefdd1ff2763a0dd31323a166201" category="inline-link-rx"></block>.</block>
   <block id="f4b38ea86dced4bcec9486ee5f53c097" category="list-text">Selezionare *Get IT Now* (Ottieni ora).</block>
@@ -2885,4 +2883,6 @@ Astra Control è ora disponibile in un nuovo modello di implementazione. _Astra 
   <block id="5858ee4031acd7b896faa2d3d2c1a299" category="inline-link">Documentazione Cloud Insights</block>
   <block id="2b93b48daf034e4100d00b85950e109d" category="list-text"><block ref="2b93b48daf034e4100d00b85950e109d" category="inline-link-rx"></block></block>
   <block id="20186cef4fc96e59fa1bf8ee82f413ce" category="paragraph">Questa release di Astra Control Service contiene una funzionalità dichiarativa di Kubernetes che consente di eseguire la gestione dei dati da una risorsa personalizzata (CR) di Kubernetes nativa.</block>
+  <block id="7da594e16f0a75f632446ae54fcebe05" category="paragraph"><block ref="7da594e16f0a75f632446ae54fcebe05" category="inline-link-rx"></block></block>
+  <block id="f5a6b606e4d3218555a81c4263520975" category="admonition">Per visualizzare una panoramica video del processo di iscrizione ad Azure Marketplace, visitare il sito Web all'indirizzo<block ref="f66ebb92a2b0ab499cd7d4ec1bb5ea24" category="inline-link-rx"></block>.</block>
 </blocks>
